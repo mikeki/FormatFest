@@ -1,0 +1,9 @@
+<h2>Bienvenido <%= @user.name%></h2>
+<p>
+Tiene <%= pluralize(@user.laptops.count, "laptop") %>
+</p>
+
+<% @user.laptops.each do |l|%>
+<p><%= link_to l.marca, :controller => "laptops", :action => "show", :id => l.id %></p>
+
+<% end %>

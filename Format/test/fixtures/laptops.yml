@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  marca: MyString
+  modelo: MyString
+  color: MyString
+  defecto: MyText
+  comentarios: MyText
+  usuario: MyString
+  contra: MyString
+  estado: MyString
+  paquete: MyString
+  respaldo: false
+  user_id: 1
+  total: 1
+
+two:
+  marca: MyString
+  modelo: MyString
+  color: MyString
+  defecto: MyText
+  comentarios: MyText
+  usuario: MyString
+  contra: MyString
+  estado: MyString
+  paquete: MyString
+  respaldo: false
+  user_id: 1
+  total: 1

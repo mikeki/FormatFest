@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  encrypted_password: MyString
+  carrer: MyString
+  email: MyString
+  matricula: MyString
+  phone: MyString
+  cel: MyString
+  nextel: MyString
+  admin: false
+  colaborador: false
+  cliente: false
+
+two:
+  name: MyString
+  encrypted_password: MyString
+  carrer: MyString
+  email: MyString
+  matricula: MyString
+  phone: MyString
+  cel: MyString
+  nextel: MyString
+  admin: false
+  colaborador: false
+  cliente: false
