@@ -7,6 +7,7 @@ attr_accessible :fname, :lname, :password, :password_confirmation, :career, :ema
 
 validates_presence_of :fname, :lname, :email, :schoolid
 validates_uniqueness_of :schoolid, :email
+validates_numericality_of :schoolid, :cel, :phone
 validate :there_must_be_a_phone
 
 protected
