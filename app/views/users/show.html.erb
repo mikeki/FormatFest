@@ -1,4 +1,4 @@
-<h2>Bienvenido <%= @user.name%></h2>
+<h2>Bienvenido <%= "#{@user.fname} #{@user.lname}"%></h2>
 <p>
 Tiene <%= pluralize(@user.laptops.count, "laptop") %>
 </p>

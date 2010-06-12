@@ -5,15 +5,21 @@ Total de usuarios: <%= @users.count%>
 <th>Carrera</th>
 <th>Correo electronico</th>
 <th>Matricula</th>
+<th>Telefono</th>
+<th>Celular</th>
+<th>Nextel</th>
 </tr>
 
 <% @users.each do |u| %>
 <tr>
-<td><%= link_to u.name, :action => "show", :id => u.id%></td>
-<td><%=h u.carrer%></td>
+<td><%= link_to "#{u.fname} #{u.lname}", :action => "show", :id => u.id%></td>
+<td><%=h u.career%></td>
 <td><%=h u.email%></td>
 <td><%=h u.matricula%></td>
-<td><%= distance_of_time_in_words_to_now(u.created_at)%> ago</td>
+<td><%=h u.phone%></td>
+<td><%=h u.cel%></td>
+<td><%=h u.nextel%></td>
+<td>Hace <%= distance_of_time_in_words_to_now(u.created_at)%></td>
 <td><%= link_to "Editar", :action => "edit", :id => u.id%></td>
 <td><%= link_to "Eliminar",u, :confirm => 'Seguro wey?', :method => :delete%></td>
 </tr>

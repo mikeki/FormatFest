@@ -1,6 +1,6 @@
 .texto {
 -webkit-border-radius: 5px;
--webkit-box-shadow: 5px 5px 3px #333;
+-webkit-box-shadow: 5px 5px 15px #333;
 	
 }
 

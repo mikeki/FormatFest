@@ -17,7 +17,7 @@ class LaptopsController < ApplicationController
   def show
     @laptop = Laptop.find(params[:id])
 	@user = User.find(@laptop.user_id)
-	@title = "laptop de #{@user.name.capitalize}"	
+	@title = "laptop de #{@user.fname.capitalize} #{@user.lname.capitalize}"	
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @laptop }

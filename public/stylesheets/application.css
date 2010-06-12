@@ -85,3 +85,8 @@ a {
   font-size: 12px;
   list-style: disc;
 }
+
+#user-nav {
+	float: right;
+	font-style: 12px;
+}

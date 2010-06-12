@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   
+  before_filter :require_user, :except => [:new, :create]
+  
   def index
   @title = "No me creen"
   @users = User.find(:all)
@@ -14,7 +16,7 @@ class UsersController < ApplicationController
   def create
   @user = User.new(params[:user])
 	  if @user.save
-		flash[:notice] = "El usuario fue creado satisfactoriamente"	  
+		flash[:notice] = "El usuario fue creado satisfactoriamente."	  
 		redirect_to root_path
 		else
 		flash[:error] = "Tas bien wey"
@@ -23,7 +25,11 @@ class UsersController < ApplicationController
   end
 
   def edit
-  @user = User.find(params[:id])
+  	if current_user.admin == 1 or current_user.colaborator == 1
+  		@user = User.find(params[:id])
+  	else
+  		@user = current_user
+  	end
   end
 
   def update
@@ -43,7 +49,7 @@ class UsersController < ApplicationController
   
   def show
   @user = User.find(params[:id])
-  @title = @user.name
+  @title = "#{@user.fname.capitalize} #{@user.lname.capitalize}"
   end
   
   def destroy

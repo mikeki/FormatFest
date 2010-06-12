@@ -1,17 +1,21 @@
-<%= f.label :name, "Nombre:"%><br/>
+<%= f.error_messages %>
+<%= f.label :name, "Nombre"%><br/>
 <%= f.text_field :name%><br/>
 
-<%= f.label :encrypted_password, "Password:"%><br/>
-<%= f.password_field :encrypted_password %><br/>
+<%= f.label :password %><br/>
+<%= f.password_field :password %><br/>
 
-<%= f.label :carrer, "Carrera"%><br/>
-<%= f.text_field :carrer%><br/>
+<%= f.label :password_confirmation %><br/>
+<%= f.password_field :password_confirmation %><br/>
+
+<%= f.label :career, "Carrera"%><br/>
+<%= f.text_field :career%><br/>
 
 <%= f.label :email, "Correo Electronico"%><br/>
 <%= f.text_field :email%><br/>
 
-<%= f.label :matricula, "Matricula"%><br/>
-<%= f.text_field :matricula %><br/>
+<%= f.label :schoolid, "Matricula"%><br/>
+<%= f.text_field :schoolid %><br/>
 
 <%= f.label :phone, "Telefono"%><br/>
 <%= f.text_field :phone %><br/>
@@ -25,9 +29,9 @@
 <%= f.label :admin, "Administrador?"%><br/>
 <%= f.check_box :admin %><br/>
 
-<%= f.label :colaborador, "Colaborador?"%><br/>
-<%= f.check_box :colaborador %><br/>
+<%= f.label :colaborator, "Colaborador?"%><br/>
+<%= f.check_box :colaborator %><br/>
 
-<%= f.label :cliente, "Cliente?"%><br/>
-<%= f.check_box :cliente %><br/>
+<%= f.label :client, "Cliente?"%><br/>
+<%= f.check_box :client %><br/>
 

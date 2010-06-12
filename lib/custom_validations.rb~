@@ -1,0 +1,15 @@
+#good post on how to do stuff like this  http://www.marklunds.com/articles/one/312
+
+module ActiveRecord
+  module Validations
+    module ClassMethods
+
+      # Use to check for this, that or those was entered... example:
+      #  :validates_presence_of_at_least_one_field :last_name, :company_name  - would require either last_name or company_name to be filled in
+      #  also works with arrays
+      #  :validates_presence_of_at_least_one_field :email, [:name, :address, :city, :state] - would require email or a mailing type address
+      
+
+    end
+  end
+end
