@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :colaborators
+
   map.resources :user_sessions
   map.resources :laptops
 	map.resources :users

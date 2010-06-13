@@ -48,7 +48,11 @@ class UsersController < ApplicationController
   
   
   def show
-  @user = User.find(params[:id])
+  	if current_user.admin? or current_user.colaborator?
+  		@user = User.find(params[:id])
+  	else
+  		@user = current_user
+  	end
   @title = "#{@user.fname.capitalize} #{@user.lname.capitalize}"
   end
   

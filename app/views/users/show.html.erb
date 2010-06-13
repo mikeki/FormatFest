@@ -3,6 +3,12 @@
 Tiene <%= pluralize(@user.laptops.count, "laptop") %>
 </p>
 
+<p>
+<% @user.colaborators.each do |c|%>
+	<%= link_to "Laptop #{c.status}", :controller => "laptops", :action => "show", :id => c.laptop_id%>
+<%end%>
+</p>
+
 <% @user.laptops.each do |l|%>
 <p><%= link_to l.marca, :controller => "laptops", :action => "show", :id => l.id %></p>
 

@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-  	if current_user.admin == 1 or current_user.colaborator == 1
+  	if current_user.admin? or current_user.colaborator?
   		@user = User.find(params[:id])
   	else
   		@user = current_user

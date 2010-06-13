@@ -59,5 +59,19 @@
 </p>
 
 
+<% @laptop.colaborators.each do |c|%>
+<p>
+  <b>Colaborador:</b>
+  <%=h "#{c.user.fname} #{c.user.lname}" %>
+</p>
+
+
+
+<p>
+  <b>Estado:</b>
+  <%=h c.status %>
+</p>
+<%end%>
+
 <%= link_to 'Edit', edit_laptop_path(@laptop) %> |
 <%= link_to 'Back', laptops_path %>

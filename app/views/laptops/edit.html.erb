@@ -1,6 +1,7 @@
 <h1>Editing laptop</h1>
 
 <% form_for(@laptop) do |f| %>
+	<% fields_for(@colaborator) do |c|%>
   <%= f.error_messages %>
 
   <p>
@@ -32,10 +33,6 @@
     <%= f.text_field :contra %>
   </p>
   <p>
-    <%= f.label :estado %><br />
-    <%= f.text_field :estado %>
-  </p>
-  <p>
     <%= f.label :paquete %><br />
     <%= f.text_field :paquete %>
   </p>
@@ -51,9 +48,18 @@
     <%= f.label :total %><br />
     <%= f.text_field :total %>
   </p>
+  <% if current_user.colaborator? or current_user.admin?%>
+  	<p>
+    <%= c.label :status %><br />
+    <%= c.text_field :status %>
+    <%= c.text_field :laptop_id, :value => @laptop.id%>
+    <%= c.text_field :user_id, :value => current_user.id%>
+  	</p>
+  <%end%>
   <p>
     <%= f.submit 'Update' %>
   </p>
+  <%end%>
 <% end %>
 
 <%= link_to 'Show', @laptop %> |

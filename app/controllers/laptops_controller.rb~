@@ -1,5 +1,6 @@
 class LaptopsController < ApplicationController
 
+	before_filter :require_user
 
   # GET /laptops
   # GET /laptops.xml
@@ -16,8 +17,7 @@ class LaptopsController < ApplicationController
   # GET /laptops/1.xml
   def show
     @laptop = Laptop.find(params[:id])
-	@user = User.find(@laptop.user_id)
-	@title = "laptop de #{@user.name.capitalize}"	
+	@title = "laptop de #{@laptop.user.fname.capitalize} #{@laptop.user.lname.capitalize}"	
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @laptop }
@@ -38,6 +38,7 @@ class LaptopsController < ApplicationController
   # GET /laptops/1/edit
   def edit
     @laptop = Laptop.find(params[:id])
+    @colaborador = Colaborador.new
   end
 
   # POST /laptops
@@ -60,9 +61,10 @@ class LaptopsController < ApplicationController
   # PUT /laptops/1.xml
   def update
     @laptop = Laptop.find(params[:id])
+    @colaborador = Colaborador.new(params[:colaborador]) 
 
     respond_to do |format|
-      if @laptop.update_attributes(params[:laptop])
+      if @laptop.update_attributes(params[:laptop]) and @colaborador.save
         format.html { redirect_to(@laptop, :notice => 'Laptop was successfully updated.') }
         format.xml  { head :ok }
       else
