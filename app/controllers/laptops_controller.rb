@@ -38,7 +38,7 @@ class LaptopsController < ApplicationController
   # GET /laptops/1/edit
   def edit
     @laptop = Laptop.find(params[:id])
-    @colaborator = Colaborator.new
+     @colaborator = Colaborator.new
   end
 
   # POST /laptops
