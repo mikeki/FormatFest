@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
   before_filter :require_user, :except => [:new, :create]
+  before_filter :not_admins, :only => [:index, :destroy]
   
   def index
   @title = "No me creen"

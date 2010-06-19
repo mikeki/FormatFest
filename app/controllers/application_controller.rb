@@ -32,9 +32,10 @@ class ApplicationController < ActionController::Base
   end
   
   def not_admins
-  	if current_user.admin?
-  		redirect_to user_path
+  	if !current_user.admin?
+  		redirect_to current_user
   	end
   end
+  
   
 end

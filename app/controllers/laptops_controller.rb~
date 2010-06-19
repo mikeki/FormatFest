@@ -1,6 +1,7 @@
 class LaptopsController < ApplicationController
 
 	before_filter :require_user
+	before_filter :not_admins , :only => :index
 
   # GET /laptops
   # GET /laptops.xml
@@ -16,12 +17,21 @@ class LaptopsController < ApplicationController
   # GET /laptops/1
   # GET /laptops/1.xml
   def show
-    @laptop = Laptop.find(params[:id])
-		@title = "laptop de #{@laptop.user.fname.capitalize} #{@laptop.user.lname.capitalize}"	
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @laptop }
-    end
+  	#@laptop = Laptop.find(:first, params[:id])
+    if current_user.admin? or current_user.colaborator?
+    	@laptop = Laptop.find(params[:id])
+			@title = "laptop de #{@laptop.user.fname.capitalize} #{@laptop.user.lname.capitalize}"	
+  	elsif
+  		current_user.laptops.each do |l|
+  			if l.id == params[:id]
+  				@laptop = Laptop.find(params[:id])
+					@title = "laptop de #{@laptop.user.fname.capitalize} #{@laptop.user.lname.capitalize}"
+  			end
+  		end
+  	end
+  	if @laptop.nil?
+  		redirect_to current_user
+  	end
   end
 
   # GET /laptops/new
@@ -61,7 +71,7 @@ class LaptopsController < ApplicationController
   # PUT /laptops/1.xml
   def update
     @laptop = Laptop.find(params[:id])
-    @colaborador = Colaborador.new(params[:colaborador]) 
+    @colaborador = Colaborator.new(params[:colaborator]) 
 
     respond_to do |format|
       if @laptop.update_attributes(params[:laptop]) and @colaborador.save

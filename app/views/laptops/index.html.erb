@@ -32,7 +32,9 @@
     <td><%=h laptop.total %></td>
     <td><%= link_to 'Show', laptop %></td>
     <td><%= link_to 'Edit', edit_laptop_path(laptop) %></td>
+    <% if !current_user.colaborator?%>
     <td><%= link_to 'Destroy', laptop, :confirm => 'Are you sure?', :method => :delete %></td>
+    <%end %>
   </tr>
 <% end %>
 </table>

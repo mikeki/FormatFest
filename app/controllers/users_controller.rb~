@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
   before_filter :require_user, :except => [:new, :create]
+  before_filter :not_admins, :only => :index
   
   def index
   @title = "No me creen"
@@ -48,7 +49,11 @@ class UsersController < ApplicationController
   
   
   def show
-  @user = User.find(params[:id])
+  	if current_user.admin? or current_user.colaborator?
+  		@user = User.find(params[:id])
+  	else
+  		@user = current_user
+  	end
   @title = "#{@user.fname.capitalize} #{@user.lname.capitalize}"
   end
   
