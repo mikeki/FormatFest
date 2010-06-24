@@ -21,12 +21,12 @@ class LaptopsController < ApplicationController
     if current_user.admin? or current_user.colaborator?
     	@laptop = Laptop.find(params[:id])
 			@title = "laptop de #{@laptop.user.fname.capitalize} #{@laptop.user.lname.capitalize}"	
-  	else
-  		current_user.laptops.each do |l|
-  			if l.id == params[:id]
-  				@laptop = Laptop.find(params[:id])
-					@title = "laptop de #{@laptop.user.fname.capitalize} #{@laptop.user.lname.capitalize}"
-  			end
+  	else 
+  		@laptop = Laptop.find(params[:id]) 
+  		@title = "laptop de #{@laptop.user.fname.capitalize} #{@laptop.user.lname.capitalize}"		
+  		if @laptop.user.id != current_user.id
+  			@laptop = nil
+  			@title = nil
   		end
   	end
   	if @laptop.nil?

@@ -13871,3 +13871,1302 @@ Rendering users/show
   [4;36;1mColaborator Load (0.3ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 4) [0m
   [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
 Completed in 134ms (View: 106, DB: 3) | 200 OK [http://localhost/users/4]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#index (for 127.0.0.1 at 2010-06-19 18:58:56) [GET]
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+Redirected to http://localhost:3000/users/4
+Filter chain halted as [:not_admins] rendered_or_redirected.
+Completed in 33ms (DB: 1) | 302 Found [http://localhost/laptops]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-19 18:58:56) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mLaptop Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 4) [0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+Completed in 117ms (View: 89, DB: 3) | 200 OK [http://localhost/users/4]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#new (for 127.0.0.1 at 2010-06-19 18:59:01) [GET]
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;36;1mLaptop Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+Rendering template within layouts/application
+Rendering laptops/new
+Rendered laptops/_form (15.1ms)
+Completed in 74ms (View: 40, DB: 3) | 200 OK [http://localhost/laptops/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#create (for 127.0.0.1 at 2010-06-19 18:59:26) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"EgiDsO881bQUFQE9HJZESA42rzILgUrLiXNP6GIJZ+8=", "laptop"=>{"paquete"=>"jl", "contra"=>"kjk", "total"=>"233", "usuario"=>"jshd", "color"=>"jkj", "user_id"=>"4", "respaldo"=>"0", "estado"=>"jl", "defecto"=>"lkjk", "modelo"=>"123", "comentarios"=>"lkjl", "marca"=>"JUan"}}
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;35;1mLaptop Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mLaptop Create (0.3ms)[0m   [0mINSERT INTO `laptops` (`created_at`, `contra`, `paquete`, `updated_at`, `total`, `color`, `usuario`, `user_id`, `modelo`, `defecto`, `estado`, `respaldo`, `comentarios`, `marca`) VALUES('2010-06-19 23:59:26', 'kjk', 'jl', '2010-06-19 23:59:26', 233, 'jkj', 'jshd', 4, '123', 'lkjk', 'jl', 0, 'lkjl', 'JUan')[0m
+  [4;36;1mSQL (53.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/laptops/3
+Completed in 95ms (DB: 56) | 302 Found [http://localhost/laptops]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-19 18:59:26) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;35;1mLaptop Load (0.4ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+  [4;36;1mLaptop Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+Redirected to http://localhost:3000/users/4
+Completed in 38ms (DB: 3) | 302 Found [http://localhost/laptops/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-19 18:59:27) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mLaptop Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 4) [0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+Completed in 48ms (View: 19, DB: 3) | 200 OK [http://localhost/users/4]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-06-21 22:23:00) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+  [4;36;1mUser Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 206ms (View: 200, DB: 2) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-06-21 22:23:05) [GET]
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Redirected to http://localhost:3000/login
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 17ms (DB: 1) | 302 Found [http://localhost/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-21 22:23:05) [GET]
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 63ms (View: 44, DB: 1) | 200 OK [http://localhost/login]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-06-21 22:23:14) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"password"=>"1234", "email"=>"kuri@l.com"}, "authenticity_token"=>"TnkDgX38ZjC0L5eJE4HfHIrK7kkPB91pJSwbP1ouvcU="}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (56.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.email) = 'kuri@l.com') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 438ms (DB: 58) | 302 Found [http://localhost/user_sessions]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-06-21 22:23:15) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+Completed in 31ms (View: 26, DB: 2) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#index (for 127.0.0.1 at 2010-06-21 22:23:18) [GET]
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+Redirected to http://localhost:3000/users/4
+Filter chain halted as [:not_admins] rendered_or_redirected.
+Completed in 24ms (DB: 1) | 302 Found [http://localhost/laptops]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:23:18) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mLaptop Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+  [4;35;1mColaborator Load (1.6ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 4) [0m
+  [4;36;1mLaptop Load (0.5ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+Completed in 121ms (View: 91, DB: 6) | 200 OK [http://localhost/users/4]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:23:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+  [4;36;1mLaptop Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mLaptop Load (0.3ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering laptops/show
+  [4;35;1mColaborator Load (0.5ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.laptop_id = 1) [0m
+  [4;36;1mColaborator Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `colaborators`[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 17) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+Completed in 178ms (View: 60, DB: 6) | 200 OK [http://localhost/laptops/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:23:25) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+  [4;35;1mLaptop Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mLaptop Load (0.3ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 2) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering laptops/show
+  [4;36;1mColaborator Load (0.3ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+Completed in 50ms (View: 8, DB: 3) | 200 OK [http://localhost/laptops/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:23:32) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+  [4;36;1mLaptop Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mLaptop Load (0.3ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 3) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering laptops/show
+  [4;35;1mColaborator Load (0.3ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+Completed in 48ms (View: 8, DB: 3) | 200 OK [http://localhost/laptops/3]
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:24:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;36;1mLaptop Load (0.2ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+  [4;35;1mLaptop Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+Redirected to http://localhost:3000/users/4
+Completed in 36ms (DB: 3) | 302 Found [http://localhost/laptops/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:24:22) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mLaptop Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 4) [0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+Completed in 50ms (View: 20, DB: 3) | 200 OK [http://localhost/users/4]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:24:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+  [4;35;1mLaptop Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+Redirected to http://localhost:3000/users/4
+Completed in 37ms (DB: 2) | 302 Found [http://localhost/laptops/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:24:23) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mLaptop Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 4) [0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+Completed in 45ms (View: 18, DB: 3) | 200 OK [http://localhost/users/4]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:24:24) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+  [4;35;1mLaptop Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+Redirected to http://localhost:3000/users/4
+Completed in 114ms (DB: 2) | 302 Found [http://localhost/laptops/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:24:24) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mLaptop Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+  [4;36;1mColaborator Load (0.2ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 4) [0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+Completed in 50ms (View: 19, DB: 4) | 200 OK [http://localhost/users/4]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:24:25) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+  [4;35;1mLaptop Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+Redirected to http://localhost:3000/users/4
+Completed in 36ms (DB: 2) | 302 Found [http://localhost/laptops/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:24:25) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mLaptop Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+  [4;36;1mColaborator Load (0.2ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 4) [0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+Completed in 44ms (View: 18, DB: 3) | 200 OK [http://localhost/users/4]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-06-21 22:25:10) [GET]
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 29ms (DB: 1) | 302 Found [http://localhost/logout]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-06-21 22:25:10) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+  [4;36;1mUser Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Completed in 25ms (View: 19, DB: 2) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-21 22:25:12) [GET]
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 27ms (View: 8, DB: 1) | 200 OK [http://localhost/login]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-06-21 22:25:19) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"password"=>"mike27", "email"=>"mk@fs.com"}, "authenticity_token"=>"TnkDgX38ZjC0L5eJE4HfHIrK7kkPB91pJSwbP1ouvcU="}
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (LOWER(`users`.email) = 'mk@fs.com') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 26ms (DB: 2) | 302 Found [http://localhost/user_sessions]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-06-21 22:25:19) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Completed in 28ms (View: 23, DB: 2) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-06-21 22:25:20) [GET]
+  Parameters: {"id"=>"12"}
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_forma (20.2ms)
+Completed in 71ms (View: 42, DB: 2) | 200 OK [http://localhost/user/edit?id=12]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-06-21 22:25:23) [PUT]
+  Parameters: {"commit"=>"Actualizar", "authenticity_token"=>"TnkDgX38ZjC0L5eJE4HfHIrK7kkPB91pJSwbP1ouvcU=", "id"=>"12", "user"=>{"password_confirmation"=>"", "colaborator"=>"0", "admin"=>"0", "lname"=>"Cervera", "client"=>"1", "nextel"=>"", "phone"=>"123", "schoolid"=>"123", "career"=>"mkmk", "fname"=>"Miguel", "password"=>"", "cel"=>"", "email"=>"mk@fs.com"}}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`schoolid` = BINARY '123' AND `users`.id <> 12) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'mk@fs.com' AND `users`.id <> 12) LIMIT 1[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-22 03:25:23', `admin` = 0 WHERE `id` = 12[0m
+  [4;36;1mSQL (44.8ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/users/12
+Completed in 80ms (DB: 47) | 302 Found [http://localhost/users/12]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:25:23) [GET]
+  Parameters: {"id"=>"12"}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mLaptop Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;35;1mColaborator Load (0.3ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 12) [0m
+  [4;36;1mColaborator Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `colaborators`[0m
+  [4;35;1mLaptop Load (0.3ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Completed in 46ms (View: 18, DB: 4) | 200 OK [http://localhost/users/12]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#index (for 127.0.0.1 at 2010-06-21 22:25:26) [GET]
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Redirected to http://localhost:3000/users/12
+Filter chain halted as [:not_admins] rendered_or_redirected.
+Completed in 104ms (DB: 1) | 302 Found [http://localhost/laptops]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:25:26) [GET]
+  Parameters: {"id"=>"12"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mLaptop Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 12) [0m
+  [4;35;1mColaborator Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Completed in 49ms (View: 19, DB: 4) | 200 OK [http://localhost/users/12]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-21 22:25:33) [GET]
+
+ActionController::RoutingError (No route matches "/laptop/4" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-21 22:25:36) [GET]
+
+ActionController::RoutingError (No route matches "/laptop/2" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (3.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:25:39) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Redirected to http://localhost:3000/users/12
+Completed in 32ms (DB: 5) | 302 Found [http://localhost/laptops/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:25:39) [GET]
+  Parameters: {"id"=>"12"}
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mLaptop Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 12) [0m
+  [4;35;1mColaborator Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Completed in 128ms (View: 20, DB: 4) | 200 OK [http://localhost/users/12]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:25:47) [GET]
+  Parameters: {"id"=>"12"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mLaptop Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 12) [0m
+  [4;36;1mColaborator Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `colaborators`[0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Completed in 47ms (View: 18, DB: 3) | 200 OK [http://localhost/users/12]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:25:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Redirected to http://localhost:3000/users/12
+Completed in 32ms (DB: 2) | 302 Found [http://localhost/laptops/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:25:58) [GET]
+  Parameters: {"id"=>"12"}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mLaptop Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 12) [0m
+  [4;36;1mColaborator Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `colaborators`[0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Completed in 44ms (View: 17, DB: 3) | 200 OK [http://localhost/users/12]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:26:01) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Redirected to http://localhost:3000/users/12
+Completed in 35ms (DB: 1) | 302 Found [http://localhost/laptops/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:26:01) [GET]
+  Parameters: {"id"=>"12"}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mLaptop Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 12) [0m
+  [4;36;1mColaborator Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `colaborators`[0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Completed in 47ms (View: 18, DB: 3) | 200 OK [http://localhost/users/12]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:26:08) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Redirected to http://localhost:3000/users/12
+Completed in 32ms (DB: 2) | 302 Found [http://localhost/laptops/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:26:08) [GET]
+  Parameters: {"id"=>"12"}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mLaptop Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 12) [0m
+  [4;36;1mColaborator Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `colaborators`[0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Completed in 124ms (View: 97, DB: 3) | 200 OK [http://localhost/users/12]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:26:19) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mLaptop Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 12) [0m
+  [4;35;1mColaborator Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Completed in 48ms (View: 18, DB: 4) | 200 OK [http://localhost/users/4]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-06-21 22:26:32) [GET]
+  Parameters: {"id"=>"12"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_forma (8.2ms)
+Completed in 38ms (View: 13, DB: 1) | 200 OK [http://localhost/user/edit?id=12]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-06-21 22:26:35) [PUT]
+  Parameters: {"commit"=>"Actualizar", "authenticity_token"=>"TnkDgX38ZjC0L5eJE4HfHIrK7kkPB91pJSwbP1ouvcU=", "id"=>"12", "user"=>{"password_confirmation"=>"", "colaborator"=>"0", "admin"=>"1", "lname"=>"Cervera", "client"=>"1", "nextel"=>"", "phone"=>"123", "schoolid"=>"123", "career"=>"mkmk", "fname"=>"Miguel", "password"=>"", "cel"=>"", "email"=>"mk@fs.com"}}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`schoolid` = BINARY '123' AND `users`.id <> 12) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'mk@fs.com' AND `users`.id <> 12) LIMIT 1[0m
+  [4;35;1mUser Update (0.2ms)[0m   [0mUPDATE `users` SET `updated_at` = '2010-06-22 03:26:35', `admin` = 1 WHERE `id` = 12[0m
+  [4;36;1mSQL (67.4ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/users/12
+Completed in 102ms (DB: 70) | 302 Found [http://localhost/users/12]
+  [4;35;1mSQL (0.4ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:26:35) [GET]
+  Parameters: {"id"=>"12"}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mLaptop Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 12) [0m
+  [4;35;1mColaborator Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Completed in 137ms (View: 20, DB: 4) | 200 OK [http://localhost/users/12]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:26:40) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;35;1mLaptop Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mLaptop Load (0.2ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 4) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Laptop with ID=4):
+  app/controllers/laptops_controller.rb:22:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (40.5ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (3.8ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:26:43) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering laptops/show
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+Completed in 43ms (View: 10, DB: 7) | 200 OK [http://localhost/laptops/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:26:45) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;35;1mLaptop Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 3) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering laptops/show
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+Completed in 50ms (View: 12, DB: 3) | 200 OK [http://localhost/laptops/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-06-21 22:26:47) [GET]
+  Parameters: {"id"=>"12"}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_forma (8.4ms)
+Completed in 40ms (View: 13, DB: 1) | 200 OK [http://localhost/user/edit?id=12]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-06-21 22:26:50) [PUT]
+  Parameters: {"commit"=>"Actualizar", "authenticity_token"=>"TnkDgX38ZjC0L5eJE4HfHIrK7kkPB91pJSwbP1ouvcU=", "id"=>"12", "user"=>{"password_confirmation"=>"", "colaborator"=>"0", "admin"=>"0", "lname"=>"Cervera", "client"=>"1", "nextel"=>"", "phone"=>"123", "schoolid"=>"123", "career"=>"mkmk", "fname"=>"Miguel", "password"=>"", "cel"=>"", "email"=>"mk@fs.com"}}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`schoolid` = BINARY '123' AND `users`.id <> 12) LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'mk@fs.com' AND `users`.id <> 12) LIMIT 1[0m
+  [4;36;1mUser Update (0.2ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-22 03:26:50', `admin` = 0 WHERE `id` = 12[0m
+  [4;35;1mSQL (66.6ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/users/12
+Completed in 102ms (DB: 69) | 302 Found [http://localhost/users/12]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:26:50) [GET]
+  Parameters: {"id"=>"12"}
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (2.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mLaptop Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 12) [0m
+  [4;35;1mColaborator Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Completed in 47ms (View: 17, DB: 5) | 200 OK [http://localhost/users/12]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:26:55) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;35;1mLaptop Load (0.2ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Redirected to http://localhost:3000/users/12
+Completed in 36ms (DB: 2) | 302 Found [http://localhost/laptops/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:26:55) [GET]
+  Parameters: {"id"=>"12"}
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mLaptop Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 12) [0m
+  [4;35;1mColaborator Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Completed in 47ms (View: 18, DB: 3) | 200 OK [http://localhost/users/12]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-06-21 22:27:01) [GET]
+
+ActionController::RoutingError (No route matches "/l/4aptops" with {:method=>:get}):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:27:07) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.8ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Redirected to http://localhost:3000/users/12
+Completed in 33ms (DB: 2) | 302 Found [http://localhost/laptops/4]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:27:07) [GET]
+  Parameters: {"id"=>"12"}
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mLaptop Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 12) [0m
+  [4;35;1mColaborator Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Completed in 128ms (View: 20, DB: 4) | 200 OK [http://localhost/users/12]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#new (for 127.0.0.1 at 2010-06-21 22:27:32) [GET]
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+Rendering template within layouts/application
+Rendering laptops/new
+Rendered laptops/_form (30.3ms)
+Completed in 116ms (View: 82, DB: 2) | 200 OK [http://localhost/laptops/new]
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#create (for 127.0.0.1 at 2010-06-21 22:27:43) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"TnkDgX38ZjC0L5eJE4HfHIrK7kkPB91pJSwbP1ouvcU=", "laptop"=>{"paquete"=>"j", "contra"=>"lj", "total"=>"jj", "usuario"=>"jl", "color"=>"kj", "user_id"=>"12", "respaldo"=>"1", "estado"=>"jl", "defecto"=>"oj", "modelo"=>"k", "comentarios"=>"lo", "marca"=>"Kj"}}
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;36;1mLaptop Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mLaptop Create (0.3ms)[0m   [0;1mINSERT INTO `laptops` (`created_at`, `contra`, `paquete`, `updated_at`, `total`, `color`, `usuario`, `user_id`, `modelo`, `defecto`, `estado`, `respaldo`, `comentarios`, `marca`) VALUES('2010-06-22 03:27:43', 'lj', 'j', '2010-06-22 03:27:43', 0, 'kj', 'jl', 12, 'k', 'oj', 'jl', 1, 'lo', 'Kj')[0m
+  [4;35;1mSQL (60.9ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/laptops/4
+Completed in 102ms (DB: 65) | 302 Found [http://localhost/laptops]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:27:43) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;36;1mLaptop Load (0.4ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;35;1mLaptop Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mLaptop Load (0.3ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 4) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+Rendering template within layouts/application
+Rendering laptops/show
+  [4;36;1mColaborator Load (0.3ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.laptop_id = 4) [0m
+Completed in 129ms (View: 9, DB: 3) | 200 OK [http://localhost/laptops/4]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:27:45) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;36;1mLaptop Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mLaptop Load (0.3ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 2) [0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering laptops/show
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+Completed in 50ms (View: 9, DB: 3) | 200 OK [http://localhost/laptops/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:27:47) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;35;1mLaptop Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mLaptop Load (0.3ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 3) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering laptops/show
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+Completed in 46ms (View: 8, DB: 3) | 200 OK [http://localhost/laptops/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:27:49) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;36;1mLaptop Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 4) [0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+Rendering template within layouts/application
+Rendering laptops/show
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.laptop_id = 4) [0m
+Completed in 45ms (View: 8, DB: 3) | 200 OK [http://localhost/laptops/4]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:27:53) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;35;1mLaptop Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 3) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering laptops/show
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+Completed in 51ms (View: 9, DB: 3) | 200 OK [http://localhost/laptops/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-06-21 22:27:54) [GET]
+  Parameters: {"id"=>"12"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_forma (8.3ms)
+Completed in 40ms (View: 13, DB: 1) | 200 OK [http://localhost/user/edit?id=12]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-06-21 22:27:56) [PUT]
+  Parameters: {"commit"=>"Actualizar", "authenticity_token"=>"TnkDgX38ZjC0L5eJE4HfHIrK7kkPB91pJSwbP1ouvcU=", "id"=>"12", "user"=>{"password_confirmation"=>"", "colaborator"=>"0", "admin"=>"0", "lname"=>"Cervera", "client"=>"1", "nextel"=>"", "phone"=>"123", "schoolid"=>"123", "career"=>"mkmk", "fname"=>"Miguel", "password"=>"", "cel"=>"", "email"=>"mk@fs.com"}}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`schoolid` = BINARY '123' AND `users`.id <> 12) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'mk@fs.com' AND `users`.id <> 12) LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/users/12
+Completed in 33ms (DB: 2) | 302 Found [http://localhost/users/12]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:27:56) [GET]
+  Parameters: {"id"=>"12"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mLaptop Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 12) [0m
+  [4;35;1mColaborator Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Completed in 47ms (View: 20, DB: 4) | 200 OK [http://localhost/users/12]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:34:36) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+
+NameError (undefined local variable or method `laptop' for #<LaptopsController:0xb7098fa0>):
+  app/controllers/laptops_controller.rb:25:in `show'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (38.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:35:49) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 4) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+Rendering template within layouts/application
+Rendering laptops/show
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.laptop_id = 4) [0m
+Completed in 44ms (View: 10, DB: 3) | 200 OK [http://localhost/laptops/4]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:35:51) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;35;1mLaptop Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 2) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+Redirected to http://localhost:3000/users/12
+Completed in 118ms (DB: 3) | 302 Found [http://localhost/laptops/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:35:52) [GET]
+  Parameters: {"id"=>"12"}
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mLaptop Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;36;1mColaborator Load (0.2ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 12) [0m
+  [4;35;1mColaborator Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Completed in 54ms (View: 23, DB: 4) | 200 OK [http://localhost/users/12]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:35:58) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 3) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+Redirected to http://localhost:3000/users/12
+Completed in 35ms (DB: 3) | 302 Found [http://localhost/laptops/3]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:35:58) [GET]
+  Parameters: {"id"=>"12"}
+  [4;36;1mUser Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mLaptop Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 12) [0m
+  [4;35;1mColaborator Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 12) [0m
+Completed in 47ms (View: 20, DB: 3) | 200 OK [http://localhost/users/12]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#destroy (for 127.0.0.1 at 2010-06-21 22:36:01) [GET]
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '12') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 109ms (DB: 1) | 302 Found [http://localhost/logout]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-06-21 22:36:01) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+  [4;35;1mUser Columns (3.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Completed in 28ms (View: 20, DB: 4) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-06-21 22:36:03) [GET]
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering user_sessions/new
+Completed in 26ms (View: 7, DB: 1) | 200 OK [http://localhost/login]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-06-21 22:36:10) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"password"=>"1234", "email"=>"kuri@l.com"}, "authenticity_token"=>"TnkDgX38ZjC0L5eJE4HfHIrK7kkPB91pJSwbP1ouvcU="}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.email) = 'kuri@l.com') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 26ms (DB: 2) | 302 Found [http://localhost/user_sessions]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-06-21 22:36:10) [GET]
+Rendering template within layouts/application
+Rendering pages/home
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+Completed in 28ms (View: 23, DB: 2) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:36:17) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;35;1mLaptop Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 2) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering laptops/show
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+Completed in 50ms (View: 12, DB: 3) | 200 OK [http://localhost/laptops/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:36:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mLaptop Load (0.3ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 1) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering laptops/show
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.laptop_id = 1) [0m
+  [4;35;1mColaborator Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 17) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+Completed in 51ms (View: 15, DB: 4) | 200 OK [http://localhost/laptops/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:36:23) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;35;1mLaptop Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 3) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering laptops/show
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+Completed in 44ms (View: 10, DB: 3) | 200 OK [http://localhost/laptops/3]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:36:24) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;35;1mLaptop Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 4) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+Redirected to http://localhost:3000/users/4
+Completed in 116ms (DB: 3) | 302 Found [http://localhost/laptops/4]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:36:24) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;36;1mLaptop Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 4) [0m
+  [4;35;1mLaptop Load (0.6ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+Completed in 57ms (View: 26, DB: 3) | 200 OK [http://localhost/users/4]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-06-21 22:36:26) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_forma (8.5ms)
+Completed in 39ms (View: 13, DB: 1) | 200 OK [http://localhost/user/edit?id=4]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#update (for 127.0.0.1 at 2010-06-21 22:36:29) [PUT]
+  Parameters: {"commit"=>"Actualizar", "authenticity_token"=>"TnkDgX38ZjC0L5eJE4HfHIrK7kkPB91pJSwbP1ouvcU=", "id"=>"4", "user"=>{"password_confirmation"=>"", "colaborator"=>"0", "admin"=>"1", "lname"=>"ku", "client"=>"1", "nextel"=>"niono", "phone"=>"nionoi", "schoolid"=>"ninoi", "career"=>"nvieownvweio", "fname"=>"kuri", "password"=>"", "cel"=>"ninoini", "email"=>"kuri@l.com"}}
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`schoolid` = BINARY 'ninoi' AND `users`.id <> 4) LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`email` = BINARY 'kuri@l.com' AND `users`.id <> 4) LIMIT 1[0m
+  [4;36;1mUser Update (0.2ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-06-22 03:36:29', `admin` = 1 WHERE `id` = 4[0m
+  [4;35;1mSQL (54.7ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/users/4
+Completed in 90ms (DB: 57) | 302 Found [http://localhost/users/4]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-06-21 22:36:29) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering users/show
+  [4;35;1mLaptop Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 4) [0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 4) [0m
+Completed in 138ms (View: 22, DB: 4) | 200 OK [http://localhost/users/4]
+  [4;35;1mSQL (0.9ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:36:31) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;35;1mLaptop Columns (1.3ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mLaptop Load (0.2ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 1) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 4) [0m
+Rendering template within layouts/application
+Rendering laptops/show
+  [4;36;1mColaborator Load (3.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.laptop_id = 1) [0m
+  [4;35;1mColaborator Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 17) [0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+Completed in 58ms (View: 16, DB: 11) | 200 OK [http://localhost/laptops/1]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-06-21 22:36:33) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mUser Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;35;1mLaptop Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 4) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 12) [0m
+Rendering template within layouts/application
+Rendering laptops/show
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.laptop_id = 4) [0m
+Completed in 44ms (View: 10, DB: 3) | 200 OK [http://localhost/laptops/4]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#index (for 127.0.0.1 at 2010-06-21 22:36:42) [GET]
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '4') LIMIT 1[0m
+  [4;35;1mLaptop Load (0.4ms)[0m   [0mSELECT * FROM `laptops` [0m
+Rendering template within layouts/application
+Rendering laptops/index
+  [4;36;1mLaptop Columns (1.7ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+Completed in 196ms (View: 163, DB: 3) | 200 OK [http://localhost/laptops]
