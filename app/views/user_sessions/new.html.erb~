@@ -1,6 +1,6 @@
 <% title "Login" %>
 
-<% form_for @user_session do |f| %>
+<% form_for @user_session, :url=>new_user_session_path do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :email %><br />
@@ -10,7 +10,7 @@
     <%= f.label :password %><br />
     <%= f.password_field :password %>
   </p>
-  <p><%= f.submit %></p>
+  <p><%= f.submit 'Login'%></p>
 <% end %>
 
 

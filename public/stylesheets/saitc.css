@@ -1,0 +1,46 @@
+body {
+	background-image: url(../images/background.jpg);
+}
+
+div#majorContent {
+	background: url(../images/content.png) top center repeat-y;
+	width: 1095px;
+	margin: -10px auto;
+}
+
+div#header{
+	background: url(../images/header.png) no-repeat;
+	width: 891px;
+	height: 213px;
+	margin: 0px auto;
+	
+}
+
+div#header #logo{
+	padding: 40px 0px 40px 30px;
+	border: none;
+}
+
+div#header #botonHeader{
+	padding: 48px 0px 30px 0px;
+	border: none;
+}
+
+div#majorContent #login_arriba{
+	background: url(../images/top_subsection.png) no-repeat;
+	width: 259px;
+	height: 11px;
+	margin: 20px auto 0px 100px;
+}
+div#majorContent #login{
+	background: url(../images/body_subsection.png) repeat-y;
+	width: 259px;
+	margin: 0px auto 0px 100px;
+	padding: 0px 0px 0px 8px;
+}
+div#majorContent #login_abajo{
+	background: url(../images/bottom_subsection.png) no-repeat;
+	width: 259px;
+	height: 11px;
+	margin: 0px auto 0px 100px;
+}
