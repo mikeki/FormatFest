@@ -2,6 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+	before_filter :create_session
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
@@ -10,7 +11,14 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user
   
+  
   private
+  
+  def create_session
+  	if !@current_user
+  		@user_session = UserSession.new
+  	end
+  end
   
   def current_user_session
   	return @current_user_session if defined?(@current_user_session)

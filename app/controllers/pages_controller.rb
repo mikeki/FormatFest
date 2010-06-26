@@ -13,8 +13,7 @@ class PagesController < ApplicationController
   end
   
   def home
-  @title = "Bienvenido"
-    
+  	@title = "Bienvenido"
   end
 
 

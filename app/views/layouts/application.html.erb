@@ -18,7 +18,13 @@
     	<div id="login_arriba"></div>
     	<div id="login">
     		<span>Iniciar sesion</span>
-    		<%= render new_user_sessions_path %>
+    		<%if current_user%>
+    			<%= link_to "Editar #{current_user.fname} #{current_user.lname}", edit_user_path(:id => current_user.id)%> |
+    			<%= link_to "Logout", logout_path %>
+    		<%else%>
+    			<%= render :partial=>'user_sessions/new'%>
+    			<%= button_to "Registrar", new_user_path%>
+    		<%end%>
     	</div>
     	<div id="login_abajo"></div>
     		
