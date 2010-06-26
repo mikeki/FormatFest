@@ -1,3 +1,7 @@
+<%if current_user.admin? or current_user.colaborator?%>
+<%= render :partial => 'formaBusqueda'%>
+<%end%>
+
 <h2>Bienvenido <%= "#{@user.fname} #{@user.lname}"%></h2>
 <p>
 Tiene <%= pluralize(@user.laptops.count, "laptop") %>
@@ -12,4 +16,14 @@ Tiene <%= pluralize(@user.laptops.count, "laptop") %>
 <% @user.laptops.each do |l|%>
 <p><%= link_to l.marca, :controller => "laptops", :action => "show", :id => l.id %></p>
 
+<% end %>
+
+<% form_for(@laptop) do |f| %>
+  <%= f.error_messages %>
+
+	<%= render :partial => 'laptops/form', :locals => {:f => f}%>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
 <% end %>

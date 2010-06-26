@@ -6,44 +6,21 @@ class LaptopsController < ApplicationController
   # GET /laptops
   # GET /laptops.xml
   def index
-    @laptops = Laptop.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @laptops }
-    end
+    @laptops = Laptop.find(:all)
   end
 
   # GET /laptops/1
   # GET /laptops/1.xml
   def show
-  	#@laptop = Laptop.find(:first, params[:id])
-    if current_user.admin? or current_user.colaborator?
-    	@laptop = Laptop.find(params[:id])
-			@title = "laptop de #{@laptop.user.fname.capitalize} #{@laptop.user.lname.capitalize}"	
-  	else 
-  		@laptop = Laptop.find(params[:id]) 
-  		@title = "laptop de #{@laptop.user.fname.capitalize} #{@laptop.user.lname.capitalize}"		
-  		if @laptop.user.id != current_user.id
-  			@laptop = nil
-  			@title = nil
-  		end
-  	end
-  	if @laptop.nil?
-  		redirect_to current_user
-  	end
+    
+  @laptop = Laptop.find(params[:id])
+  redirect_to current_user unless current_user?(@laptop.user) or current_user.admin? or current_user.colaborator?
+  @title = "Laptop de #{@laptop.user.fname.capitalize} #{@laptop.user.lname.capitalize}"
+
   end
 
   # GET /laptops/new
-  # GET /laptops/new.xml
-  def new
-    @laptop = Laptop.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @laptop }
-    end
-  end
 
   # GET /laptops/1/edit
   def edit
@@ -54,17 +31,10 @@ class LaptopsController < ApplicationController
   # POST /laptops
   # POST /laptops.xml
   def create
-    @laptop = Laptop.new(params[:laptop])
-
-    respond_to do |format|
+    @laptop = current_user.laptops.build(params[:laptop])
       if @laptop.save
-        format.html { redirect_to(@laptop, :notice => 'Laptop was successfully created.') }
-        format.xml  { render :xml => @laptop, :status => :created, :location => @laptop }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @laptop.errors, :status => :unprocessable_entity }
+        redirect_to current_user
       end
-    end
   end
 
   # PUT /laptops/1

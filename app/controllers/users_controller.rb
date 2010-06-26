@@ -1,11 +1,17 @@
 class UsersController < ApplicationController
   
   before_filter :require_user, :except => [:new, :create]
-  before_filter :not_admins, :only => [:index, :destroy]
+  before_filter :not_admins, :only => [:index, :destroy,:show_admin, :busqueda]
   
   def index
   @title = "No me creen"
-  @users = User.find(:all)
+  @users = User.search(params[:search])
+#  @userss = User. find_by_email(params[:user][:email])
+  end
+  
+  def busqueda
+   @users = User. search(params[:user][:email])
+   @title = "Resultados: #{@users.count}"
   end
   
   def new
@@ -46,12 +52,12 @@ class UsersController < ApplicationController
   
   end
 
-  
-  
   def show
+      @laptop = Laptop.new
   	if current_user.admin? or current_user.colaborator?
   		@user = User.find(params[:id])
   	else
+  	
   		@user = current_user
   	end
   @title = "#{@user.fname.capitalize} #{@user.lname.capitalize}"
@@ -62,5 +68,11 @@ class UsersController < ApplicationController
   @user.destroy
   redirect_to (users_url)
   end
+  
+  def show_admin
+    if current_user.admin? or current_user.colaborator?
+  		@user = User.find(params[:id])
+    end
+end
 
 end

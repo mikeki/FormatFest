@@ -12,6 +12,7 @@ ActionController::Routing::Routes.draw do |map|
 	map.developers '/saitc', :controller => 'pages', :action => 'developers'
 	map.edit_user '/user/edit', :controller => 'users', :action => 'edit'
 	map.root :controller => 'pages', :action => 'home'
+	map.busqueda "/usuarios/busqueda", :controller => 'users', :action => 'busqueda'
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

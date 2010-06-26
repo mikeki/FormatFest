@@ -11,11 +11,23 @@ validates_uniqueness_of :schoolid, :email
 #validates_numericality_of :schoolid, :cel, :phone
 validate :there_must_be_a_phone
 
+def self.search(search)
+          
+          if search
+          find(:all, :conditions => ['email LIKE ?', "%#{search}%" ])
+        else
+          find(:all)
+        end
+end
+
+
+
 protected
   def there_must_be_a_phone
     if (phone.blank? & cel.blank? & nextel.blank?)
       errors.add_to_base("Debe de haber almenos 1 numero de contacto")
     end
   end
+  
 
 end

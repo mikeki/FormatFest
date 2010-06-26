@@ -1,5 +1,4 @@
 <%= render :partial => 'formaBusqueda'%>
-
 Total de usuarios: <%= @users.count%>
 <table>
 <tr>
@@ -14,7 +13,7 @@ Total de usuarios: <%= @users.count%>
 
 <% @users.each do |u| %>
 <tr>
-<td><%= link_to "#{u.fname} #{u.lname}", :action => "show", :id => u.id%></td>
+<td><%= link_to "#{u.fname} #{u.lname}", :action => "show_admin", :id => u.id%></td>
 <td><%=h u.career%></td>
 <td><%=h u.email%></td>
 <td><%=h u.schoolid%></td>
