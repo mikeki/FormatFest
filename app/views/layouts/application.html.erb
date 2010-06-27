@@ -5,31 +5,42 @@
     <title><%= titulo %></title>
     <%= stylesheet_link_tag 'saitc' %>
     <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag 'jquery-1.4.2' %>
     <%= yield(:head) %>
   </head>
   <body>
     <div id="majorContent">
-    	<div id="header">
-    		<%= link_to image_tag ("logo_FF.png" , :id=>"logo"), root_path %>
-    		<%= link_to image_tag ("boton_SAITC_un.png", :id=>"botonHeader"), "#"%>
-    		<%= link_to image_tag ("boton_FF_sel.png", :id=>"botonHeader"), root_path %>
-    		<%= link_to image_tag ("boton_SW_un.png", :id=>"botonHeader"), "#" %>
-    	</div>
-    	<div id="login_arriba"></div>
-    	<div id="login">
-    		<span>Iniciar sesion</span>
-    		<%if current_user%>
-    			<%= link_to "Editar #{current_user.fname} #{current_user.lname}", edit_user_path(:id => current_user.id)%> |
-    			<%= link_to "Logout", logout_path %>
-    		<%else%>
-    			<%= render :partial=>'user_sessions/new'%>
-    			<%= button_to "Registrar", new_user_path%>
-    		<%end%>
-    	</div>
-    	<div id="login_abajo"></div>
-    		
-      
-      <%= yield %>
+          	<div id="header">
+                  	  <%if current_user %>
+                  	  <%= link_to image_tag ("logo_FF.png" , :id=>"logo"), current_user %>
+                  	  <%= link_to image_tag ("boton_SAITC_un.png", :id=>"botonHeader"), "#"%>
+                  		<%= link_to image_tag ("boton_FF_sel.png", :id=>"botonHeader"), current_user %>
+                  		<%= link_to image_tag ("boton_SW_un.png", :id=>"botonHeader"), "#" %>
+                  		<% else %>
+                  		<%= link_to image_tag ("logo_FF.png" , :id=>"logo"), root_path %>
+                  		<%= link_to image_tag ("boton_SAITC_un.png", :id=>"botonHeader"), "#"%>
+                  		<%= link_to image_tag ("boton_FF_sel.png", :id=>"botonHeader"), root_path %>
+                  		<%= link_to image_tag ("boton_SW_un.png", :id=>"botonHeader"), "#" %>
+                  		<% end %>
+          	</div>
+                          	<% flash.each do |key, value| %>
+                                <%= content_tag(:div, value, :id => "flash_#{key}") %>
+                              <% end %> 
+    	      <div id="login_arriba"></div>
+                    	<div id="login">
+                    		<%if current_user%>
+                    			<%= link_to "Editar #{current_user.fname} #{current_user.lname}", edit_user_path(:id => current_user.id)%> |
+                    			<%= link_to "Cerrar sesión", logout_path %>
+                    		<%else%>
+                    		<span>Iniciar sesión</span>
+                    			<%= render :partial=>'user_sessions/new'%>
+                    			<%= button_to "Registrar", new_user_path%>
+                    		<%end%>
+                    	</div>
+    	        <div id="login_abajo"></div>
+    <%= yield %>
+    <br />
     </div>
+    
   </body>
 </html>
