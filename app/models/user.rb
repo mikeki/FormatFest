@@ -53,12 +53,12 @@ CARRERA = [
     ["LMI - Licenciado en Periodismo y Medios de Informacion", "LMI"],
     ["LNB - Licenciado en Nutricion y Bienestar Integral", "LNB"],
     ["LPL - Licenciado en Ciencia Politica", "LPL"],
-    ["LPO - Licenciado en Psicologia Organizacional", "LPO"],
+    ["LPO - Licenciado en Psicología Organizacional", "LPO"],
     ["LRI - Licenciado en Relaciones Internacionales", "LRI"],
-    ["LSC - Licenciado en Sistemas de Computacion Administrativa", "LSC"],
-    ["LATI - Licenciado en Administracion de Tecnologias de Informacion", "LATI"],
-    ["MC - Medico Cirujano", "MC"],
-    ["MO - Medico Cirujano Odontologo", "MO"]
+    ["LSC - Licenciado en Sistemas de Computación Administrativa", "LSC"],
+    ["LATI - Licenciado en Administración de Tecnologías de Información", "LATI"],
+    ["MC - Médico Cirujano", "MC"],
+    ["MO - Médico Cirujano Odontólogo", "MO"]
     
     
   ]
@@ -66,7 +66,7 @@ CARRERA = [
 def self.search(search)
           
           if search
-          find(:all, :conditions => ['email LIKE ? OR id = ?', "%#{search}%", "#{search}" ])
+          find(:all, :conditions => ['email LIKE ? OR id = ?', "%#{search}%", "#{search}" ], :order => 'updated_at DESC')
         else
           find(:all)
         end

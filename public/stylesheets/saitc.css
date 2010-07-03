@@ -53,12 +53,13 @@ div#majorContent #bottom_subsection{
 }
 
 div#majorContent div#nuevaLaptop{
-		/*margin:-150px 10px 0px 500px;*/
+/*border:2px solid black;*/
+        width:400px;
+		margin:-330px 10px 0px 500px;
 }
-
 div#majorContent #apareceForma{
     float:right;
-    /*margin:-150px 10px 0px 500px;*/
+/*    margin:-150px 10px 0px 500px;*/
 }
 
 div#majorContent div#listadoUsuarios{

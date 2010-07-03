@@ -11,7 +11,7 @@
                 <th>Telefono</th>
                 <th>Celular</th>
                 <th>Nextel</th>
-                <th>Fecha de creación</th>
+                <th>Actualizado</th>
             </tr>
 
         <% @users.each do |u| %>
@@ -23,7 +23,7 @@
                     <td><%=h u.phone%></td>
                     <td><%=h u.cel%></td>
                     <td><%=h u.nextel%></td>
-                    <td>Hace <%=h distance_of_time_in_words_to_now(u.created_at)%></td>
+                    <td>Hace <%=h distance_of_time_in_words_to_now(u.updated_at)%></td>
                     <td><%= link_to "Editar", :action => "edit", :id => u.id%></td>
                     <td><%= link_to "Eliminar",u, :confirm => 'Seguro wey?', :method => :delete%></td>
               </tr>
