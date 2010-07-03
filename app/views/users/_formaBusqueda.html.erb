@@ -1,6 +1,6 @@
-<% form_tag busqueda_path, :method => "get" do%>
+<% form_tag users_path, :method => "GET" do%>
 <p>
-<%= text_field_with_auto_complete :user, :email, {:value => ""}, {:url => formatted_users_path(:js), :method => :get, :with => "'search=' + element.value"} %>
+<%= text_field_tag :search, params[:search], :value => ""%>
 
 <%= submit_tag "Buscar", :name => nil%>
 </p>

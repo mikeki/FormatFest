@@ -63,7 +63,6 @@ CARRERA = [
     
   ]
 
-
 def self.search(search)
           
           if search
@@ -72,8 +71,6 @@ def self.search(search)
           find(:all)
         end
 end
-
-
 
 protected
   def there_must_be_a_phone

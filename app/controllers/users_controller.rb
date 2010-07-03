@@ -4,14 +4,8 @@ class UsersController < ApplicationController
   before_filter :not_admins, :only => [:index, :destroy,:show_admin, :busqueda]
   
   def index
-  @title = "No me creen"
+  @title = "Listado de usuarios"
   @users = User.search(params[:search])
-#  @userss = User. find_by_email(params[:user][:email])
-  end
-  
-  def busqueda
-   @users = User. search(params[:user][:email])
-   @title = "Resultados: #{@users.count}"
   end
   
   def new
@@ -26,7 +20,7 @@ class UsersController < ApplicationController
 		flash[:notice] = "El usuario fue creado satisfactoriamente."	  
 		redirect_to root_path
 		else
-		flash[:error] = "Tas bien wey"
+		flash[:error] = "El usuario no pudo crearse."
 		render 'new'
 	  end
   end
