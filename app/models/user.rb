@@ -66,7 +66,7 @@ CARRERA = [
 def self.search(search)
           
           if search
-          find(:all, :conditions => ['email LIKE ?', "%#{search}%" ])
+          find(:all, :conditions => ['email LIKE ? OR id = ?', "%#{search}%", "#{search}" ])
         else
           find(:all)
         end

@@ -1,29 +1,32 @@
 <%= render :partial => 'formaBusqueda'%>
 
-Total de usuarios: <%= @users.count%>
-<table>
-<tr>
-<th>Nombre</th>
-<th>Carrera</th>
-<th>Correo electronico</th>
-<th>Matricula</th>
-<th>Telefono</th>
-<th>Celular</th>
-<th>Nextel</th>
-</tr>
+<div id="listadoUsuarios">
+        Total de usuarios: <%= @users.count%><br />
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Carrera</th>
+                <th>Correo electronico</th>
+                <th>Matricula</th>
+                <th>Telefono</th>
+                <th>Celular</th>
+                <th>Nextel</th>
+                <th>Fecha de creación</th>
+            </tr>
 
-<% @users.each do |u| %>
-<tr>
-<td><%= link_to "#{u.fname} #{u.lname}", :action => "show", :id => u.id%></td>
-<td><%=h u.career%></td>
-<td><%=h u.email%></td>
-<td><%=h u.schoolid%></td>
-<td><%=h u.phone%></td>
-<td><%=h u.cel%></td>
-<td><%=h u.nextel%></td>
-<td>Hace <%= distance_of_time_in_words_to_now(u.created_at)%></td>
-<td><%= link_to "Editar", :action => "edit", :id => u.id%></td>
-<td><%= link_to "Eliminar",u, :confirm => 'Seguro wey?', :method => :delete%></td>
-</tr>
-<%end%>
-</table>
+        <% @users.each do |u| %>
+              <tr>
+                    <td><%= link_to "#{u.fname} #{u.lname}", :action => "show", :id => u.id%></td>
+                    <td><%=h u.career%></td>
+                    <td><%=h u.email%></td>
+                    <td><%=h u.schoolid%></td>
+                    <td><%=h u.phone%></td>
+                    <td><%=h u.cel%></td>
+                    <td><%=h u.nextel%></td>
+                    <td>Hace <%=h distance_of_time_in_words_to_now(u.created_at)%></td>
+                    <td><%= link_to "Editar", :action => "edit", :id => u.id%></td>
+                    <td><%= link_to "Eliminar",u, :confirm => 'Seguro wey?', :method => :delete%></td>
+              </tr>
+        <%end%>
+        </table>
+</div>

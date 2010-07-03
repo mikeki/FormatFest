@@ -61,6 +61,11 @@ div#majorContent #apareceForma{
     /*margin:-150px 10px 0px 500px;*/
 }
 
+div#majorContent div#listadoUsuarios{
+    margin:10px 120px;
+    
+}
+
 div#majorContent div#nuevaLaptop input[type=text]{
 border:1px solid #ccc;
 width:250px;
