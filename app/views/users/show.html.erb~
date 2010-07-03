@@ -35,6 +35,8 @@
 
 	                  <%= render :partial => 'laptops/form', :locals => {:f => f}%>
 
-                    <div id="body_section"><%= f.submit 'Create' %></div>
+                    <%= f.submit 'Create' %>
+                    
+                    </div>
               <% end %>
           </div>

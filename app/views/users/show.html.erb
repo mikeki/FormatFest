@@ -24,11 +24,9 @@
                     </div>
           <div id="bottom_subsection"></div>
 
-<p>
 <% @user.colaborators.each do |c|%>
 	<%= link_to "Laptop #{c.status}", :controller => "laptops", :action => "show", :id => c.laptop_id%>
 <%end%>
-</p>
 					<div id="nuevaLaptop">
               <% form_for(@laptop) do |f| %>
                     <%= f.error_messages %>
