@@ -39957,3 +39957,527 @@ Rendered users/_formaBusqueda (0.7ms)
   [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
 Rendered laptops/_form (6.7ms)
 Completed in 54ms (View: 24, DB: 2) | 200 OK [http://189.152.113.54/users/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-03 17:39:03) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mLaptop Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered users/_formaBusqueda (2.3ms)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (6.7ms)
+Completed in 63ms (View: 30, DB: 3) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-03 17:39:22) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered users/_formaBusqueda (2.0ms)
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (7.1ms)
+Completed in 66ms (View: 39, DB: 2) | 200 OK [http://localhost/users/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 17:39:29) [GET]
+  Parameters: {"user"=>{"email"=>"pollo"}}
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered users/_formaBusqueda (1.6ms)
+Completed in 40ms (View: 14, DB: 1) | 200 OK [http://localhost/users?user%5Bemail%5D=pollo]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 17:40:15) [GET]
+  Parameters: {"user"=>{"email"=>"pollo"}}
+  [4;35;1mUser Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered users/_formaBusqueda (1.4ms)
+Completed in 152ms (View: 19, DB: 2) | 200 OK [http://localhost/users?user%5Bemail%5D=pollo]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index to js (for 127.0.0.1 at 2010-07-03 17:42:16) [GET]
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering users/index
+Completed in 31ms (View: 5, DB: 1) | 200 OK [http://localhost/users.js]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index to js (for 127.0.0.1 at 2010-07-03 17:42:21) [GET]
+  Parameters: {"search"=>"ab"}
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (email LIKE '%ab%' OR id = 'ab') ORDER BY updated_at DESC[0m
+Rendering users/index
+Completed in 31ms (View: 2, DB: 1) | 200 OK [http://localhost/users.js?search=%22ab%22]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index to js (for 127.0.0.1 at 2010-07-03 17:44:05) [GET]
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering users/index
+Completed in 28ms (View: 1, DB: 1) | 200 OK [http://localhost/users.js?]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 17:44:08) [GET]
+  Parameters: {"user"=>{"email"=>"pollo"}}
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:6)
+Rendered users/_formaBusqueda (2.6ms)
+Completed in 148ms (View: 20, DB: 1) | 200 OK [http://localhost/users?user%5Bemail%5D=pollo]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 17:44:25) [GET]
+  Parameters: {"user"=>{"email"=>"pollo"}}
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:6)
+Rendered users/_formaBusqueda (2.2ms)
+Completed in 55ms (View: 21, DB: 1) | 200 OK [http://localhost/users?user%5Bemail%5D=pollo]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 17:45:22) [GET]
+  Parameters: {"user"=>{"email"=>"pollo"}}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:6)
+Rendered users/_formaBusqueda (2.1ms)
+Completed in 45ms (View: 19, DB: 2) | 200 OK [http://localhost/users?user%5Bemail%5D=pollo]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 17:46:01) [GET]
+  Parameters: {"user"=>{"email"=>"pollo"}}
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:6)
+Rendered users/_formaBusqueda (1.7ms)
+Completed in 49ms (View: 14, DB: 1) | 200 OK [http://localhost/users?user%5Bemail%5D=pollo]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 17:47:18) [GET]
+  Parameters: {"user"=>{"email"=>"pollo"}}
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:6)
+Rendered users/_formaBusqueda (2.5ms)
+Completed in 61ms (View: 20, DB: 1) | 200 OK [http://localhost/users?user%5Bemail%5D=pollo]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 17:47:24) [GET]
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:6)
+Rendered users/_formaBusqueda (1.9ms)
+Completed in 69ms (View: 31, DB: 1) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 17:52:07) [GET]
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered users/_formaBusqueda (2.0ms)
+Completed in 41ms (View: 18, DB: 1) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index to s (for 127.0.0.1 at 2010-07-03 17:52:18) [GET]
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (3.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (2.6ms)[0m   [0;1mSELECT * FROM `users` [0m
+
+ActionView::MissingTemplate (Missing template users/index.erb in view path app/views):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index to js (for 127.0.0.1 at 2010-07-03 17:52:20) [GET]
+  [4;35;1mUser Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering users/index
+Completed in 107ms (View: 1, DB: 1) | 200 OK [http://localhost/users.js]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 17:54:05) [GET]
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:6)
+Rendered users/_formaBusqueda (2.0ms)
+Completed in 71ms (View: 35, DB: 1) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 17:57:43) [GET]
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:6)
+Rendered users/_formaBusqueda (3.0ms)
+Completed in 54ms (View: 25, DB: 1) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 17:58:17) [GET]
+  [4;36;1mUser Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` [0m
+Rendering template within layouts/application
+Rendering users/index
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:6)
+Rendered users/_formaBusqueda (4.2ms)
+Completed in 52ms (View: 20, DB: 1) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 18:02:39) [GET]
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (email LIKE '%%') [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered users/_formaBusqueda (3.8ms)
+Completed in 38ms (View: 17, DB: 1) | 200 OK [http://localhost/users]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index to js (for 127.0.0.1 at 2010-07-03 18:03:57) [GET]
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (4.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (email LIKE '%%') [0m
+Rendering users/index
+Completed in 32ms (View: 6, DB: 5) | 200 OK [http://localhost/users.js]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index to js (for 127.0.0.1 at 2010-07-03 18:03:59) [GET]
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (email LIKE '%%') [0m
+Rendering users/index
+Completed in 129ms (View: 2, DB: 1) | 200 OK [http://localhost/users.js]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 18:05:40) [GET]
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (email LIKE '%%') [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 37ms (View: 11, DB: 1) | 200 OK [http://localhost/users]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 18:06:32) [GET]
+  Parameters: {"search"=>"pollo"}
+  [4;35;1mUser Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mUser Load (3.0ms)[0m   [0mSELECT * FROM `users` WHERE (email LIKE '%pollo%') [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 284ms (View: 33, DB: 4) | 200 OK [http://localhost/users?search=pollo]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 18:08:35) [GET]
+  Parameters: {"search"=>"pollo"}
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (email LIKE '%pollo%') [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 35ms (View: 12, DB: 1) | 200 OK [http://localhost/users?search=pollo]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-03 18:08:37) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (3.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered users/_formaBusqueda (1.8ms)
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (8.8ms)
+Completed in 81ms (View: 39, DB: 6) | 200 OK [http://localhost/users/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-03 18:09:22) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mLaptop Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered users/_formaBusqueda (1.1ms)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (7.7ms)
+Completed in 60ms (View: 27, DB: 3) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-03 18:09:49) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:6)
+Rendered users/_formaBusqueda (2.4ms)
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (8.3ms)
+Completed in 79ms (View: 37, DB: 4) | 200 OK [http://localhost/users/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-03 18:10:02) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mLaptop Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered users/_formaBusqueda (14.0ms)
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (18.1ms)
+Completed in 235ms (View: 178, DB: 7) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-03 18:11:04) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered users/_formaBusqueda (2.5ms)
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (10.4ms)
+Completed in 82ms (View: 36, DB: 2) | 200 OK [http://localhost/users/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 18:11:06) [GET]
+  Parameters: {"user"=>{"email"=>"pollo@pollo.com"}}
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (email LIKE '%%') [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 42ms (View: 14, DB: 1) | 200 OK [http://localhost/users?user%5Bemail%5D=pollo%40pollo.com]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 18:11:15) [GET]
+  Parameters: {"user"=>{"email"=>"pollo@pollo.com"}}
+  [4;35;1mUser Columns (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM `users` WHERE (email LIKE '%%') [0m
+Rendering template within layouts/application
+Rendering users/index
+Completed in 120ms (View: 19, DB: 3) | 200 OK [http://localhost/users?user%5Bemail%5D=pollo%40pollo.com]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 18:11:34) [GET]
+  Parameters: {"user"=>{"email"=>"pollo@pollo.com"}}
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (email LIKE '%%') [0m
+Rendering template within layouts/application
+Rendering users/index
+Rendered users/_formaBusqueda (1.8ms)
+Completed in 75ms (View: 31, DB: 1) | 200 OK [http://localhost/users?user%5Bemail%5D=pollo%40pollo.com]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 18:12:10) [GET]
+  Parameters: {"user"=>{"email"=>"pollo@pollo.com"}}
+  [4;35;1mUser Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (email LIKE '%%') [0m
+Rendering template within layouts/application
+Rendering users/index
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:6)
+Rendered users/_formaBusqueda (2.2ms)
+Completed in 110ms (View: 88, DB: 1) | 200 OK [http://localhost/users?user%5Bemail%5D=pollo%40pollo.com]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 18:14:13) [GET]
+  Parameters: {"user"=>{"email"=>"pollo@pollo.com"}}
+  [4;36;1mUser Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (email LIKE '%%') [0m
+Rendering template within layouts/application
+Rendering users/index
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:6)
+Rendered users/_formaBusqueda (2.1ms)
+Completed in 108ms (View: 60, DB: 1) | 200 OK [http://localhost/users?user%5Bemail%5D=pollo%40pollo.com]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 18:14:17) [GET]
+  Parameters: {"user"=>{"email"=>""}}
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM `users` WHERE (email LIKE '%%') [0m
+Rendering template within layouts/application
+Rendering users/index
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:6)
+Rendered users/_formaBusqueda (1.7ms)
+Completed in 110ms (View: 20, DB: 2) | 200 OK [http://localhost/users?user%5Bemail%5D=]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 18:14:20) [GET]
+  Parameters: {"user"=>{"email"=>"ollo"}}
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (email LIKE '%%') [0m
+Rendering template within layouts/application
+Rendering users/index
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:6)
+Rendered users/_formaBusqueda (1.3ms)
+Completed in 32ms (View: 12, DB: 1) | 200 OK [http://localhost/users?user%5Bemail%5D=ollo]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#index (for 127.0.0.1 at 2010-07-03 18:14:52) [GET]
+  Parameters: {"user"=>{"email"=>"ollo"}}
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM `users` WHERE (email LIKE '%ollo%') [0m
+Rendering template within layouts/application
+Rendering users/index
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:6)
+Rendered users/_formaBusqueda (2.8ms)
+Completed in 96ms (View: 26, DB: 4) | 200 OK [http://localhost/users?user%5Bemail%5D=ollo]

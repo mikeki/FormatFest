@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
+
   
   before_filter :require_user, :except => [:new, :create]
   before_filter :not_admins, :only => [:index, :destroy,:show_admin, :busqueda]
   
   def index
   @title = "Listado de usuarios"
-  @users = User.search(params[:search])
+  @users = User.find(:all, :conditions => ['email LIKE ?', "%#{params[:search]}%"])
   end
   
   def new
