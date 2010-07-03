@@ -3,11 +3,12 @@
       $("#nuevaLaptop").css("display", "none");
       
 			});
-       function apareceForma() {          
-               //$("#nuevaLaptop").animate({ bottom: "500", height: 'toggle' }, 1000, "swing");
-               $("#nuevaLaptop").toggle("slow");
-               //$("#nuevaLaptop").accordion();
-           }
+       $(function(){          
+       		$("#apareceForma").click(function (){
+               $("#nuevaLaptop").fadeIn("slow");
+           });
+           
+      });
      
     </script>
     
@@ -20,7 +21,7 @@
                             <% @user.laptops.each do |l|%>
                             <%= link_to l.marca, :controller => "laptops", :action => "show", :id => l.id %><br />
                             <% end %>
-                            <button id="apareceForma" class="botonForma" onclick="apareceForma()">Registrar nueva laptop</button><br />
+                            <button id="apareceForma" class="botonForma" >Registrar nueva laptop</button><br />
                     </div>
           <div id="bottom_subsection"></div>
 
