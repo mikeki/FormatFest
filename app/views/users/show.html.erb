@@ -29,17 +29,14 @@
 	<%= link_to "Laptop #{c.status}", :controller => "laptops", :action => "show", :id => c.laptop_id%>
 <%end%>
 </p>
-
-
-        <div id="nuevaLaptop">
-
+					<div id="nuevaLaptop">
               <% form_for(@laptop) do |f| %>
                     <%= f.error_messages %>
 
 	                  <%= render :partial => 'laptops/form', :locals => {:f => f}%>
 
-                    <p>
-                      <%= f.submit 'Create' %>
-                    </p>
+                    <%= f.submit 'Create' %>
+                    
+                    </div>
               <% end %>
-        </div>
+          </div>

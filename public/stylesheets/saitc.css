@@ -23,7 +23,7 @@ div#header{
 }
 
 div#header #logo{
-	padding: 27px 0px 25px 10px;
+	padding: 27px 0px 50px 10px;
 	border: none;
 }
 
@@ -52,10 +52,20 @@ div#majorContent #bottom_subsection{
 	margin: 0px auto 0px 117px;
 }
 
-div#majorContent div#nuevaLaptop{
+div#majorContent div#top_section{
+	background: url(../images/top_section.png) no-repeat;
+	width: 578px;
+	height: 35px;
+	margin: -383px 10px 0px 400px;
+	padding: 10px 0px 0px 10px;
+}
+
+div#majorContent div#body_section{
+	background: url(../images/body_section.png) repeat-y;
 /*border:2px solid black;*/
-        width:400px;
-		margin:-330px 10px 0px 500px;
+  width:578px;
+	margin: -12px 10px 0px 400px;
+	padding: 8px 0px 0px 10px;
 }
 div#majorContent #apareceForma{
     float:right;

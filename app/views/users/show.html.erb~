@@ -1,21 +1,3 @@
-<%if current_user.admin? or current_user.colaborator?%>
-<%= render :partial => 'formaBusqueda'%>
-<%end%>
-<p>
-Tiene <%= pluralize(@user.laptops.count, "laptop") %>
-</p>
-
-<p>
-<% @user.colaborators.each do |c|%>
-	<%= link_to "Laptop #{c.status}", :controller => "laptops", :action => "show", :id => c.laptop_id%>
-<%end%>
-</p>
-
-<% @user.laptops.each do |l|%>
-<p><%= link_to l.marca, :controller => "laptops", :action => "show", :id => l.id %></p>
-
-<% end %>
-
 <script type="text/javascript">
       $("document").ready(function(){
       $("#nuevaLaptop").css("display", "none");
@@ -23,21 +5,36 @@ Tiene <%= pluralize(@user.laptops.count, "laptop") %>
 			});
        function apareceForma() {          
                //$("#nuevaLaptop").animate({ bottom: "500", height: 'toggle' }, 1000, "swing");
-               //$("#nuevaLaptop").toggle("slow");
-               $("#nuevaLaptop").accordion();
+               $("#nuevaLaptop").toggle("slow");
+               //$("#nuevaLaptop").accordion();
            }
      
     </script>
-<button id="apareceForma" onclick="apareceForma()">Registrar nueva laptop</button><br />
-<div id="nuevaLaptop">
+    
+<%if current_user.admin? or current_user.colaborator?%>
+<%= render :partial => 'formaBusqueda'%>
+<%end%>
+          <div id="top_subsection"></div>
+                    <div id="subsection">
+                            Tiene <%= pluralize(@user.laptops.count, "laptop") %><br />
+                            <% @user.laptops.each do |l|%>
+                            <%= link_to l.marca, :controller => "laptops", :action => "show", :id => l.id %><br />
+                            <% end %>
+                            <button id="apareceForma" class="botonForma" onclick="apareceForma()">Registrar nueva laptop</button><br />
+                    </div>
+          <div id="bottom_subsection"></div>
 
-<% form_for(@laptop) do |f| %>
-  <%= f.error_messages %>
+<p>
+<% @user.colaborators.each do |c|%>
+	<%= link_to "Laptop #{c.status}", :controller => "laptops", :action => "show", :id => c.laptop_id%>
+<%end%>
+</p>
+					<div id="nuevaLaptop">
+              <% form_for(@laptop) do |f| %>
+                    <%= f.error_messages %>
 
-	<%= render :partial => 'laptops/form', :locals => {:f => f}%>
+	                  <%= render :partial => 'laptops/form', :locals => {:f => f}%>
 
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
-</div>
+                    <div id="body_section"><%= f.submit 'Create' %></div>
+              <% end %>
+          </div>
