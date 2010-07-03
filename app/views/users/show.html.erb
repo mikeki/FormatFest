@@ -1,10 +1,11 @@
 <%if current_user.admin? or current_user.colaborator?%>
 <%= render :partial => 'formaBusqueda'%>
 <%end%>
-<p>
+<div id="top_subsection"></div>
+<div id="subsection">
 Tiene <%= pluralize(@user.laptops.count, "laptop") %>
-</p>
-
+</div>
+<div id="bottom_subsection"></div>
 <p>
 <% @user.colaborators.each do |c|%>
 	<%= link_to "Laptop #{c.status}", :controller => "laptops", :action => "show", :id => c.laptop_id%>
