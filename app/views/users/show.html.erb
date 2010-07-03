@@ -1,8 +1,6 @@
-<div id="barraBusqueda">
 <%if current_user.admin? or current_user.colaborator?%>
 <%= render :partial => 'formaBusqueda'%>
 <%end%>
-</div>
 <p>
 Tiene <%= pluralize(@user.laptops.count, "laptop") %>
 </p>
@@ -24,8 +22,9 @@ Tiene <%= pluralize(@user.laptops.count, "laptop") %>
       
 			});
        function apareceForma() {          
-               // $("#nuevaLaptop").animate({ bottom: "500", height: 'toggle' }, 1000, "swing");
+               //$("#nuevaLaptop").animate({ bottom: "500", height: 'toggle' }, 1000, "swing");
                $("#nuevaLaptop").toggle("slow");
+               //$("#nuevaLaptop").accordion();
            }
      
     </script>
