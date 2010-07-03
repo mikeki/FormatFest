@@ -1,10 +1,12 @@
-<h2>Bienvenido <%= "#{@user.fname} #{@user.lname}"%></h2>
+<%if current_user.admin? or current_user.colaborator?%>
+<%= render :partial => 'formaBusqueda'%>
+<%end%>
 <p>
 Tiene <%= pluralize(@user.laptops.count, "laptop") %>
 </p>
 
 <p>
-<% @user.colaboradors.each do |c|%>
+<% @user.colaborators.each do |c|%>
 	<%= link_to "Laptop #{c.status}", :controller => "laptops", :action => "show", :id => c.laptop_id%>
 <%end%>
 </p>
@@ -13,3 +15,29 @@ Tiene <%= pluralize(@user.laptops.count, "laptop") %>
 <p><%= link_to l.marca, :controller => "laptops", :action => "show", :id => l.id %></p>
 
 <% end %>
+
+<script type="text/javascript">
+      $("document").ready(function(){
+      $("#nuevaLaptop").css("display", "none");
+      
+			});
+       function apareceForma() {          
+               //$("#nuevaLaptop").animate({ bottom: "500", height: 'toggle' }, 1000, "swing");
+               //$("#nuevaLaptop").toggle("slow");
+               $("#nuevaLaptop").accordion();
+           }
+     
+    </script>
+<button id="apareceForma" onclick="apareceForma()">Registrar nueva laptop</button><br />
+<div id="nuevaLaptop">
+
+<% form_for(@laptop) do |f| %>
+  <%= f.error_messages %>
+
+	<%= render :partial => 'laptops/form', :locals => {:f => f}%>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+</div>

@@ -1,7 +1,12 @@
+<div id="top_subsection"></div>
+<div id="subsection">
+<span>Buscar Cliente</span>
 <% form_tag users_path, :method => "GET" do%>
 <p>
 <%= text_field_tag :search, params[:search], :value => ""%>
-
-<%= submit_tag "Buscar", :name => nil%>
 </p>
+</div>
+<%= submit_tag "Buscar", :name => nil%>
 <% end %>
+
+<div id="bottom_subsection"></div>

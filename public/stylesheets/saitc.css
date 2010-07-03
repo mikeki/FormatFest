@@ -1,68 +1,64 @@
 body, html {
-	background: url(../images/background.jpg);
-	
+	background: url(../images/background.jpg) fixed;
 }
 
 div#majorContent {
-	background: #63adf8;
-	border:2px solid white;
+	/*background: #63adf8;
+	border:2px solid white;*/
+	background: url(../images/content.png) repeat-y;
 	width: 1095px;
-	margin: 20px auto 20px auto;
-	-webkit-box-shadow: 7px 5px 10px #333;
+	margin: -10px auto -10px auto;
+	padding: 20px 0px;
+	/*-webkit-box-shadow: 7px 5px 10px #333;
 	-moz-box-shadow: 5px 5px 5px #333;
-	box-shadow: 5px 5px 5px #333;
+	box-shadow: 5px 5px 5px #333;*/
 }
 
 div#header{
 	background: url(../images/header.png) no-repeat;
-	width: 891px;
-	height: 213px;
-	margin: 0px auto;
+	width: 859px;
+	height: 180px;
+	margin: 0px auto 20px auto;
 	
 }
 
 div#header #logo{
-	padding: 40px 0px 40px 30px;
+	padding: 27px 0px 25px 10px;
 	border: none;
 }
 
 div#header #botonHeader{
-	padding: 48px 0px 30px 0px;
+	padding: 27px 0px 20px 0px;
 	border: none;
 }
 
-div#majorContent #login_arriba{
+div#majorContent #top_subsection{
 	background: url(../images/top_subsection.png) no-repeat;
 	width: 259px;
 	height: 11px;
-	margin: 20px auto 0px 100px;
+	margin: 10px auto 0px 117px;
 }
-div#majorContent #login{
+div#majorContent #subsection{
 	background: url(../images/body_subsection.png) repeat-y;
 	width: 259px;
-	margin: 0px auto 0px 100px;
+	min-height: 100%;
+	margin: 0px auto 0px 117px;
 	padding: 0px 0px 0px 8px;
 }
-div#majorContent #login_abajo{
+div#majorContent #bottom_subsection{
 	background: url(../images/bottom_subsection.png) no-repeat;
 	width: 259px;
 	height: 11px;
-	margin: 0px auto 0px 100px;
-}
-
-div#majorContent div#barraBusqueda{
-    padding:0px 0px 0px 100px;
-    width:300px;
+	margin: 0px auto 0px 117px;
 }
 
 div#majorContent div#nuevaLaptop{
-margin:-150px 10px 0px 500px;
-
+		/*margin:-150px 10px 0px 500px;*/
 }
 
 div#majorContent #apareceForma{
     float:right;
-    margin:-150px 10px 0px 500px;
+    /*margin:-150px 10px 0px 500px;*/
 }
 
 
