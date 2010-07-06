@@ -16,6 +16,7 @@ div#majorContent {
 
 div#header{
 	background: url(../images/header.png) no-repeat;
+	position: relative;
 	width: 859px;
 	height: 180px;
 	margin: 0px auto 20px auto;
@@ -32,31 +33,31 @@ div#header #botonHeader{
 	border: none;
 }
 
-div#majorContent #top_subsection{
+div#majorContent div#top_subsection{
 	background: url(../images/top_subsection.png) no-repeat;
 	width: 259px;
 	height: 11px;
-	margin: 10px auto 0px 117px;
+	margin: 10px 0px 0px 117px;
 }
-div#majorContent #subsection{
+div#majorContent div#subsection{
 	background: url(../images/body_subsection.png) repeat-y;
 	width: 259px;
 	min-height: 100%;
-	margin: 0px auto 0px 117px;
+	margin: 0px 0px 0px 117px;
 	padding: 0px 0px 0px 8px;
 }
-div#majorContent #bottom_subsection{
+div#majorContent div#bottom_subsection{
 	background: url(../images/bottom_subsection.png) no-repeat;
 	width: 259px;
 	height: 11px;
-	margin: 0px auto 0px 117px;
+	margin: 0px 0px 0px 117px;
 }
 
 div#majorContent div#top_section{
 	background: url(../images/top_section.png) no-repeat;
 	width: 578px;
-	height: 35px;
-	margin: -350px 10px 0px 400px;
+	height: 37px;
+	margin: 10px 0px 0px 22px;
 	padding: 10px 0px 0px 10px;
 }
 
@@ -64,12 +65,37 @@ div#majorContent div#body_section{
 	background: url(../images/body_section.png) repeat-y;
 /*border:2px solid black;*/
   width:578px;
-	margin: -12px 10px 0px 400px;
-	padding: 8px 0px 0px 10px;
+	margin: -12px 0px 0px 22px;
+	
 }
+
+div#majorContent div#bottom_section{
+	background: url(../images/bottom_section.png) no-repeat;
+/*border:2px solid black;*/
+  width:574px;
+  height: 4px;
+	margin: 0px 0px 0px 22px;
+}
+
+div#majorContent div#top_section #titulo{
+	font-size: 20px;
+	text-decoration: underline;
+}
+
+div#majorContent div#top_section #fechaNoticia{
+	text-decoration: none;
+	font-size: 9px;
+}
+
+div#majorContent div#body_section #contenido{
+	text-align: justify;
+	margin: -4px 0px 0px 0px;
+	padding: 5px 10px 0px 10px;
+}
+
 div#majorContent #apareceForma{
     float:right;
-/*    margin:-150px 10px 0px 500px;*/
+    margin: -5px 95px 0px 0px;
 }
 
 div#majorContent div#listadoUsuarios{
@@ -101,4 +127,39 @@ height:25px;
   border: solid 1px #C66;
 }
 
+#leftcol{
+ width:34.34%; 
+ float:left; 
+ position:relative; 
+ }
+ 
+#maincol{  
+ float: right; 
+ display:inline; 
+ position: relative; 
+ width:65.66%; 
+ }
+ 
+ /* *** Float containers fix:
+ http://www.csscreator.com/attributes/containedfloat.php *** */ 
+.clearfix:after {
+ content: "."; 
+ display: block; 
+height: 0; 
+ clear: both; 
+ visibility: hidden;
+ }
+ 
+.clearfix{display: inline-block;}
 
+/* Hides from IE-mac \*/
+* html .clearfix{height: 1%;}
+.clearfix{display: block;}
+/* End hide from IE-mac */  
+ 
+ /*printer styles*/ 
+ @media print{ 
+/*hide the left column when printing*/ 
+#leftcol{display:none;} 
+#twocols, #maincol{width:100%; float:none;}
+}

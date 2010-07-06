@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :colaboradors
+  map.resources :news
+
+  map.resources :colaborators
 
   map.resources :user_sessions
   map.resources :laptops
@@ -12,6 +14,7 @@ ActionController::Routing::Routes.draw do |map|
 	map.developers '/saitc', :controller => 'pages', :action => 'developers'
 	map.edit_user '/user/edit', :controller => 'users', :action => 'edit'
 	map.root :controller => 'pages', :action => 'home'
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

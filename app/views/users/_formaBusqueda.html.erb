@@ -3,7 +3,7 @@
 <span>Buscar Cliente</span>
 <% form_tag users_path, :method => "GET" do%>
 <p>
-<%= text_field_with_auto_complete :user, :email, {}, {:url => formatted_users_path(:js), :method => :get}%>
+<%= text_field_with_auto_complete :search, {}, {:url => formatted_users_path(:js), :method => :get}%>
 </p>
 
 <%= submit_tag "Buscar", :name => nil%>

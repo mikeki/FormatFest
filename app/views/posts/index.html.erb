@@ -1,0 +1,23 @@
+<% title "Posts" %>
+<!-- se cierra el div que queda abierto de left col-->
+</div>
+<div id="maincol">
+  <% for post in @posts %>
+  		<div id="top_section">
+  			<span id="titulo"><%=h post.title %></span>
+      	<span id="fechaNoticia"><%=h post.publishedDate.to_formatted_s(:long_ordinal) %></span>
+      </div>
+      <div id="body_section">
+      		<p id="contenido">
+      			<%= post.content %>
+      			<br />
+      			<%= link_to "Show", post %> -
+      			<%= link_to "Edit", edit_post_path(post) %> -
+      			<%= link_to "Destroy", post, :confirm => 'Are you sure?', :method => :delete %>
+      		</p>
+      </div>
+      <div id="bottom_section"></div>
+  <% end %>
+
+	<p><%= link_to "New Post", new_post_path %></p>
+</div>
