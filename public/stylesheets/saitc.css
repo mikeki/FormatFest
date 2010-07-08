@@ -35,20 +35,21 @@ div#header #botonHeader{
 
 div#majorContent div#top_subsection{
 	background: url(../images/top_subsection.png) no-repeat;
-	width: 259px;
-	height: 11px;
+	width: 261px;
+	height: 33px;
 	margin: 10px 0px 0px 117px;
+	padding: 10px 0px 0px 8px;
 }
 div#majorContent div#subsection{
 	background: url(../images/body_subsection.png) repeat-y;
-	width: 259px;
+	width: 261px;
 	min-height: 100%;
-	margin: 0px 0px 0px 117px;
+	margin: -10px 0px 0px 117px;
 	padding: 0px 0px 0px 8px;
 }
 div#majorContent div#bottom_subsection{
 	background: url(../images/bottom_subsection.png) no-repeat;
-	width: 259px;
+	width: 261px;
 	height: 11px;
 	margin: 0px 0px 0px 117px;
 }
@@ -72,7 +73,7 @@ div#majorContent div#body_section{
 div#majorContent div#bottom_section{
 	background: url(../images/bottom_section.png) no-repeat;
 /*border:2px solid black;*/
-  width:574px;
+  width:578px;
   height: 4px;
 	margin: 0px 0px 0px 22px;
 }
@@ -94,8 +95,7 @@ div#majorContent div#body_section #contenido{
 }
 
 div#majorContent #apareceForma{
-    float:right;
-    margin: -5px 95px 0px 0px;
+    margin: -5px 85px 10px 10px;
 }
 
 div#majorContent div#listadoUsuarios{
@@ -138,6 +138,19 @@ height:25px;
  display:inline; 
  position: relative; 
  width:65.66%; 
+ }
+ 
+ #leftcolLap{
+ width:50%; 
+ float:left; 
+ position:relative; 
+ }
+ 
+#maincolLap{  
+ float: right; 
+ display:inline; 
+ position: relative; 
+ width:50%; 
  }
  
  /* *** Float containers fix:

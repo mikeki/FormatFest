@@ -15,13 +15,38 @@
 	<%if current_user.admin? or current_user.colaborator?%>
 		<%= render :partial => 'formaBusqueda'%>
 	<%end%>
-	<div id="top_subsection"></div>
+	
+		<div id="top_subsection">
+			<span>Tiene <%= pluralize(@user.laptops.count, "laptop") %> en reparación:</span>
+		</div>
 		<div id="subsection">
-			Tiene <%= pluralize(@user.laptops.count, "laptop") %><br />
 			<% @user.laptops.each do |l|%>
-				<%= link_to l.marca, :controller => "laptops", :action => "show", :id => l.id -%><br />
+				<div id="wrapper" class="clearfix" >
+					<div id="leftcolLap">
+						<%if l.colaborators.count > 2%>
+							<%= link_to image_tag ("boton_lap_fin.png"), :controller => "laptops", :action => "show", :id => l.id -%>
+						<%else%>
+							<%= link_to image_tag ("boton_lap_reg.png"), :controller => "laptops", :action => "show", :id => l.id -%>
+						<%end%>
+					</div>
+					<div id="maincolLap">
+						<br />
+						Laptop: <%= l.marca%>
+						<br />
+						Color: <%= l.color%>
+						<br />
+						<%if l.colaborators.count < 3%>
+							No finalizada.
+						<%elsif l.colaborators.count == 3%>
+							Finalizada.
+						<%else%>
+							Entregada.
+						<%end%>
+					</div>
+				</div> 
 			<% end %>
-			<button id="apareceForma" class="botonForma" >Registrar nueva laptop</button><br />
+			<button id="apareceForma" class="botonForma" >Registrar nueva laptop</button>
+			<br />
 		</div>
 	<div id="bottom_subsection"></div>
 	<% @user.colaborators.each do |c|%>
@@ -33,7 +58,7 @@
 	<div id="nuevaLaptop">
 		<% form_for(@laptop) do |f| %>
 			<%= f.error_messages %>
-			<%= render :partial => 'laptops/form', :locals => {:f => f}%>
+			<%= render :partial => 'laptops/form', :locals => {:f => f, :tituloForma => "Registra una Nueva Laptop"}%>
 			<%= f.submit 'Create' %>
 			</div>
 			<!-- Este div cierra al div que abre el partial -->

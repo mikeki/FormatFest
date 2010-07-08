@@ -1,11 +1,12 @@
 class UsersController < ApplicationController
+
   
   before_filter :require_user, :except => [:new, :create]
-  before_filter :not_admins, :only => :index
+  before_filter :not_admins, :only => [:index, :destroy,:show_admin, :busqueda]
   
   def index
-  @title = "No me creen"
-  @users = User.find(:all)
+  @title = "Listado de usuarios"
+  @users = User.find(:all, :conditions => ['email LIKE ?', "%#{params[:search]}%"])
   end
   
   def new
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
 		flash[:notice] = "El usuario fue creado satisfactoriamente."	  
 		redirect_to root_path
 		else
-		flash[:error] = "Tas bien wey"
+		flash[:error] = "El usuario no pudo crearse."
 		render 'new'
 	  end
   end
@@ -46,15 +47,20 @@ class UsersController < ApplicationController
   
   end
 
-  
-  
   def show
+      @laptop = Laptop.new
   	if current_user.admin? or current_user.colaborator?
   		@user = User.find(params[:id])
   	else
+  	
   		@user = current_user
   	end
-  @title = "#{@user.fname.capitalize} #{@user.lname.capitalize}"
+  	if @user.fname
+  		@title = "#{@user.fname.capitalize}"
+  	else
+  		@title = ""
+  	end
+  	if @user.lname
   end
   
   def destroy
@@ -62,5 +68,11 @@ class UsersController < ApplicationController
   @user.destroy
   redirect_to (users_url)
   end
+  
+  def show_admin
+    if current_user.admin? or current_user.colaborator?
+  		@user = User.find(params[:id])
+    end
+end
 
 end

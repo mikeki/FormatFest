@@ -55,7 +55,14 @@ class UsersController < ApplicationController
   	
   		@user = current_user
   	end
-  @title = "#{@user.fname.capitalize} #{@user.lname.capitalize}"
+  	if @user.fname
+  		@title = "#{@user.fname.capitalize}"
+  	else
+  		@title = ""
+  	end
+  	if @user.lname
+  		@title = "#{@title} #{@user.lname.capitalize}"
+  	end
   end
   
   def destroy

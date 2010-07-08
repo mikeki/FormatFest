@@ -25,24 +25,28 @@
       	<% end %>
       </div>
       <div id="wrapper" class="clearfix" >
-        <% flash.each do |key, value| %>
-        	<%= content_tag(:div, value, :id => "flash_#{key}") %>
-        <% end %> 
-        <div id="top_subsection"></div>
-        <div id="subsection">
-        	<%if current_user%>
-            <%= link_to "Perfil", user_path(current_user)%>
-            <%= button_to "Editar #{current_user.fname.capitalize} #{current_user.lname.capitalize}", edit_user_path(:id => current_user.id)%>
-            <%= button_to "Cerrar sesión", logout_path %>
-          <%else%>
-          	<span>Iniciar sesión</span>
-          	<%= render :partial=>'user_sessions/new'-%> 
-          	<%= button_to "Registrar", new_user_path%>
-          <%end%>
-        </div>
-    	  <div id="bottom_subsection"></div>
-    		<%= yield %>
-    		<br />
+      	<div id="leftcol">
+        	<% flash.each do |key, value| %>
+        		<%= content_tag(:div, value, :id => "flash_#{key}") %>
+        	<% end %> 
+        		<%if current_user%>
+        			<div id="top_subsection">Bienvenido,  
+            	<%= link_to "#{current_user.fname.capitalize}", user_path(current_user) -%>!
+            	</div>
+            	<div id="subsection">
+            	<%= link_to "Editar Perfil", edit_user_path(:id => current_user.id)%>
+            	<%= button_to "Cerrar sesión", logout_path %>
+          	<%else%>
+          		<div id="top_subsection"><span>Iniciar sesión</span></div>
+          		<div id="subsection">
+          		<%= render :partial=>'user_sessions/new'-%> 
+          		<%= button_to "Registrar", new_user_path%>
+          	<%end%>
+        	</div>
+    	  	<div id="bottom_subsection"></div>
+    	  	<!-- El div de leftcol se cierra dentro del yield -->
+    			<%= yield %>
+    			<br />
     	</div>				
     </div>
   </body>

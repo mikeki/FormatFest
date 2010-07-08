@@ -1,10 +1,8 @@
-<div id="top_subsection"></div>
+<div id="top_subsection"><span>Buscar Cliente</span></div>
 <div id="subsection">
-<span>Buscar Cliente</span>
 <% form_tag users_path, :method => "GET" do%>
-<p>
+
 <%= text_field_with_auto_complete :search, {}, {:url => formatted_users_path(:js), :method => :get}%>
-</p>
 
 <%= submit_tag "Buscar", :name => nil%>
 </div>
