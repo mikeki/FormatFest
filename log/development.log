@@ -49047,3 +49047,244 @@ Rendered users/_formaBusqueda (2.5ms)
   [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 12) [0m
 Rendered laptops/_form (9.0ms)
 Completed in 82ms (View: 43, DB: 4) | 200 OK [http://localhost/users/12]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-07-08 12:28:29) [GET]
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering pages/home
+Rendered user_sessions/_new (3.7ms)
+Completed in 108ms (View: 20, DB: 1) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-07-08 12:28:37) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"password"=>"pollo", "email"=>"pollo@pollo.com"}, "authenticity_token"=>"AP0EGQKDoD7rijnlc626HlrJBbGgZ3Afq8l5AHukN7M="}
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (10.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.email) = 'pollo@pollo.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+Redirected to http://localhost:3000/users/2
+Completed in 261ms (DB: 12) | 302 Found [http://localhost/user_sessions]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-08 12:28:38) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mLaptop Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:5)
+Rendered users/_formaBusqueda (2.7ms)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mLaptop Load (0.2ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mColaborator Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `colaborators`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;35;1mColaborator Load (0.2ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (11.9ms)
+Completed in 161ms (View: 54, DB: 4) | 200 OK [http://localhost/users/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-07-08 12:29:00) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_forma (8.8ms)
+Completed in 44ms (View: 23, DB: 1) | 200 OK [http://localhost/user/edit/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-08 12:29:03) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:5)
+Rendered users/_formaBusqueda (1.7ms)
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mColaborator Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (6.3ms)
+Completed in 52ms (View: 26, DB: 3) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (0.3ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-07-08 12:35:52) [GET]
+  [4;35;1mUser Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPost Columns (0.0ms)[0m   [0;1mMysql::Error: Table 'format_development.posts' doesn't exist: SHOW FIELDS FROM `posts`[0m
+
+ActiveRecord::StatementInvalid (Mysql::Error: Table 'format_development.posts' doesn't exist: SHOW FIELDS FROM `posts`):
+  app/controllers/posts_controller.rb:11:in `new'
+  app/controllers/posts_controller.rb:11:in `new'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (32.1ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100602010513)
+Migrating to CreateLaptops (20100602024505)
+Migrating to CreateColaborators (20100612223317)
+Migrating to CreatePosts (20100706020819)
+  [4;36;1mSQL (132.4ms)[0m   [0;1mCREATE TABLE `posts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `publishedDate` datetime, `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (54.4ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100706020819')[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mdescribe `colaborators`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `colaborators`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `laptops`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `laptops`[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mdescribe `posts`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `posts`[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2010-07-08 12:36:15) [GET]
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPost Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+Rendering template within layouts/application
+Rendering posts/new
+Rendered posts/_form (48.3ms)
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+Completed in 168ms (View: 69, DB: 2) | 200 OK [http://localhost/posts/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2010-07-08 12:36:36) [POST]
+  Parameters: {"commit"=>"Save changes", "post"=>{"title"=>"Una prueba", "publishedDate(1i)"=>"2010", "publishedDate(2i)"=>"7", "content"=>"nieonvowvnwovnewvnewoe", "publishedDate(3i)"=>"8", "publishedDate(4i)"=>"17", "publishedDate(5i)"=>"36"}, "authenticity_token"=>"AP0EGQKDoD7rijnlc626HlrJBbGgZ3Afq8l5AHukN7M="}
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mPost Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO `posts` (`created_at`, `title`, `updated_at`, `publishedDate`, `content`) VALUES('2010-07-08 17:36:36', 'Una prueba', '2010-07-08 17:36:36', '2010-07-08 17:36:00', 'nieonvowvnwovnewvnewoe')[0m
+  [4;36;1mSQL (101.7ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed in 127ms (DB: 103) | 302 Found [http://localhost/posts]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2010-07-08 12:36:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPost Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.3ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering posts/show
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+Completed in 38ms (View: 17, DB: 2) | 200 OK [http://localhost/posts/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-07-08 12:36:42) [GET]
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPost Load (0.3ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mPost Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `posts`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+Completed in 109ms (View: 89, DB: 2) | 200 OK [http://localhost/posts/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#destroy (for 127.0.0.1 at 2010-07-08 12:37:15) [DELETE]
+  Parameters: {"authenticity_token"=>"AP0EGQKDoD7rijnlc626HlrJBbGgZ3Afq8l5AHukN7M=", "id"=>"1"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPost Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `posts`[0m
+  [4;35;1mPost Load (0.1ms)[0m   [0mSELECT * FROM `posts` WHERE (`posts`.`id` = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPost Destroy (0.2ms)[0m   [0mDELETE FROM `posts` WHERE `id` = 1[0m
+  [4;36;1mSQL (91.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/posts
+Completed in 115ms (DB: 93) | 302 Found [http://localhost/posts/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2010-07-08 12:37:15) [GET]
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mPost Load (0.2ms)[0m   [0;1mSELECT * FROM `posts` [0m
+Rendering template within layouts/application
+Rendering posts/index
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+Completed in 29ms (View: 11, DB: 1) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-07-08 12:39:48) [GET]
+  [4;36;1mUser Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering template within layouts/application
+Rendering pages/home
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+Completed in 26ms (View: 11, DB: 1) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-08 12:39:50) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mLaptop Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:5)
+Rendered users/_formaBusqueda (1.7ms)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mColaborator Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `colaborators`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (8.1ms)
+Completed in 124ms (View: 33, DB: 3) | 200 OK [http://localhost/users/2]

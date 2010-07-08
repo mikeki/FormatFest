@@ -2,7 +2,7 @@
   <div id="body_section">
   	<div id="contenido">
     	<%= f.label :marca %><br />
-    	<%= f.text_field :marca %><br />
+    	<%= f.select :marca, Laptop::MARCA, :prompt => "Selecciona la marca" %><br />
     	<br />
     	<%= f.label :modelo %><br />
     	<%= f.text_field :modelo %><br />
