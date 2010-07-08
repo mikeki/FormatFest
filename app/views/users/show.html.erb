@@ -9,9 +9,8 @@
            });
            
       });
-     
    </script>
-    
+     
 	<%if current_user.admin? or current_user.colaborator?%>
 		<%= render :partial => 'formaBusqueda'%>
 	<%end%>

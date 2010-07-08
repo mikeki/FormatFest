@@ -10,6 +10,18 @@
 
   </head>
   <body>
+  
+  <script>
+   var $j = jQuery.noConflict();
+                  $j(document).ready(function() {
+                    setTimeout(hideFlashMessages, 2000);
+                  });
+
+                  function hideFlashMessages() {
+                    $j('#flash_notice, #flash_error').fadeOut(2000);
+                  }
+   </script>
+  
     <div id="majorContent">
     	<div id="header">
       	<%if current_user %>
