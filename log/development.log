@@ -49701,3 +49701,372 @@ Rendering template within layouts/application
 Rendering pages/home
 Rendered user_sessions/_new (3.2ms)
 Completed in 28ms (View: 14, DB: 1) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-07-08 12:56:36) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"password"=>"pollo", "email"=>"pollo@pollo.com"}, "authenticity_token"=>"AP0EGQKDoD7rijnlc626HlrJBbGgZ3Afq8l5AHukN7M="}
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (LOWER(`users`.email) = 'pollo@pollo.com') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+Redirected to http://localhost:3000/users/2
+Completed in 24ms (DB: 1) | 302 Found [http://localhost/user_sessions]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-08 12:56:36) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:5)
+Rendered users/_formaBusqueda (1.9ms)
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mColaborator Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (6.6ms)
+Completed in 140ms (View: 39, DB: 3) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-07-08 13:11:18) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_forma (7.5ms)
+Completed in 36ms (View: 15, DB: 1) | 200 OK [http://localhost/user/edit/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-07-08 13:14:24) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_forma (7.0ms)
+Completed in 40ms (View: 17, DB: 1) | 200 OK [http://localhost/user/edit/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-07-08 13:15:13) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_forma (10.3ms)
+Completed in 76ms (View: 17, DB: 1) | 200 OK [http://localhost/user/edit/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#edit (for 127.0.0.1 at 2010-07-08 13:15:14) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/edit
+Rendered users/_forma (9.2ms)
+Completed in 152ms (View: 22, DB: 1) | 200 OK [http://localhost/user/edit/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-08 13:16:56) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:5)
+Rendered users/_formaBusqueda (1.7ms)
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mColaborator Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (7.3ms)
+Completed in 132ms (View: 34, DB: 3) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-08 13:20:51) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:5)
+Rendered users/_formaBusqueda (1.6ms)
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mColaborator Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (7.9ms)
+Completed in 56ms (View: 30, DB: 3) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing LaptopsController#show (for 127.0.0.1 at 2010-07-08 13:20:54) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.`id` = 2) [0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering laptops/show
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+Completed in 116ms (View: 18, DB: 2) | 200 OK [http://localhost/laptops/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-08 13:21:49) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (0.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:5)
+Rendered users/_formaBusqueda (1.6ms)
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mColaborator Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (6.2ms)
+Completed in 53ms (View: 25, DB: 3) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-08 13:23:09) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:5)
+Rendered users/_formaBusqueda (1.7ms)
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (6.2ms)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mColaborator Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `colaborators`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+Completed in 142ms (View: 38, DB: 3) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-08 13:23:46) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:5)
+Rendered users/_formaBusqueda (1.5ms)
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (6.5ms)
+Completed in 52ms (View: 26, DB: 2) | 200 OK [http://localhost/users/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-08 13:23:51) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mLaptop Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:5)
+Rendered users/_formaBusqueda (2.6ms)
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (37.9ms)
+Completed in 195ms (View: 165, DB: 2) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-08 13:24:19) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:5)
+Rendered users/_formaBusqueda (1.6ms)
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (7.0ms)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mColaborator Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `colaborators`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+Completed in 62ms (View: 34, DB: 3) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-08 13:24:59) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:5)
+Rendered users/_formaBusqueda (2.0ms)
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (6.1ms)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mColaborator Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `colaborators`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+Completed in 62ms (View: 34, DB: 3) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-08 13:25:17) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.6ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:5)
+Rendered users/_formaBusqueda (1.6ms)
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (6.8ms)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mColaborator Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `colaborators`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+Completed in 62ms (View: 33, DB: 3) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-08 13:25:32) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mLaptop Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:5)
+Rendered users/_formaBusqueda (1.6ms)
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (6.4ms)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mLaptop Load (0.1ms)[0m   [0mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mColaborator Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `colaborators`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+Completed in 54ms (View: 27, DB: 3) | 200 OK [http://localhost/users/2]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-08 13:25:36) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Columns (10.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;35;1mLaptop Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `laptops`[0m
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:5)
+Rendered users/_formaBusqueda (1.9ms)
+  [4;35;1mColaborator Load (0.1ms)[0m   [0mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (7.7ms)
+Completed in 114ms (View: 31, DB: 13) | 200 OK [http://localhost/users/2]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-07-08 13:26:05) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = '2') LIMIT 1[0m
+  [4;36;1mLaptop Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `laptops`[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+DEPRECATION WARNING: formatted_users_path() has been deprecated. Please pass format to the standard users_path method instead. (called from /home/kurenn/FormatFest/app/views/users/_formaBusqueda.html.erb:5)
+Rendered users/_formaBusqueda (1.6ms)
+  [4;36;1mColaborator Load (0.1ms)[0m   [0;1mSELECT * FROM `colaborators` WHERE (`colaborators`.user_id = 2) [0m
+Rendered laptops/_form (7.0ms)
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;36;1mLaptop Load (0.1ms)[0m   [0;1mSELECT * FROM `laptops` WHERE (`laptops`.user_id = 2) [0m
+  [4;35;1mColaborator Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `colaborators`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 2) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `colaborators` WHERE (`colaborators`.laptop_id = 3) [0m
+Completed in 59ms (View: 32, DB: 3) | 200 OK [http://localhost/users/2]

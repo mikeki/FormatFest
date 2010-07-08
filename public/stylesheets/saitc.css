@@ -103,6 +103,17 @@ div#majorContent div#listadoUsuarios{
     
 }
 
+div#majorContent div#editarUsuario{
+   margin:10px 120px;
+   width:300px;
+}
+
+div#majorContent div#showLaptop{
+    margin:10px 120px;
+   width:300px;
+    
+}
+
 div#majorContent div#nuevaLaptop input[type=text]{
 border:1px solid #ccc;
 width:250px;
