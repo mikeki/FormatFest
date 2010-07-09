@@ -1,5 +1,8 @@
 <div id="maincol">
 
+<div id="top_section"><%=@title%></div>
+<div id="body_section">
+<div id="contenido">
   <b>Marca:</b>
   <%=h @laptop.marca %>
 <br />
@@ -49,4 +52,7 @@
 
 <%= link_to 'Edit', edit_laptop_path(@laptop) %> |
 <%= link_to 'Back', laptops_path %>
+</div>
+</div>
+<div id="bottom_section"></div>
 </div>

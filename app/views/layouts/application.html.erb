@@ -36,15 +36,17 @@
         	<% end %> 
         		<%if current_user%>
         			<div id="top_subsection">
-        				<span>
+        				<span id="logged">
         					Bienvenido,  
             			<%= link_to "#{current_user.fname.capitalize}", user_path(current_user) -%>!
             		</span>
             	</div>
             	<div id="subsection">
-            	<%= link_to "Editar Perfil", edit_user_path(:id => current_user.id)%>
-            	<%= button_to "Cerrar sesión", logout_path %>
-            	
+            			<%= link_to image_tag ("bhome.png"), root_path%>
+            			<%= link_to image_tag ("bedit_profile.png"), edit_user_path(:id => current_user.id)%>
+            			<%= link_to image_tag ("bnew_laptop.png"), new_laptop_path%>
+            			<%= link_to image_tag ("bcontact.png"), "#"%>
+            			<%= link_to image_tag ("blogout.png"), logout_path%>
           	<%else%>
           		<div id="top_subsection"><span>Iniciar sesión</span></div>
           		<div id="subsection">

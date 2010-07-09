@@ -7,6 +7,7 @@ class LaptopsController < ApplicationController
   # GET /laptops.xml
   def index
     @laptops = Laptop.find(:all)
+    @title = "Listando Laptops"
   end
 
   # GET /laptops/1
@@ -14,8 +15,8 @@ class LaptopsController < ApplicationController
   def show
     
   @laptop = Laptop.find(params[:id])
-  redirect_to current_user unless current_user?(@laptop.user) or current_user.admin? or current_user.colaborator?
   @title = "Laptop de #{@laptop.user.fname.capitalize} #{@laptop.user.lname.capitalize}"
+  redirect_to current_user unless current_user?(@laptop.user) or current_user.admin? or current_user.colaborator?
 
   end
 

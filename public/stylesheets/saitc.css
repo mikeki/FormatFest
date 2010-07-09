@@ -38,7 +38,7 @@ div#majorContent div#top_subsection{
 	width: 261px;
 	height: 33px;
 	margin: 10px 0px 0px 117px;
-	padding: 10px 0px 0px 8px;
+	padding: 8px 0px 0px 8px;
 }
 div#majorContent div#subsection{
 	background: url(../images/body_subsection.png) repeat-y;
@@ -78,6 +78,10 @@ div#majorContent div#bottom_section{
 	margin: 0px 0px 0px 22px;
 }
 
+div#majorContent div#top_subsection span#logged{
+	font-size: 20px;
+}
+
 div#majorContent div#top_section #titulo{
 	font-size: 20px;
 	text-decoration: underline;
@@ -87,7 +91,7 @@ div#majorContent div#top_section #fechaNoticia{
 	text-decoration: none;
 	font-size: 9px;
 }
-
+ 
 div#majorContent div#body_section #contenido{
 	text-align: justify;
 	margin: -4px 0px 0px 0px;
