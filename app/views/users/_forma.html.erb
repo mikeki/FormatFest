@@ -1,45 +1,48 @@
-<%= f.error_messages %>
-<%= f.label :fname, "Nombre (s)"%><br/>
-<%= f.text_field :fname%><br/>
+<div id="top_section"><span><%= @title %></span></div>
+	<div id="body_section">
+  	<div id="contenido">
+			<%= f.error_messages %>
+			<%= f.label :fname, "Nombre (s)"%><br/>
+			<%= f.text_field :fname%><br/>
 
-<%= f.label :lname, "Apellidos"%><br/>
-<%= f.text_field :lname%><br/>
+			<%= f.label :lname, "Apellidos"%><br/>
+			<%= f.text_field :lname%><br/>
 
-<%= f.label :password %><br/>
-<%= f.password_field :password %><br/>
+			<%= f.label :password %><br/>
+			<%= f.password_field :password %><br/>
+	
+			<%= f.label :password_confirmation %><br/>
+			<%= f.password_field :password_confirmation %><br/>
+		
+			<%= f.label :career, "Carrera"%><br />
+			<%= f.select :career,
+		             User::CARRERA,
+		            :prompt => "Selecciona una carrera"%><br />
 
-<%= f.label :password_confirmation %><br/>
-<%= f.password_field :password_confirmation %><br/>
-
-<%= f.label :career, "Carrera"%><br />
-<%= f.select :career,
-             User::CARRERA,
-            :prompt => "Selecciona una carrera"%><br />
-
-<!--<%= f.label :career, "Carrera"%><br/>
-<%= f.text_field :career%><br/>-->
-
-<%= f.label :email, "Correo Electronico"%><br/>
-<%= f.text_field :email%><br/>
-
-<%= f.label :schoolid, "Matricula"%><br/>
-<%= f.text_field :schoolid %><br/>
-
-<%= f.label :phone, "Telefono"%><br/>
-<%= f.text_field :phone %><br/>
-
-<%= f.label :cel, "Celular"%><br/>
-<%= f.text_field :cel %><br/>
-
-<%= f.label :nextel, "Nextel"%><br/>
-<%= f.text_field :nextel %><br/>
-
-<%= f.label :admin, "Administrador?"%><br/>
-<%= f.check_box :admin %><br/>
-
-<%= f.label :colaborator, "Colaborador?"%><br/>
-<%= f.check_box :colaborator %><br/>
-
-<%= f.label :client, "Cliente?"%><br/>
-<%= f.check_box :client, :checked=> "checked" %><br/>
-
+			<!--<%= f.label :career, "Carrera"%><br/>
+			<%= f.text_field :career%><br/>-->
+		
+			<%= f.label :email, "Correo Electronico"%><br/>
+			<%= f.text_field :email%><br/>
+		
+			<%= f.label :schoolid, "Matricula"%><br/>
+			<%= f.text_field :schoolid %><br/>
+			
+			<%= f.label :phone, "Telefono"%><br/>
+			<%= f.text_field :phone %><br/>
+	
+			<%= f.label :cel, "Celular"%><br/>
+			<%= f.text_field :cel %><br/>
+	
+			<%= f.label :nextel, "Nextel"%><br/>
+			<%= f.text_field :nextel %><br/>
+		
+			<%= f.label :admin, "Administrador?"%><br/>
+			<%= f.check_box :admin %><br/>
+	
+			<%= f.label :colaborator, "Colaborador?"%><br/>
+			<%= f.check_box :colaborator %><br/>
+			
+			<%= f.label :client, "Cliente?"%><br/>
+			<%= f.check_box :client, :checked=> "checked" %><br/>
+					

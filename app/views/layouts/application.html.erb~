@@ -10,19 +10,24 @@
 
   </head>
   <body>
+  
+  <script>
+   var $j = jQuery.noConflict();
+                  $j(document).ready(function() {
+                    setTimeout(hideFlashMessages, 2000);
+                  });
+
+                  function hideFlashMessages() {
+                    $j('#flash_notice, #flash_error').fadeOut(2000);
+                  }
+   </script>
+  
     <div id="majorContent">
     	<div id="header">
-      	<%if current_user %>
-      		<%= link_to image_tag ("logo_FF.png" , :id=>"logo"), current_user %>
-      		<%= link_to image_tag ("boton_SAITC_un.png", :id=>"botonHeader"), "#"%>
-        	<%= link_to image_tag ("boton_FF_sel.png", :id=>"botonHeader"), current_user %>
-        	<%= link_to image_tag ("boton_SW_un.png", :id=>"botonHeader"), "#" %>
-      	<% else %>
         	<%= link_to image_tag ("logo_FF.png" , :id=>"logo"), root_path %>
         	<%= link_to image_tag ("boton_SAITC_un.png", :id=>"botonHeader"), "#"%>
         	<%= link_to image_tag ("boton_FF_sel.png", :id=>"botonHeader"), root_path %>
         	<%= link_to image_tag ("boton_SW_un.png", :id=>"botonHeader"), "#" %>
-      	<% end %>
       </div>
       <div id="wrapper" class="clearfix" >
       	<div id="leftcol">
@@ -30,12 +35,16 @@
         		<%= content_tag(:div, value, :id => "flash_#{key}") %>
         	<% end %> 
         		<%if current_user%>
-        			<div id="top_subsection">Bienvenido,  
-            	<%= link_to "#{current_user.fname.capitalize}", user_path(current_user) -%>!
+        			<div id="top_subsection">
+        				<span>
+        					Bienvenido,  
+            			<%= link_to "#{current_user.fname.capitalize}", user_path(current_user) -%>!
+            		</span>
             	</div>
             	<div id="subsection">
             	<%= link_to "Editar Perfil", edit_user_path(:id => current_user.id)%>
             	<%= button_to "Cerrar sesión", logout_path %>
+            	
           	<%else%>
           		<div id="top_subsection"><span>Iniciar sesión</span></div>
           		<div id="subsection">
@@ -44,10 +53,49 @@
           	<%end%>
         	</div>
     	  	<div id="bottom_subsection"></div>
+    	  <%if current_user%>
+    	  	<%if current_user.admin? or current_user.colaborator?%>
+						<%= render :partial => 'users/formaBusqueda'%>
+					<%end%>
+    	  	<div id="top_subsection">
+						<span>Tiene <%= pluralize(current_user.laptops.count, "laptop") %> en reparación:</span>
+					</div>
+					<div id="subsection">
+						<% current_user.laptops.each do |l|%>
+							<div id="wrapper" class="clearfix" >
+								<div id="leftcolLap">
+									<%if l.colaborators.count > 2%>
+										<%= link_to image_tag ("boton_lap_fin.png"), :controller => "laptops", :action => "show", :id => l.id -%>
+									<%else%>
+										<%= link_to image_tag ("boton_lap_reg.png"), :controller => "laptops", :action => "show", :id => l.id -%>
+									<%end%>
+								</div>
+								<div id="maincolLap">
+									Laptop: <%= l.marca%>
+									<br />
+									Color: <%= l.color%>
+									<br />
+									<%if l.colaborators.count < 3%>
+										No finalizada.
+									<%elsif l.colaborators.count == 3%>
+										Finalizada.
+									<%else%>
+										Entregada.
+									<%end%>
+								</div>
+							</div> 
+						<% end %>
+						<%= button_to "Registrar nueva laptop", new_laptop_path%>
+						<br />
+					</div>
+					<div id="bottom_subsection"></div>
+					<% end %>
     	  	<!-- El div de leftcol se cierra dentro del yield -->
     			<%= yield %>
+    			
     			<br />
     	</div>				
+    	
     </div>
   </body>
 </html>

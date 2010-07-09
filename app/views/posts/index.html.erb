@@ -1,6 +1,3 @@
-<% title "Posts" %>
-<!-- se cierra el div que queda abierto de left col-->
-</div>
 <div id="maincol">
   <% for post in @posts %>
   		<div id="top_section">
@@ -11,9 +8,14 @@
       		<p id="contenido">
       			<%= post.content %>
       			<br />
-      			<%= link_to "Show", post %> -
-      			<%= link_to "Edit", edit_post_path(post) %> -
-      			<%= link_to "Destroy", post, :confirm => 'Are you sure?', :method => :delete %>
+      			<%if current_user%>
+    	  			<%if current_user.admin? or current_user.colaborator?%>
+      					<%= link_to "Edit", edit_post_path(post) %>
+      					<%if current_user.admin?%>
+      						- <%= link_to "Destroy", post, :confirm => '¿Seguro que deséas eliminar esta noticia?', :method => :delete %>
+      					<%end%>
+      				<%end%>
+      			<%end%>
       		</p>
       </div>
       <div id="bottom_section"></div>

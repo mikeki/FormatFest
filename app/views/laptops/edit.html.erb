@@ -1,26 +1,30 @@
-<h1>Editing laptop</h1>
+<div id="maincol">
+	<% form_for(@laptop) do |f| %>
+		<% fields_for(@colaborator) do |c|%>
+	  <%= f.error_messages %>
+	
+	  <%= render :partial => 'form', :locals => {:f => f}%>
+	  
+	  <% if current_user.colaborator? or current_user.admin?%>
+	  	<p>
+	    <%= c.label :status %><br />
+	    <%= c.text_field :status %>
+	    <%= c.text_field :laptop_id, :value => @laptop.id%>
+	    <%= c.text_field :user_id, :value => current_user.id%>
+	  	</p>
+	  <%end%>
+	  <p>
+	    <%= f.submit 'Update' %>
+	  </p>
+	  <%end%>
+	<% end %>
 
-<% form_for(@laptop) do |f| %>
-	<% fields_for(@colaborator) do |c|%>
-  <%= f.error_messages %>
 
-  <%= render :partial => 'form', :locals => {:f => f}%>
-  
-  <% if current_user.colaborator? or current_user.admin?%>
-  	<p>
-    <%= c.label :status %><br />
-    <%= c.text_field :status %>
-    <%= c.text_field :laptop_id, :value => @laptop.id%>
-    <%= c.text_field :user_id, :value => current_user.id%>
-  	</p>
-  <%end%>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-  <%end%>
-<% end %>
-
-
-<%= link_to 'Show', @laptop %> |
-<%= link_to 'Back', laptops_path %>
-
+	<%= link_to 'Show', @laptop %> |
+	<%= link_to 'Back', laptops_path %>
+	</div>
+	<!-- Este div cierra al div que abre el partial -->
+	</div>
+	<!-- Este div pone la parte de abajo del subsection -->
+	<div id ="bottom_section"></div>
+</div>

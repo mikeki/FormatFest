@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
   
   before_filter :require_user, :except => [:new, :create]
-  before_filter :not_admins, :only => [:index, :destroy,:show_admin, :busqueda]
+  before_filter :not_admins, :only => [:destroy]
+  before_filter :not_privileges, :only => [:index, :show_admin, :busqueda]
   
   def index
   @title = "Listado de usuarios"
@@ -32,6 +33,7 @@ class UsersController < ApplicationController
   	else
   		@user = current_user
   	end
+  	@title = "Editando a #{@user.fname} #{@user.lname}"
   end
 
   def update

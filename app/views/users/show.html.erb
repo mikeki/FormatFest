@@ -1,4 +1,4 @@
-	<script type="text/javascript">
+	<!--<script type="text/javascript">
       $("document").ready(function(){
       $("#nuevaLaptop").css("display", "none");
       
@@ -9,29 +9,47 @@
            });
            
       });
-   </script>
+   </script>-->
      
-	<%if current_user.admin? or current_user.colaborator?%>
-		<%= render :partial => 'formaBusqueda'%>
-	<%end%>
+
 	
-		
+<div id="maincol">
+	<div id="top_section">
+		<%if current_user.admin?%>	
+			<span>Administrador</span>
+		<%elsif current_user.colaborator?%>
+			<span>Colaborador</span>
+		<%else%>
+			<span>Cliente</span>
+		<%end%>
+	</div>
+	<div id="body_section">
+  	<div id="contenido">
+  		<strong>Nombre: </strong>
+  		<%= "#{current_user.fname} #{current_user.lname}"%>
+  		<br />
+  		<strong>Carrera: </strong>
+  		<%= current_user.career%>
+  		<br />
+  		<strong>Matricula: </strong>
+  		<%= current_user.schoolid%>
+  		<br />
+  		<strong>E-Mail: </strong>
+  		<%= current_user.email%>
+  		<br />
+  		<strong>Teléfono: </strong>
+  		<%= current_user.phone%>
+  		<br />
+  		<strong>Celular: </strong>
+  		<%= current_user.cel%>
+  		<br />
+  		<strong>Nextel: </strong>
+  		<%= current_user.nextel%>
+  		<br />
+  	</div>
+  </div>
+	<div id ="bottom_section"></div>
 	<% @user.colaborators.each do |c|%>
 		<%= link_to "Laptop #{c.status}", :controller => "laptops", :action => "show", :id => c.laptop_id%>
 	<%end%>
-	<!-- aqui termina la columna izquierda -->
-</div>
-<div id="maincol">
-	<div id="nuevaLaptop">
-		<% form_for(@laptop) do |f| %>
-			<%= f.error_messages %>
-			<%= render :partial => 'laptops/form', :locals => {:f => f, :tituloForma => "Registra una Nueva Laptop"}%>
-			<%= f.submit 'Registrar laptop' %>
-			</div>
-			<!-- Este div cierra al div que abre el partial -->
-			</div>
-			<!-- Este div pone la parte de abajo del subsection -->
-			<div id ="bottom_section"></div>
-		<% end %>
-	</div>
 </div>

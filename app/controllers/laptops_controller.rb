@@ -1,7 +1,7 @@
 class LaptopsController < ApplicationController
 
 	before_filter :require_user
-	before_filter :not_admins , :only => :index
+	before_filter :not_admins , :only => [:index, :destroy]
 
   # GET /laptops
   # GET /laptops.xml
@@ -20,11 +20,16 @@ class LaptopsController < ApplicationController
   end
 
   # GET /laptops/new
+  def new
+  	@title = "Registrar una Nueva Laptop"
+  	@laptop = Laptop.new
+  end
 
 
   # GET /laptops/1/edit
   def edit
     @laptop = Laptop.find(params[:id])
+    @title = "Editando Laptop: #{@laptop.marca} #{@laptop.color}, Folio: #{@laptop.id}"
     @colaborator = Colaborator.new
   end
 

@@ -1,4 +1,12 @@
-<h1>Registro</h1>
-<% form_for(@user) do |f| %>
-  <%= render :partial => 'forma', :locals => {:f => f}%>
+<>div id="maincol">
+	<% form_for(@user) do |f| %>
+  	<%= render :partial => 'forma', :locals => {:f => f}%>
+  	<%= f.submit 'Registrar'%>
+  	<!-- cierra el div de "contenido"-->
+  	</div>
+  	<!-- cierra el div de "body_section"-->
+  	</div>
+  	<!-- pone el fin de la section -->
+  	<div id ="bottom_section"></div>
   <% end %>
+</div>  

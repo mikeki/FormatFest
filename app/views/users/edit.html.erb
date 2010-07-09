@@ -1,8 +1,12 @@
-<div id="editarUsuario">
-<h1>Editando a <%=@user.fname%></h1>
+<div id="maincol">
 <% form_for(@user) do |f| %>
   <%= render :partial => 'forma', :locals => {:f => f}%>
   
   <%= f.submit 'Actualizar'%>
+  <!-- se cierra el div de "contenido"-->
+  	</div>
+  <!-- se cierra el div de "bodySection"-->
+  	</div>
+  <div id="bottom_section"></div>
   <% end %>
 </div>

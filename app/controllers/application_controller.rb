@@ -45,9 +45,14 @@ class ApplicationController < ActionController::Base
   
   def not_admins
   	if !current_user.admin?
-  		redirect_to current_user
+  		redirect_to root_path
   	end
   end
   
+  def not_privileges
+  	if !(current_user.admin? or current_user.colaborator?)
+  		redirect_to root_path
+  	end
+  end
   
 end

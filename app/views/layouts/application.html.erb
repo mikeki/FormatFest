@@ -24,17 +24,10 @@
   
     <div id="majorContent">
     	<div id="header">
-      	<%if current_user %>
-      		<%= link_to image_tag ("logo_FF.png" , :id=>"logo"), current_user %>
-      		<%= link_to image_tag ("boton_SAITC_un.png", :id=>"botonHeader"), "#"%>
-        	<%= link_to image_tag ("boton_FF_sel.png", :id=>"botonHeader"), current_user %>
-        	<%= link_to image_tag ("boton_SW_un.png", :id=>"botonHeader"), "#" %>
-      	<% else %>
         	<%= link_to image_tag ("logo_FF.png" , :id=>"logo"), root_path %>
         	<%= link_to image_tag ("boton_SAITC_un.png", :id=>"botonHeader"), "#"%>
         	<%= link_to image_tag ("boton_FF_sel.png", :id=>"botonHeader"), root_path %>
         	<%= link_to image_tag ("boton_SW_un.png", :id=>"botonHeader"), "#" %>
-      	<% end %>
       </div>
       <div id="wrapper" class="clearfix" >
       	<div id="leftcol">
@@ -60,40 +53,44 @@
           	<%end%>
         	</div>
     	  	<div id="bottom_subsection"></div>
+    	  <%if current_user%>
+    	  	<%if current_user.admin? or current_user.colaborator?%>
+						<%= render :partial => 'users/formaBusqueda'%>
+					<%end%>
     	  	<div id="top_subsection">
-			<span>Tiene <%= pluralize(@user.laptops.count, "laptop") %> en reparación:</span>
-		</div>
-		<div id="subsection">
-			<% @user.laptops.each do |l|%>
-				<div id="wrapper" class="clearfix" >
-					<div id="leftcolLap">
-						<%if l.colaborators.count > 2%>
-							<%= link_to image_tag ("boton_lap_fin.png"), :controller => "laptops", :action => "show", :id => l.id -%>
-						<%else%>
-							<%= link_to image_tag ("boton_lap_reg.png"), :controller => "laptops", :action => "show", :id => l.id -%>
-						<%end%>
+						<span>Tiene <%= pluralize(current_user.laptops.count, "laptop") %> en reparación:</span>
 					</div>
-					<div id="maincolLap">
+					<div id="subsection">
+						<% current_user.laptops.each do |l|%>
+							<div id="wrapper" class="clearfix" >
+								<div id="leftcolLap">
+									<%if l.colaborators.count > 2%>
+										<%= link_to image_tag ("boton_lap_fin.png"), :controller => "laptops", :action => "show", :id => l.id -%>
+									<%else%>
+										<%= link_to image_tag ("boton_lap_reg.png"), :controller => "laptops", :action => "show", :id => l.id -%>
+									<%end%>
+								</div>
+								<div id="maincolLap">
+									Laptop: <%= l.marca%>
+									<br />
+									Color: <%= l.color%>
+									<br />
+									<%if l.colaborators.count < 3%>
+										No finalizada.
+									<%elsif l.colaborators.count == 3%>
+										Finalizada.
+									<%else%>
+										Entregada.
+									<%end%>
+								</div>
+							</div> 
+						<% end %>
+						<%= button_to "Registrar nueva laptop", new_laptop_path%>
 						<br />
-						Laptop: <%= l.marca%>
-						<br />
-						Color: <%= l.color%>
-						<br />
-						<%if l.colaborators.count < 3%>
-							No finalizada.
-						<%elsif l.colaborators.count == 3%>
-							Finalizada.
-						<%else%>
-							Entregada.
-						<%end%>
 					</div>
-				</div> 
-			<% end %>
-			<button id="apareceForma" class="botonForma" >Registrar nueva laptop</button>
-			<br />
-		</div>
-	<div id="bottom_subsection"></div>
-    	  	<!-- El div de leftcol se cierra dentro del yield -->
+					<div id="bottom_subsection"></div>
+					<% end %>
+    	  </div>
     			<%= yield %>
     			
     			<br />

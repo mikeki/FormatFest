@@ -1,6 +1,9 @@
 <%= f.error_messages %>
-<%= f.label :name, "Nombre"%><br/>
-<%= f.text_field :name%><br/>
+<%= f.label :fname, "Nombre (s)"%><br/>
+<%= f.text_field :fname%><br/>
+
+<%= f.label :lname, "Apellidos"%><br/>
+<%= f.text_field :lname%><br/>
 
 <%= f.label :password %><br/>
 <%= f.password_field :password %><br/>
@@ -8,8 +11,13 @@
 <%= f.label :password_confirmation %><br/>
 <%= f.password_field :password_confirmation %><br/>
 
-<%= f.label :career, "Carrera"%><br/>
-<%= f.text_field :career%><br/>
+<%= f.label :career, "Carrera"%><br />
+<%= f.select :career,
+             User::CARRERA,
+            :prompt => "Selecciona una carrera"%><br />
+
+<!--<%= f.label :career, "Carrera"%><br/>
+<%= f.text_field :career%><br/>-->
 
 <%= f.label :email, "Correo Electronico"%><br/>
 <%= f.text_field :email%><br/>
@@ -33,5 +41,5 @@
 <%= f.check_box :colaborator %><br/>
 
 <%= f.label :client, "Cliente?"%><br/>
-<%= f.check_box :client %><br/>
+<%= f.check_box :client, :checked=> "checked" %><br/>
 

@@ -16,7 +16,7 @@ ActionController::Routing::Routes.draw do |map|
 	map.contact '/contact', :controller => 'pages', :action => 'contact'
 	map.developers '/saitc', :controller => 'pages', :action => 'developers'
 	map.edit_user '/user/edit/:id', :controller => 'users', :action => 'edit'
-	map.root :controller => 'pages', :action => 'home'
+	map.root :controller => 'posts', :action => 'index'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -1,78 +1,50 @@
-<div id="showLaptop">
-<p>
+<div id="maincol">
+
   <b>Marca:</b>
   <%=h @laptop.marca %>
-</p>
-
-<p>
+<br />
   <b>Modelo:</b>
   <%=h @laptop.modelo %>
-</p>
-
-<p>
+<br />
   <b>Color:</b>
   <%=h @laptop.color %>
-</p>
-
-<p>
+<br />
   <b>Defecto:</b>
   <%=h @laptop.defecto %>
-</p>
-
-<p>
+<br />
   <b>Comentarios:</b>
   <%=h @laptop.comentarios %>
-</p>
-
-<p>
+<br />
   <b>Usuario:</b>
   <%=h @laptop.usuario %>
-</p>
-
-
-<p>
+<br />
   <b>Contra:</b>
   <%=h @laptop.contra %>
-</p>
-
-<p>
+<br />
   <b>Estado:</b>
   <%=h @laptop.estado %>
-</p>
-
-<p>
+<br />
   <b>Paquete:</b>
   <%=h @laptop.paquete %>
-</p>
-
-<p>
+<br />
   <b>Respaldo:</b>
   <%=h @laptop.respaldo %>
-</p>
-
-<p>
+<br />
   <b>Cliente:</b>
   <%=h "#{@laptop.user.fname} #{@laptop.user.lname}" %>
-</p>
-
-<p>
+<br />
   <b>Total:</b>
   <%=h @laptop.total %>
-</p>
-
+<br />
 
 <% @laptop.colaborators.each do |c|%>
-<p>
   <b>Colaborador:</b>
   <%=h "#{c.user.fname} #{c.user.lname}" %>
-</p>
+<br />
 
-
-
-<p>
   <b>Estado:</b>
   <%=h c.status %>
-</p>
+<br />
 <%end%>
 
 <%= link_to 'Edit', edit_laptop_path(@laptop) %> |

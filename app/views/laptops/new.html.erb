@@ -1,17 +1,15 @@
-<h1>New laptop</h1>
-
-<% form_for(@laptop) do |f| %>
-  <%= f.error_messages %>
-
-	<%= render :partial => 'form', :locals => {:f => f}%>
-	<p>
-    <%= f.label :user_id,'Cliente' %><br />
-    <%= f.text_field :user_id , :value => current_user.id%>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
-
-<%= link_to 'Back', laptops_path %>
+<div id="maincol">
+	<div id="nuevaLaptop">
+		<% form_for(@laptop) do |f| %>
+			<%= f.error_messages %>
+			<%= render :partial => 'form', :locals => {:f => f}%>
+			<%= f.submit 'Registrar laptop' %>
+			</div>
+			<!-- Este div cierra al div que abre el partial -->
+			</div>
+			<!-- Este div pone la parte de abajo del subsection -->
+			<div id ="bottom_section"></div>
+		<% end %>
+	</div>
+</div>
 

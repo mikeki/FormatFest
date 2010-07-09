@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Bienvenido #{current_user.fname.capitalize}"
-      redirect_to current_user
+      redirect_to root_path
     else
       flash[:error] = "Usuario y/o password incorrectos."
       redirect_to root_path
