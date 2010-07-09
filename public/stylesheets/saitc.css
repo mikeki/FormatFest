@@ -128,7 +128,7 @@ height:25px;
 
 #flash_notice, #flash_error {
   padding: 5px 8px;
-  margin: 5px 0px 0px 100px;
+  margin: 10px 0px 0px 117px;
   width:240px;
 }
 
@@ -161,11 +161,16 @@ height:25px;
  position:relative; 
  }
  
+ 
 #maincolLap{  
  float: right; 
  display:inline; 
  position: relative; 
  width:50%; 
+ }
+ 
+ #botonLap{
+ 	margin: 0px 0px 0px 8px;
  }
  
  /* *** Float containers fix:
