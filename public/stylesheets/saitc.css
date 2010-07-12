@@ -9,6 +9,7 @@ div#majorContent {
 	width: 1095px;
 	margin: -10px auto -10px auto;
 	padding: 20px 0px;
+	border: none;
 	/*-webkit-box-shadow: 7px 5px 10px #333;
 	-moz-box-shadow: 5px 5px 5px #333;
 	box-shadow: 5px 5px 5px #333;*/
@@ -46,6 +47,7 @@ div#majorContent div#subsection{
 	min-height: 100%;
 	margin: -10px 0px 0px 117px;
 	padding: 0px 0px 0px 8px;
+	border: none;
 }
 div#majorContent div#bottom_subsection{
 	background: url(../images/bottom_subsection.png) no-repeat;
@@ -60,6 +62,7 @@ div#majorContent div#top_section{
 	height: 37px;
 	margin: 10px 0px 0px 22px;
 	padding: 10px 0px 0px 10px;
+	border: none;
 }
 
 div#majorContent div#body_section{
@@ -96,6 +99,7 @@ div#majorContent div#body_section #contenido{
 	text-align: justify;
 	margin: -4px 0px 0px 0px;
 	padding: 5px 10px 0px 10px;
+	border: none;
 }
 
 div#majorContent #apareceForma{
@@ -142,10 +146,51 @@ height:25px;
   border: solid 1px #C66;
 }
 
+.fieldWithErrors {
+  display: inline;
+  font-weight: bold;
+  color: #CF0000;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 8px;
+}
+
+#errorExplanation ul {
+  margin: 2px 24px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: disc;
+}
+
 #leftcol{
  width:34.34%; 
  float:left; 
  position:relative; 
+ border: 0px;
  }
  
 #maincol{  
@@ -153,24 +198,46 @@ height:25px;
  display:inline; 
  position: relative; 
  width:65.66%; 
+ border: 0px;
  }
  
  #leftcolLap{
- width:50%; 
+ border: 0px;
+ width:40%; 
  float:left; 
  position:relative; 
  }
  
+#maincolLap{ 
+ border: 0px; 
+ float: right; 
+ display:inline; 
+ position: relative;
+ margin: 12px 15px 0px 0px;
+ padding: 0px 0px 0px 10px; 
+ width:50%;
+ }
  
-#maincolLap{  
+ #maincolsub{ 
+ border: 0px; 
  float: right; 
  display:inline; 
  position: relative; 
- width:50%; 
+ width:50%;
  }
  
  #botonLap{
  	margin: 0px 0px 0px 8px;
+ }
+ 
+ #nofin{
+ 	font-weight: bold;
+ 	color: #FF0000;
+ }
+ 
+ #fin{
+ 	font-weight: bold;
+ 	color: #33cc00;
  }
  
  /* *** Float containers fix:

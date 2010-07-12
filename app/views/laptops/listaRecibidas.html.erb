@@ -1,0 +1,47 @@
+<div id="maincol">
+
+<div id="top_section"><%=@title%></div>
+<div id="body_section">
+<div id="contenido">
+
+<table>
+  <tr>
+  	<th>#</th>
+    <th>Marca</th>
+    <th>Modelo</th>
+    <th>Color</th>
+    <th>Paquete</th>
+    <th>Respaldo</th>
+    <th>User</th>
+  </tr>
+
+<% @laptops.each do |laptop| %>
+  <tr>
+  	<td><%=h laptop.id %></td>
+    <td><%=h laptop.marca %></td>
+    <td><%=h laptop.modelo %></td>
+    <td><%=h laptop.color %></td>
+    <td><%=h laptop.paquete %></td>
+    <td><%=h laptop.respaldo %></td>
+    <td><%=h "#{laptop.user.fname} #{laptop.user.lname}" %></td>
+    <td><%= link_to 'Show', laptop %></td>
+    <td><%= link_to 'Edit', edit_laptop_path(laptop) %></td>
+    <% if current_user.admin?%>
+    <td><%= link_to 'Destroy', laptop, :confirm => 'Are you sure?', :method => :delete %></td>
+    <%end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Todas', laptops_path%>
+- <%= link_to 'Registradas', listaRegistradas_path%>
+- <%= link_to 'Recibidas', listaRecibidas_path%>
+- <%= link_to 'Empezadas', listaEmpezadas_path%>
+- <%= link_to 'Terminadas', listaTerminadas_path%>
+- <%= link_to 'Entregadas', listaEntregadas_path%>
+</div>
+</div>
+<div id="bottom_section"></div>
+</div>

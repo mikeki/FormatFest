@@ -33,6 +33,7 @@ class UsersController < ApplicationController
   	else
   		@user = current_user
   	end
+  	@title = "Editando a #{@user.fname} #{@user.lname}"
   end
 
   def update

@@ -12,8 +12,13 @@ MARCA = [
 ["Fujitsu", "Fujitsu"],
 ["Gateway", "Gateway"],
 ["Lenovo", "Lenovo"],
-["Sony-VAIO","VAIO"]
+["Sony-VAIO","VAIO"],
+["Otra", "Otra"]
 ]
 
+PAQUETE = [
+["Paquete 1 - $180.00", "Paquete 1"],
+["Paquete 2 - $200.00", "Paquete 2"]
+]
 
 end

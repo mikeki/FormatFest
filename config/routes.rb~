@@ -9,6 +9,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :user_sessions
   map.resources :laptops
 	map.resources :users
+	map.listaRecibidas "/admin/listas/Recibidas", :controller => "laptops", :action=>"listaRecibidas"
+	map.listaRegistradas "/admin/listas/Registradas", :controller => "laptops", :action=>"listaRegistradas"
+	map.listaEmpezadas "/admin/listas/Empezadas", :controller => "laptops", :action=>"listaEmpezadas"
+	map.listaTerminadas "/admin/listas/Terminadas", :controller => "laptops", :action=>"listaTerminadas"
 	map.login "login", :controller => "user_sessions", :action => "new"
 	map.logout "logout", :controller => "user_sessions", :action => "destroy"
 	map.registro 'registro', :controller => 'users', :action => 'new'
@@ -16,7 +20,7 @@ ActionController::Routing::Routes.draw do |map|
 	map.contact '/contact', :controller => 'pages', :action => 'contact'
 	map.developers '/saitc', :controller => 'pages', :action => 'developers'
 	map.edit_user '/user/edit/:id', :controller => 'users', :action => 'edit'
-	map.root :controller => 'pages', :action => 'home'
+	map.root :controller => 'posts', :action => 'index'
 
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -45,13 +45,13 @@
             			<%= link_to image_tag ("bhome.png"), root_path%>
             			<%= link_to image_tag ("bnew_laptop.png"), new_laptop_path%>
             			<%= link_to image_tag ("bcontact.png"), "#"%>
-            			<%= link_to image_tag ("bedit_profile.png"), edit_user_path(:id => current_user.id)%>
+            			<%= link_to image_tag ("bedit_profile.png"), edit_user_path(current_user)%>
             			<%= link_to image_tag ("blogout.png"), logout_path%>
           	<%else%>
           		<div id="top_subsection"><span>Iniciar sesión</span></div>
           		<div id="subsection">
           		<%= render :partial=>'user_sessions/new'-%>
-          		<div id="maincolLap"> 
+          		<div id="maincolsub"> 
           		<%= button_to "Registro", new_user_path%>
           		</div>
           		</div>
@@ -70,9 +70,9 @@
 							<div id="wrapper" class="clearfix" >
 								<div id="leftcolLap">
 									<%if l.colaborators.count > 2%>
-										<%= link_to image_tag ("boton_lap_fin.png"), :controller => "laptops", :action => "show", :id => l.id -%>
+										<%= link_to image_tag ("boton_lap_fin.png", :border=>"0"), :controller => "laptops", :action => "show", :id => l.id -%>
 									<%else%>
-										<%= link_to image_tag ("boton_lap_reg.png"), :controller => "laptops", :action => "show", :id => l.id -%>
+										<%= link_to image_tag ("boton_lap_reg.png", :border=>"0"), :controller => "laptops", :action => "show", :id => l.id -%>
 									<%end%>
 								</div>
 								<div id="maincolLap">
@@ -81,16 +81,16 @@
 									Color: <%= l.color%>
 									<br />
 									<%if l.colaborators.count < 3%>
-										No finalizada.
+										<span id="nofin">No finalizada.</span>
 									<%elsif l.colaborators.count == 3%>
-										Finalizada.
+										<span id="fin">Finalizada.</span>
 									<%else%>
-										Entregada.
+										<span id="fin">Entregada.</span>
 									<%end%>
 								</div>
 							</div> 
 						<% end %>
-						<%= link_to image_tag ("bnew_laptop.png" :id=>"botonLap"), new_laptop_path%>
+						<%= link_to image_tag ("bnew_laptop.png", :id=>"botonLap", :border=>"0"), new_laptop_path%>
 						<br />
 					</div>
 					<div id="bottom_subsection"></div>

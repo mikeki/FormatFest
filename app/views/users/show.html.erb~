@@ -46,10 +46,11 @@
   		<strong>Nextel: </strong>
   		<%= current_user.nextel%>
   		<br />
+  		<%= button_to "Editar", edit_user_path(:id => current_user.id)%>
   	</div>
   </div>
 	<div id ="bottom_section"></div>
 	<% @user.colaborators.each do |c|%>
 		<%= link_to "Laptop #{c.status}", :controller => "laptops", :action => "show", :id => c.laptop_id%>
-	<%end%
+	<%end%>
 </div>

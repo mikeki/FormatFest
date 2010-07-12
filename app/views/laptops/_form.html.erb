@@ -10,27 +10,27 @@
     	<%= f.label :color %><br />
     	<%= f.text_field :color %><br />
 			<br />
-    	<%= f.label :defecto %><br />
+    	<%= f.label :defecto, "Defectos" %><br />
     	<%= f.text_area :defecto, :rows=>10 %><br />
 			<br />
     	<%= f.label :comentarios %><br />
     	<%= f.text_area :comentarios, :rows=>10 %><br />
 			<br />
-    	<%= f.label :usuario %><br />
+    	<%= f.label :usuario, "Usuario de la laptop" %><br />
     	<%= f.text_field :usuario %><br />
 			<br />
-    	<%= f.label :contra %><br />
+    	<%= f.label :contra, "Contraseña del usuario" %><br />
     	<%= f.text_field :contra %><br />
 			<br />
     	<%= f.label :estado %><br />
     	<%= f.text_field :estado %><br />
 			<br />
     	<%= f.label :paquete  %><br />
-    	<%= f.text_field :paquete %><br />
+    	<%= f.select :paquete, Laptop::PAQUETE, :prompt => "Selecciona el paquete" %><br />
 			<br />
     	<%= f.label :respaldo %><br />
     	<%= f.check_box :respaldo %><br />
 			<br />
     	<%= f.label :total %><br />
-    	<%= f.text_field :total %><br />
+    	<%= f.text_field :total, :disabled=>"true" %><br />
     	<br />

@@ -8,8 +8,24 @@ attr_accessible :fname, :lname, :password, :password_confirmation, :career, :ema
 
 validates_presence_of :fname, :lname, :email, :schoolid
 validates_uniqueness_of :schoolid, :email
-#validates_numericality_of :schoolid, :cel, :phone
 validate :there_must_be_a_phone
+#validates_numericality_of :schoolid, :allow_nil => true
+#validates_numericality_of :cel, :allow_nil => true
+#validates_numericality_of :phone, :allow_nil => true
+
+HUMANIZED_COLUMNS = {
+	:fname => "Nombre(s)",
+	:lname => "Apellidos",
+	:career => "Carrera",
+	:email => "Email",
+	:schoolid => "Matrícula",
+	:phone => "Teléfono",
+	:cel => "Celular"
+	}
+
+def self.human_attribute_name(attribute)
+	HUMANIZED_COLUMNS[attribute.to_sym] || super
+end
 
 CARRERA = [
     # Displayed         stored in db

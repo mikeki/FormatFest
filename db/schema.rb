@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100706020819) do
+ActiveRecord::Schema.define(:version => 20100712215442) do
 
   create_table "colaborators", :force => true do |t|
     t.integer  "user_id"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20100706020819) do
     t.text     "comentarios"
     t.string   "usuario"
     t.string   "contra"
-    t.string   "estado"
+    t.integer  "estado"
     t.string   "paquete"
     t.boolean  "respaldo"
     t.integer  "user_id"
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(:version => 20100706020819) do
 
   create_table "users", :force => true do |t|
     t.string   "fname"
-    t.string   "lname"
     t.string   "crypted_password"
     t.string   "career"
     t.string   "email"
@@ -57,10 +56,11 @@ ActiveRecord::Schema.define(:version => 20100706020819) do
     t.boolean  "admin"
     t.boolean  "colaborator"
     t.boolean  "client"
-    t.string   "password_salt"
-    t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.string   "lname"
   end
 
 end

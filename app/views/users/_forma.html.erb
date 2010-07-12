@@ -2,6 +2,7 @@
 	<div id="body_section">
   	<div id="contenido">
 			<%= f.error_messages %>
+
 			<%= f.label :fname, "Nombre (s)"%><br/>
 			<%= f.text_field :fname%><br/>
 
@@ -36,13 +37,15 @@
 	
 			<%= f.label :nextel, "Nextel"%><br/>
 			<%= f.text_field :nextel %><br/>
-		
-			<%= f.label :admin, "Administrador?"%><br/>
-			<%= f.check_box :admin %><br/>
-	
-			<%= f.label :colaborator, "Colaborador?"%><br/>
-			<%= f.check_box :colaborator %><br/>
 			
-			<%= f.label :client, "Cliente?"%><br/>
-			<%= f.check_box :client, :checked=> "checked" %><br/>
+			<%if current_user%>
+				<%if current_user.admin?%>
+					<%= f.label :admin, "Administrador?"%><br/>
+					<%= f.check_box :admin %><br/>
+	
+					<%= f.label :colaborator, "Colaborador?"%><br/>
+					<%= f.check_box :colaborator %><br/>
+				<%end%>
+			<%end%>
+			<%= f.hidden_field :client, :value => true %>
 					

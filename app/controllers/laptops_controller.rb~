@@ -7,7 +7,32 @@ class LaptopsController < ApplicationController
   # GET /laptops.xml
   def index
     @laptops = Laptop.find(:all)
-    @title = "Listando Laptos"
+    @title = "Listando Laptops"
+  end
+	
+	def listaRegistradas
+    @laptops = Laptop.find(:all, :conditions => {:estado => "0"})
+    @title = "Listando Laptops"
+  end
+  
+  def listaRecibidas
+    @laptops = Laptop.find(:all, :conditions => {:estado => 1})
+    @title = "Listando Laptops"
+  end
+  
+  def listaEmpezadas
+    @laptops = Laptop.find(:all, :conditions => {:estado => 2})
+    @title = "Listando Laptops"
+  end
+  
+  def listaTerminadas
+    @laptops = Laptop.find(:all, :conditions => {:estado => 3})
+    @title = "Listando Laptops"
+  end
+  
+  def listaEntregadas
+    @laptops = Laptop.find(:all, :conditions => {:estado => 4})
+    @title = "Listando Laptops"
   end
 
   # GET /laptops/1
@@ -51,6 +76,7 @@ class LaptopsController < ApplicationController
 
     respond_to do |format|
       if @laptop.update_attributes(params[:laptop]) and @colaborador.save
+      	@laptop.update_attribute(:estado, "#{@laptop.colaborators.count}")
         format.html { redirect_to(@laptop, :notice => 'Laptop was successfully updated.') }
         format.xml  { head :ok }
       else

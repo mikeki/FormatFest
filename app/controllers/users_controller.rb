@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 		redirect_to root_path
 		else
 		flash[:error] = "El usuario no pudo crearse."
+		@title = "Registro"
 		render 'new'
 	  end
   end
