@@ -1,7 +1,8 @@
 class LaptopsController < ApplicationController
 
 	before_filter :require_user
-	before_filter :not_admins , :only => [:index, :destroy]
+	before_filter :not_admins , :only => :destroy
+	before_filter :not_privileges, :only => [:index, :listaRegistradas, :listaRecibidas, :listaEmpezadas, :listaTerminadas, :listaEntregadas]
 
   # GET /laptops
   # GET /laptops.xml

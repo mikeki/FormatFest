@@ -240,6 +240,8 @@ height:25px;
  	color: #33cc00;
  }
  
+ 
+ 
  /* *** Float containers fix:
  http://www.csscreator.com/attributes/containedfloat.php *** */ 
 .clearfix:after {
@@ -263,3 +265,32 @@ height: 0;
 #leftcol{display:none;} 
 #twocols, #maincol{width:100%; float:none;}
 }
+
+table.laptops
+{ width: 558px;
+background-color: #fafafa;
+border: 1px #000000 solid;
+border-collapse: collapse;
+border-spacing: 0px; }
+
+
+th.titulos
+{ background-color: #99CCCC;
+border: 1px #000000 solid;
+font-family: Verdana;
+font-weight: bold;
+font-size: 12px;
+color: #404040; }
+
+
+td.lista
+{ border-bottom: 1px #6699CC dotted;
+text-align: left;
+font-family: Verdana, sans-serif, Arial;
+font-weight: auto;
+font-size: .7em;
+color: #404040;
+padding-top: 4px;
+padding-bottom: 4px;
+padding-left: 8px;
+padding-right: 0px; }

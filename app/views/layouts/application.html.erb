@@ -69,7 +69,7 @@
 						<% current_user.laptops.each do |l|%>
 							<div id="wrapper" class="clearfix" >
 								<div id="leftcolLap">
-									<%if l.colaborators.count > 2%>
+									<%if l.estado > 2%>
 										<%= link_to image_tag ("boton_lap_fin.png", :border=>"0"), :controller => "laptops", :action => "show", :id => l.id -%>
 									<%else%>
 										<%= link_to image_tag ("boton_lap_reg.png", :border=>"0"), :controller => "laptops", :action => "show", :id => l.id -%>
@@ -80,9 +80,9 @@
 									<br />
 									Color: <%= l.color%>
 									<br />
-									<%if l.colaborators.count < 3%>
+									<%if l.estado < 3%>
 										<span id="nofin">No finalizada.</span>
-									<%elsif l.colaborators.count == 3%>
+									<%elsif l.estado == 3%>
 										<span id="fin">Finalizada.</span>
 									<%else%>
 										<span id="fin">Entregada.</span>
