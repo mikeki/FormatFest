@@ -2,7 +2,7 @@
 	<div id="nuevaLaptop">
 		<% form_for(@laptop) do |f| %>
 			<%= f.error_messages %>
-			<%= render :partial => 'form', :locals => {:f => f}%>
+			<%= render :partial => 'form', :locals => {:f => f, :disabled => false}%>
 			<%= f.submit 'Registrar laptop' %>
 			</div>
 			<!-- Este div cierra al div que abre el partial -->

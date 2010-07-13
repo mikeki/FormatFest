@@ -1,19 +1,17 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :posts
 
-  
-  
-
   map.resources :colaborators
 
   map.resources :user_sessions
   map.resources :laptops
 	map.resources :users
-	map.listaRecibidas "/admin/listas/Recibidas", :controller => "laptops", :action=>"listaRecibidas"
-	map.listaRegistradas "/admin/listas/Registradas", :controller => "laptops", :action=>"listaRegistradas"
-	map.listaEmpezadas "/admin/listas/Empezadas", :controller => "laptops", :action=>"listaEmpezadas"
-	map.listaTerminadas "/admin/listas/Terminadas", :controller => "laptops", :action=>"listaTerminadas"
-	map.listaEntregadas "/admin/listas/Entregadas", :controller => "laptops", :action=>"listaEntregadas"
+	map.listaRecibidas "/admin/listas/recibidas", :controller => "laptops", :action=>"listaRecibidas"
+	map.listaRegistradas "/admin/listas/registradas", :controller => "laptops", :action=>"listaRegistradas"
+	map.listaEmpezadas "/admin/listas/empezadas", :controller => "laptops", :action=>"listaEmpezadas"
+	map.listaTerminadas "/admin/listas/terminadas", :controller => "laptops", :action=>"listaTerminadas"
+	map.listaEntregadas "/admin/listas/entregadas", :controller => "laptops", :action=>"listaEntregadas"
+	map.estadisticas "/admin/estadisticas", :controller => "laptops", :action=>"estadisticas"
 	map.login "login", :controller => "user_sessions", :action => "new"
 	map.logout "logout", :controller => "user_sessions", :action => "destroy"
 	map.registro 'registro', :controller => 'users', :action => 'new'

@@ -1,0 +1,74 @@
+<!--<%=periodically_call_remote(:url => {:action => 'estadisticas'}, :frequency => '2', :update => 'majorContent')%>-->
+<div id="maincol">
+
+<div id="top_section"><%=@title%></div>
+<div id="body_section">
+<div id="contenido">
+
+<table class="laptops" cellspacing="0">
+	<tr>
+		<% cuenta = 0 %>
+		<th class="titulos" colspan="6">Estadísticas de Laptops por Estado</th>
+	</tr>
+  <tr>
+  	<th class="titulos">Registradas</th>
+    <th class="titulos">Recibidas</th>
+    <th class="titulos">Empezadas</th>
+    <th class="titulos">Terminadas</th>
+    <th class="titulos">Entregadas</th>
+    <th class="titulos">Total</th>
+  </tr>
+	<tr>
+	<% @laptops.each do |laptop| %>
+		<% (laptop.estado-cuenta).times do%>
+			<td class="lista">0</td>
+		<%end%>
+  	<td class="lista"><%=h laptop.count %></td>
+  	<% cuenta = laptop.estado+1%>
+	<% end %>
+	<% @total.each do |tot|%>
+		<td class="lista"><%=h tot.count%></td>
+	<%end%>
+	</tr>
+</table>
+<br />
+<table class="laptops" cellspacing="0">
+	<tr>
+		<%="<th class=\"titulos\" colspan=#{@marca.count + 1}>Estadisticas de Laptop por Marca</th>" %>	
+	</tr>
+	<tr>
+		<% @marca.each do |laptop|%>
+			<th class="titulos"><%= laptop.marca%></th>
+		<%end%>
+		<th class ="titulos">Total</th>
+	</tr>
+	<tr>
+		<%contador = 0%>
+		<% @marca.each do |laptop|%>
+			<%contador = contador+laptop.count.to_i%>
+			<td class="lista"><%= laptop.count%></td>
+		<%end%>
+		<td class="lista"><%=h contador%></td>
+	</tr>
+</table>
+<br />
+<table width="558px">
+	<tr>
+		<td width="25%">
+			<%= render :partial => "top", :locals => {:que => "Recibidas", :top5 => @top5Recibidas}%>
+		</td>
+		<td width="25%">
+			<%= render :partial => "top", :locals => {:que => "Empezadas", :top5 => @top5Empezadas}%>
+		</td>
+		<td width="25%">
+			<%= render :partial => "top", :locals => {:que => "Terminadas", :top5 => @top5Terminadas}%>
+		</td>
+		<td width="25%">
+			<%= render :partial => "top", :locals => {:que => "Entregadas", :top5 => @top5Entregadas}%>
+		</td>
+	</tr>
+</table>
+</div>
+</div>
+<div id="bottom_section"></div>
+</div>

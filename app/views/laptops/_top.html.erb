@@ -1,0 +1,19 @@
+<table class="tops" cellspacing="0">
+	<tr>
+		<th class="titulos" colspan=3>Top <%=h que%></th>
+	</tr>
+	<tr>
+		<th class="titulos">Top</th>
+		<th class="titulos">Colaborador</th>
+		<th class="titulos">#</th>
+	</tr>
+	<% cont=1%>
+	<% top5.each do |top|%>
+		<tr>
+			<td class="lista"><%= cont%></td>
+			<td class="lista"><%= "#{top.user.fname} #{top.user.lname}"%></td>
+			<td class="lista"><%= top.count%></td>
+		</tr>
+		<% cont=cont+1%>
+	<%end%>	
+</table>

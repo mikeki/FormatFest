@@ -2,22 +2,38 @@
 	<% form_for(@laptop) do |f| %>
 		<% fields_for(@colaborator) do |c|%>
 	  <%= f.error_messages %>
+		<%disabled = false%>
+		<% if @laptop.estado > 1 and !current_user.admin?%>
+			<%disabled = true%>
+		<%end%>
 	
-	  <%= render :partial => 'form', :locals => {:f => f}%>
+	  <%= render :partial => 'form', :locals => {:f => f, :disabled=>disabled}%>
 	  
 	  <% if current_user.colaborator? or current_user.admin?%>
-	  	<p>
-	    <%= c.label :status %><br />
-	    <%= c.text_field :status %>
-	    <%= c.text_field :laptop_id, :value => @laptop.id%>
-	    <%= c.text_field :user_id, :value => current_user.id%>
-	  	</p>
+	  	<% estado = "Actualizar"%>
+	  	<% if @laptop.estado == 0 %>
+	  		<%estado = "Recibir"%>
+	  	<% elsif @laptop.estado == 1 %>
+	  		<%estado = "Empezar"%>
+	  	<% elsif @laptop.estado == 2 %>
+	  		<%estado = "Terminar"%>
+	  	<% elsif @laptop.estado == 3 %>
+	  		<%estado = "Entregar"%> 
+	  	<%end%>
+	  	<% if @laptop.estado < 4 %>
+	  		<% disabled = false%>
+	  		<%= c.hidden_field :status, :value=>estado%>
+	    	<%= c.hidden_field :laptop_id, :value => @laptop.id%>
+	    	<%= c.hidden_field :user_id, :value => current_user.id%>
+	    <%elsif !current_user.admin?%>
+	    	<%boton = true%>
+	    <%end%>
 	  <%end%>
 	  <p>
-	    <%= f.submit 'Update' %>
+	    <%= f.submit "#{estado}", :disabled=>boton%>
 	  </p>
 	  <%end%>
-	<% end %>
+	<%end %>
 
 
 	<%= link_to 'Show', @laptop %> |

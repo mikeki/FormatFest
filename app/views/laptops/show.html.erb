@@ -51,7 +51,9 @@
 <%end%>
 
 <%= link_to 'Edit', edit_laptop_path(@laptop) %> |
-<%= link_to 'Back', laptops_path %>
+<%= link_to 'Back', laptops_path %> |
+<%= link_to 'Delete', @laptop, :confirm => 'Are you sure?', :method => :delete %>
+
 </div>
 </div>
 <div id="bottom_section"></div>

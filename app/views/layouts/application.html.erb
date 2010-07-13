@@ -60,6 +60,32 @@
     	  	<div id="bottom_subsection"></div>
     	  <%if current_user%>
     	  	<%if current_user.admin? or current_user.colaborator?%>
+    	  		<div id="top_subsection">
+        			<span>
+        				Administración
+            	</span>
+            </div>
+            <div id="subsection">
+            	<%= link_to "Nueva Noticia", new_post_path%><br/>
+            	<%= link_to "Estadísticas", estadisticas_path%><br />
+            	<%= link_to "Recepción", listaRegistradas_path%><br />
+            	<br />
+            	<span>Listas Usuarios</span>
+            	<br />
+            	<%= link_to "Lista Clientes", users_path%><br />
+            	<%= link_to "Lista Administradores", "#"%><br />
+            	<%= link_to "Lista Colaboradores", "#"%><br />
+            	<br />
+            	<span>Listas Laptops</span>
+            	<br />
+            	<%= link_to "Lista Todas", laptops_path%><br />
+            	<%= link_to 'Lista Registradas', listaRegistradas_path%><br />
+							<%= link_to 'Lista Recibidas', listaRecibidas_path%><br />
+							<%= link_to 'Lista Empezadas', listaEmpezadas_path%><br />
+							<%= link_to 'Lista Terminadas', listaTerminadas_path%><br />
+							<%= link_to 'Lista Entregadas', listaEntregadas_path%><br />
+            </div>
+            <div id="bottom_subsection"></div>
 						<%= render :partial => 'users/formaBusqueda'%>
 					<%end%>
     	  	<div id="top_subsection">

@@ -60,6 +60,32 @@
     	  	<div id="bottom_subsection"></div>
     	  <%if current_user%>
     	  	<%if current_user.admin? or current_user.colaborator?%>
+    	  		<div id="top_subsection">
+        			<span>
+        				Administración
+            	</span>
+            </div>
+            <div id="subsection">
+            	<%= link_to "Nueva Noticia", new_post_path%><br/>
+            	<%= link_to "Estadísticas", estadisticas_path%><br />
+            	<%= link_to "Recepción", listaRegistradas_path%><br />
+            	<br />
+            	<span>Listas Usuarios</span>
+            	<br />
+            	<%= link_to "Lista Clientes", users_path%><br />
+            	<%= link_to "Lista Administradores", "#"%><br />
+            	<%= link_to "Lista Colaboradores", "#"%><br />
+            	<br />
+            	<span>Listas Laptops</span>
+            	<br />
+            	<%= link_to "Lista Todas", laptops_path%><br />
+            	<%= link_to 'Lista Registradas', listaRegistradas_path%><br />
+							<%= link_to 'Lista Recibidas', listaRecibidas_path%><br />
+							<%= link_to 'Lista Empezadas', listaEmpezadas_path%><br />
+							<%= link_to 'Lista Terminadas', listaTerminadas_path%><br />
+							<%= link_to 'Lista Entregadas', listaEntregadas_path%><br />
+            </div>
+            <div id="bottom_subsection"></div>
 						<%= render :partial => 'users/formaBusqueda'%>
 					<%end%>
     	  	<div id="top_subsection">
@@ -69,7 +95,7 @@
 						<% current_user.laptops.each do |l|%>
 							<div id="wrapper" class="clearfix" >
 								<div id="leftcolLap">
-									<%if l.colaborators.count > 2%>
+									<%if l.estado > 2%>
 										<%= link_to image_tag ("boton_lap_fin.png", :border=>"0"), :controller => "laptops", :action => "show", :id => l.id -%>
 									<%else%>
 										<%= link_to image_tag ("boton_lap_reg.png", :border=>"0"), :controller => "laptops", :action => "show", :id => l.id -%>
@@ -80,9 +106,9 @@
 									<br />
 									Color: <%= l.color%>
 									<br />
-									<%if l.colaborators.count < 3%>
+									<%if l.estado < 3%>
 										<span id="nofin">No finalizada.</span>
-									<%elsif l.colaborators.count == 3%>
+									<%elsif l.estado == 3%>
 										<span id="fin">Finalizada.</span>
 									<%else%>
 										<span id="fin">Entregada.</span>

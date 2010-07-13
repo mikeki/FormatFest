@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
 	map.listaRegistradas "/admin/listas/Registradas", :controller => "laptops", :action=>"listaRegistradas"
 	map.listaEmpezadas "/admin/listas/Empezadas", :controller => "laptops", :action=>"listaEmpezadas"
 	map.listaTerminadas "/admin/listas/Terminadas", :controller => "laptops", :action=>"listaTerminadas"
+	map.listaEntregadas "/admin/listas/Entregadas", :controller => "laptops", :action=>"listaEntregadas"
 	map.login "login", :controller => "user_sessions", :action => "new"
 	map.logout "logout", :controller => "user_sessions", :action => "destroy"
 	map.registro 'registro', :controller => 'users', :action => 'new'
