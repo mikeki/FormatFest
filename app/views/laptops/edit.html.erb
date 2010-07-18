@@ -6,7 +6,7 @@
 		<% if @laptop.estado > 1 and !current_user.admin?%>
 			<%disabled = true%>
 		<%end%>
-	
+		
 	  <%= render :partial => 'form', :locals => {:f => f, :disabled=>disabled}%>
 	  
 	  <% if current_user.colaborator? or current_user.admin?%>
