@@ -1,6 +1,7 @@
 class Laptop < ActiveRecord::Base
 belongs_to :user
 has_many :colaborators
+has_one :program
 
 MARCA = [
 ["HP - Hewlett-Packard", "HP"],
@@ -17,8 +18,9 @@ MARCA = [
 ]
 
 PAQUETE = [
-["Paquete 1 - $180.00", "Paquete 1"],
-["Paquete 2 - $200.00", "Paquete 2"]
+["Básico", "basico"],
+["Personalizado", "personalizado"]
 ]
+
 
 end

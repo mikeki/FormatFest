@@ -24,21 +24,64 @@
   <b>Contra:</b>
   <%=h @laptop.contra %>
 <br />
+<% if current_user.admin? or current_user.colaborator? -%>
   <b>Estado:</b>
   <%=h @laptop.estado %>
 <br />
+<% end -%>
+  
   <b>Paquete:</b>
-  <%=h @laptop.paquete %>
+  <%=h @laptop.paquete.capitalize %>
 <br />
+<% if @laptop.program -%>
+  <div>
+    <% if @laptop.program.avast? -%>
+      <p>Avast</p>
+    <% end -%>
+    <% if @laptop.program.flash? -%>
+      <p>Flash</p>
+    <% end -%>
+    <% if @laptop.program.java? -%>
+      <p>Java</p>
+    <% end -%>
+    <% if @laptop.program.office? -%>
+      <p>Office</p>
+    <% end -%>
+    <% if @laptop.program.chrome? -%>
+      <p>Google Chrome</p>
+    <% end -%>
+    <% if @laptop.program.firefox? -%>
+      <p>Firefox</p>
+    <% end -%>
+    <% if @laptop.program.messenger? -%>
+      <p>Messenger</p>
+    <% end -%>
+    <% if @laptop.program.skype? -%>
+      <p>Skype</p>
+    <% end -%>
+    <% if @laptop.program.itunes? -%>
+      <p>iTunes</p>
+    <% end -%>
+    <% if @laptop.program.reader? -%>
+      <p>Adobe Reader</p>
+    <% end -%>
+    <% if @laptop.program.winrar? -%>
+      <p>WinRAR</p>
+    <% end -%>
+    
+  </div>
+<% end -%>
   <b>Respaldo:</b>
-  <%=h @laptop.respaldo %>
+  <%= image_tag "#{@laptop.respaldo}.png" %>
 <br />
   <b>Cliente:</b>
   <%=h "#{@laptop.user.fname} #{@laptop.user.lname}" %>
 <br />
   <b>Total:</b>
-  <%=h @laptop.total %>
+  <%=h number_to_currency(@laptop.total) %>
 <br />
+
+
 
 <% @laptop.colaborators.each do |c|%>
   <b>Colaborador:</b>

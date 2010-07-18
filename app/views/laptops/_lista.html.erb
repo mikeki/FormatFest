@@ -2,8 +2,38 @@
 
 <div id="top_section"><%=@title%></div>
 <div id="body_section">
-<div id="contenido">
 
+<div id="contenido">
+<div style="float:right">
+
+<script type="text/javascript">
+$j(function(){
+  <%if params[:estado] == "0"%>
+    $j("#cero").attr("selected", "selected");
+  <%elsif params[:estado] == "1"%>
+    $j("#uno").attr("selected", "selected");
+  <%elsif params[:estado] == "2"%>
+    $j("#dos").attr("selected", "selected");
+  <%elsif params[:estado] == "3"%>
+    $j("#tres").attr("selected", "selected");
+  <%elsif params[:estado] == "4"%>
+    $j("#cuatr").attr("selected", "selected");
+  <%end%>
+});
+
+</script>
+
+ <% form_tag  laptops_path, :method => "GET" do -%>
+  <%= select_tag "estado", "<option value=\"-1\">Todas</option>
+        <option value=\"0\" id=\"cero\">Registradas</option>
+        <option value=\"1\" id=\"uno\">Recibidas</option>
+        <option value=\"2\" id=\"dos\">Empezadas</option>
+        <option value=\"3\" id=\"tres\">Terminadas</option>
+        <option value=\"4\" id=\"cuatro\">Entregadas</option>"%>
+     <%= submit_tag 'Filtrar', :name => ""%>
+ <% end -%>
+ </div>
+<%= will_paginate %>
 <table class="laptops" cellspacing="0">
   <tr>
   	<th class="titulos">#</th>
@@ -35,7 +65,10 @@
   </tr>
 <% end %>
 </table>
+
 </div>
+
 </div>
+
 <div id="bottom_section"></div>
 </div>

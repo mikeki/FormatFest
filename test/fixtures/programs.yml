@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  chrome: false
+  firefox: false
+  messenger: false
+  skype: false
+  itunes: false
+  reader: false
+  office: false
+  flash: false
+  avast: false
+  winrar: false
+  java: false
+
+two:
+  chrome: false
+  firefox: false
+  messenger: false
+  skype: false
+  itunes: false
+  reader: false
+  office: false
+  flash: false
+  avast: false
+  winrar: false
+  java: false

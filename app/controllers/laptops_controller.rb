@@ -7,33 +7,13 @@ class LaptopsController < ApplicationController
   # GET /laptops
   # GET /laptops.xml
   def index
-    @laptops = Laptop.find(:all)
-    @title = "Listando Todas las Laptops"
-  end
-	
-	def listaRegistradas
-    @laptops = Laptop.find(:all, :conditions => {:estado => 0})
-    @title = "Listando Laptops Registradas"
-  end
-  
-  def listaRecibidas
-    @laptops = Laptop.find(:all, :conditions => {:estado => 1})
-    @title = "Listando Laptops Recibidas"
-  end
-  
-  def listaEmpezadas
-    @laptops = Laptop.find(:all, :conditions => {:estado => 2})
-    @title = "Listando Laptops Empezadas"
-  end
-  
-  def listaTerminadas
-    @laptops = Laptop.find(:all, :conditions => {:estado => 3})
-    @title = "Listando Laptops Terminadas"
-  end
-  
-  def listaEntregadas
-    @laptops = Laptop.find(:all, :conditions => {:estado => 4})
-    @title = "Listando Laptops Entregadas"
+    @title= "Listado de laptops"
+    if params[:estado] == '-1' or params[:estado].nil?
+        @laptops = Laptop.paginate(:page=>params[:page], :per_page => 5)
+
+    else
+      @laptops = Laptop.paginate(:page=>params[:page], :per_page => 5, :conditions=> {:estado => params[:estado]})
+    end
   end
   
   def estadisticas
@@ -98,12 +78,14 @@ class LaptopsController < ApplicationController
   def new
   	@title = "Registrar una Nueva Laptop"
   	@laptop = Laptop.new
+  	@programas =Program.new
   end
 
 
   # GET /laptops/1/edit
   def edit
     @laptop = Laptop.find(params[:id])
+    @programas = @laptop.program
     @title = "Editando Laptop: #{@laptop.marca} #{@laptop.color}, Folio: #{@laptop.id}"
     @colaborator = Colaborator.new
   end
@@ -113,8 +95,17 @@ class LaptopsController < ApplicationController
   def create
     @laptop = current_user.laptops.build(params[:laptop])
     @laptop.update_attribute(:estado, 0)
-      if @laptop.save
-        redirect_to current_user
+    if @laptop.paquete == "basico"
+      @laptop.update_attribute(:total,180)
+    else
+      @laptop.update_attribute(:total,200)
+    end
+   @programas = @laptop.build_program(params[:program])
+      if @laptop.save and @programas.save
+        redirect_to @laptop
+      else
+        flash[:error] ="Hubo un problema"
+        redirect_to :back
       end
   end
 
@@ -128,7 +119,7 @@ class LaptopsController < ApplicationController
     end 
 
     respond_to do |format|
-      if @laptop.update_attributes(params[:laptop])
+      if @laptop.update_attributes(params[:laptop]) and @laptop.program.update_attributes(params[:program])
       	@laptop.update_attribute(:estado, "#{@laptop.colaborators.count}")
         format.html { redirect_to(@laptop, :notice => 'Laptop was successfully updated.') }
         format.xml  { head :ok }

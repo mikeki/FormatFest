@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100712215442) do
+ActiveRecord::Schema.define(:version => 20100717205128) do
 
   create_table "colaborators", :force => true do |t|
     t.integer  "user_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20100712215442) do
     t.integer  "total"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "terms"
   end
 
   create_table "posts", :force => true do |t|
@@ -44,8 +45,26 @@ ActiveRecord::Schema.define(:version => 20100712215442) do
     t.datetime "updated_at"
   end
 
+  create_table "programs", :force => true do |t|
+    t.boolean  "chrome"
+    t.boolean  "firefox"
+    t.boolean  "messenger"
+    t.boolean  "skype"
+    t.boolean  "itunes"
+    t.boolean  "reader"
+    t.boolean  "office",     :default => true
+    t.boolean  "flash",      :default => true
+    t.boolean  "avast",      :default => true
+    t.boolean  "winrar"
+    t.boolean  "java",       :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "laptop_id"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "fname"
+    t.string   "lname"
     t.string   "crypted_password"
     t.string   "career"
     t.string   "email"
@@ -56,11 +75,10 @@ ActiveRecord::Schema.define(:version => 20100712215442) do
     t.boolean  "admin"
     t.boolean  "colaborator"
     t.boolean  "client"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "password_salt"
     t.string   "persistence_token"
-    t.string   "lname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

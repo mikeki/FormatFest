@@ -1,4 +1,11 @@
 <div id="maincol">
+ <%if current_user%>
+		<%if current_user.admin?%>
+			<div id="top_section"><%= link_to "Nueva Noticia", new_post_path %></div>
+			<div id="body_section"></div>
+			<div id="bottom_section"></div>
+		<%end%>
+	<%end%>
   <% for post in @posts %>
   		<div id="top_section">
   			<span id="titulo"><%=h post.title %></span>
@@ -20,11 +27,5 @@
       </div>
       <div id="bottom_section"></div>
   <% end %>
-  <%if current_user%>
-		<%if current_user.admin?%>
-			<div id="top_section"><%= link_to "New Post", new_post_path %></div>
-			<div id="body_section"></div>
-			<div id="bottom_section"></div>
-		<%end%>
-	<%end%>
+ 
 </div>

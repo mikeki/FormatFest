@@ -1,0 +1,12 @@
+<div id="top_subsection"><span>Buscar Laptop</span></div>
+<div id="subsection">
+<% form_tag :controller => 'laptops', :action => 'show' do%>
+
+<%= text_field_tag 'id'%>
+
+<%= submit_tag "Buscar", :name => ""%>
+</div>
+
+<% end %>
+
+<div id="bottom_subsection"></div>

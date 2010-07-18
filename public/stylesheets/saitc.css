@@ -1,5 +1,6 @@
 body, html {
 	background: url(../images/background.jpg) fixed;
+	font-family: "Verdana";
 }
 
 div#majorContent {
@@ -85,6 +86,10 @@ div#majorContent div#top_subsection span#logged{
 	font-size: 20px;
 }
 
+div#majorContent div#top_subsection span#laptops{
+	font-size: 15px;
+}
+
 div#majorContent div#top_section #titulo{
 	font-size: 20px;
 	text-decoration: underline;
@@ -100,6 +105,57 @@ div#majorContent div#body_section #contenido{
 	margin: -4px 0px 0px 0px;
 	padding: 5px 10px 0px 10px;
 	border: none;
+
+}
+
+div#majorContent div#body_section #contenido input[type=text], input[type=password]{
+-moz-border-radius:6px;
+-webkit-border-radius:6px;
+border:1px solid #ccc;
+height:25px;
+width:250px;
+padding-left:5px;
+}
+
+div#majorContent div#body_section #contenido textarea{
+-moz-border-radius:6px;
+-webkit-border-radius:6px;
+border:1px solid #ccc;
+
+}
+
+div#basico{
+    border: 2px dashed #63adf8;
+    text-align:center;
+}
+
+div#basico ul{
+margin:0;
+}
+
+div#basico li{
+    list-style:none;
+    display:inline-block;
+     padding: 3px 31px 3px 0px;
+     font-size:15px;
+     margin-left:-20px;
+}
+
+div#personalizado ul{
+    margin:0;
+    text-align:center;
+}
+
+div#personalizado li{
+     font-size:15px;
+     list-style:none;
+    display:inline-block;
+     padding: 3px 31px 3px 0px;
+     margin-left:-20px;
+}
+
+div#personalizado{
+    border: 2px dashed #63adf8;
 }
 
 div#majorContent #apareceForma{
@@ -128,7 +184,16 @@ width:250px;
 height:25px;
 -moz-border-radius:6px;
 -webkit-border-radius:6px;
+padding-left:3px;
+font-size:15px;
 }
+
+div#majorContent div#nuevaLaptop textarea{
+border:1px solid #ccc;
+-moz-border-radius:6px;
+-webkit-border-radius:6px;
+}
+
 
 #flash_notice, #flash_error {
   padding: 5px 8px;
@@ -312,3 +377,11 @@ padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 2px;
 padding-right: 2px; }
+
+#textarea{
+ width:100%;
+ height:100px;
+ border: 1px solid black;   
+ overflow:auto;
+ background:white;
+}

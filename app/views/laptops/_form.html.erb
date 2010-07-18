@@ -1,6 +1,8 @@
 <div id="top_section"><span><%= @title %></span></div>
   <div id="body_section">
   	<div id="contenido">
+  	<%fields_for(@programas) do |p|%>
+
     	<%= f.label :marca %><br />
     	<%if disabled%>
     	<%= f.text_field :marca, :disabled=>disabled%><br />
@@ -34,9 +36,90 @@
     		<%= f.select :paquete, Laptop::PAQUETE, :prompt => "Selecciona el paquete", :disabled=>disabled %><br />
     	<%end%>
 			<br />
+			<script type="text/javascript">
+			  var $j = jQuery.noConflict();
+			  var checkboxes = $j("input[type=checkbox]");       
+			 
+			  
+			  <%if request.request_uri == "/laptops/#{@laptop.id}/edit" %>
+			  $j(document).ready(function(){
+			    <% if @laptop.paquete == "basico" -%>
+			        $j("#basico").fadeIn(1);
+			        <%elsif @laptop.paquete == "personalizado"%>
+			         $j("#basico").fadeIn(1);
+			          $j("#personalizado").fadeIn(1);
+			      <% end -%>
+			       });
+			  <%end%>
+			    
+			      
+			  
+			      $j("#laptop_paquete").change(function(){
+			        if(this.value == "basico"){
+			          $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");
+			          $j("#basico").show("slow");
+			          $j("#personalizado").hide("slow");
+			          
+			          $j("div#personalizado input[type=checkbox]").each(function() {
+			                if($j(this).attr("checked")){
+			                  $j(this).attr("checked", false);
+			                }
+			            
+			          });
+			          
+			        }else if(this.value == "personalizado"){
+			          $j("#laptop_total").attr("value","<%= number_to_currency(200)%>");
+			          $j("#basico").show("slow");
+			          $j("#personalizado").show("slow");
+			        }else{
+			          $j("#laptop_total").attr("value","<%= number_to_currency(0)%>");
+			          $j("#basico").hide("slow");
+			          $j("#personalizado").hide("slow");
+			          
+			           $j("div#personalizado input[type=checkbox]").each(function() {
+			                if($j(this).attr("checked")){
+			                  $j(this).attr("checked", false);
+			                }
+			            
+			          });
+			        } 
+			        
+			      });
+			     		  
+			</script>
+                                          
+			  	<%= render :partial => 'programa', :locals => {:p => p}%>
+			  	
     	<%= f.label :respaldo %><br />
-    	<%= f.check_box :respaldo, :disabled=>disabled %><br />
+    	<%= f.label :respaldo_si, "Sí" %><%= f.radio_button("respaldo", true, :checked => "checked") %>&nbsp;&nbsp;&nbsp;
+		  <%= f.label :respaldo_no, "No" %><%= f.radio_button("respaldo", false) %> <br />
+			<br />
+			<%unless @laptop.terms?%>
+		<div id="textarea">
+		 
+		  
+		</div>
+		<script type="text/javascript">
+		      $j(function(){
+		            $j("#laptop_terms").change(function(){
+		               if($j("#laptop_terms").attr("checked")){
+		                $j("#laptop_submit").removeAttr("disabled");
+		              }else{
+		                 $j("#laptop_submit").attr("disabled", true);
+		              }
+		              
+		            });
+		            
+		      });
+		       
+		
+		</script>
+		<%= f.check_box :terms %>
+			<%= f.label :terms, 'Acepto los términos y condiciones de uso'%>
+			<br />
+			<%end%>
 			<br />
     	<%= f.label :total %><br />
-    	<%= f.text_field :total, :disabled=>true %><br />
+    	<%= f.text_field :total, :disabled=>true, :value =>  number_to_currency(@laptop.total) %><br />
     	<br />
+    	<%end%>
