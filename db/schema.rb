@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20100717205128) do
     t.text     "comentarios"
     t.string   "usuario"
     t.string   "contra"
-    t.integer  "estado"
+    t.integer  "estado",      :default => 0
     t.string   "paquete"
     t.boolean  "respaldo"
     t.integer  "user_id"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20100717205128) do
 
   create_table "users", :force => true do |t|
     t.string   "fname"
+    t.string   "lname"
     t.string   "crypted_password"
     t.string   "career"
     t.string   "email"
@@ -71,14 +72,12 @@ ActiveRecord::Schema.define(:version => 20100717205128) do
     t.string   "phone"
     t.string   "cel"
     t.string   "nextel"
-    t.boolean  "admin"
-    t.boolean  "colaborator"
-    t.boolean  "client"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean  "admin",             :default => false
+    t.boolean  "colaborator",       :default => false
     t.string   "password_salt"
     t.string   "persistence_token"
-    t.string   "lname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
