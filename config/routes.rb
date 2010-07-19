@@ -6,11 +6,6 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :user_sessions
   map.resources :laptops
 	map.resources :users
-	map.listaRecibidas "/admin/listas/recibidas", :controller => "laptops", :action=>"listaRecibidas"
-	map.listaRegistradas "/admin/listas/registradas", :controller => "laptops", :action=>"listaRegistradas"
-	map.listaEmpezadas "/admin/listas/empezadas", :controller => "laptops", :action=>"listaEmpezadas"
-	map.listaTerminadas "/admin/listas/terminadas", :controller => "laptops", :action=>"listaTerminadas"
-	map.listaEntregadas "/admin/listas/entregadas", :controller => "laptops", :action=>"listaEntregadas"
 	map.estadisticas "/admin/estadisticas", :controller => "laptops", :action=>"estadisticas"
 	map.login "login", :controller => "posts", :action => "index"
 	map.logout "logout", :controller => "user_sessions", :action => "destroy"

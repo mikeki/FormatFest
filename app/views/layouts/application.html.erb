@@ -24,7 +24,16 @@
                     $j('#flash_notice, #flash_error').fadeOut(2000);
                   }
    </script>
-  
+    <script>
+   var $j = jQuery.noConflict();
+                  $j(document).ready(function() {
+                    setTimeout(hideErrorMessages, 10000);
+                  });
+
+                  function hideErrorMessages() {
+                    $j('#errorExplanation').fadeOut(2000);
+                  }
+   </script>
     <div id="majorContent">
     	<div id="header">
         	<%= link_to image_tag ("logo_FF.png" , :id=>"logo"), root_path %>

@@ -1,8 +1,10 @@
 <div id="top_section"><span><%= @title %></span></div>
   <div id="body_section">
   	<div id="contenido">
+  	<%= f.error_messages %>
   	<%fields_for(@programas) do |p|%>
-
+      
+      <h3>Datos de la Laptop</h3>
     	<%= f.label :marca %><br />
     	<%if disabled%>
     	<%= f.text_field :marca, :disabled=>disabled%><br />
@@ -16,24 +18,22 @@
     	<%= f.label :color %><br />
     	<%= f.text_field :color, :disabled=>disabled %><br />
 			<br />
-    	<%= f.label :defecto, "Defectos" %><br />
-    	<%= f.text_area :defecto, :rows=>10, :disabled=>disabled %><br />
-			<br />
-    	<%= f.label :comentarios %><br />
-    	<%= f.text_area :comentarios, :rows=>10, :disabled=>disabled %><br />
-			<br />
-    	<%= f.label :usuario, "Usuario de la laptop" %><br />
+			<%= f.label :usuario, "Nombre de usuario de la laptop" %><br />
     	<%= f.text_field :usuario, :disabled=>disabled %><br />
 			<br />
     	<%= f.label :contra, "Contraseña del usuario" %><br />
     	<%= f.text_field :contra, :disabled=>disabled %><br />
-			<br />
-    	<%= f.hidden_field :estado%>
+    	<br />
+    	<%= f.label :defecto, "Defectos de la laptop" %><br />
+    	<%= f.text_area :defecto, :rows=>5, :disabled=>disabled %><br />
+    	
+			
+			<h3>Datos del Servicio</h3>
 	   	<%= f.label :paquete  %><br />
     	<%if disabled%>
     		<%= f.text_field :paquete, :disabled=>disabled%><br />
     	<%else%>
-    		<%= f.select :paquete, Laptop::PAQUETE, :prompt => "Selecciona el paquete", :disabled=>disabled %><br />
+    		<%= f.select :paquete, Laptop::PAQUETE, :prompt => "Selecciona el paquete"%><br />
     	<%end%>
 			<br />
 			<script type="text/javascript">
@@ -41,16 +41,22 @@
 			  var checkboxes = $j("input[type=checkbox]");       
 			 
 			  
-			  <%if request.request_uri == "/laptops/#{@laptop.id}/edit" %>
+			  
 			  $j(document).ready(function(){
 			    <% if @laptop.paquete == "basico" -%>
 			        $j("#basico").fadeIn(1);
-			        <%elsif @laptop.paquete == "personalizado"%>
+			        <% if request.request_uri == "/laptops"%>
+			          $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");
+			        <%end%>
+			    <%elsif @laptop.paquete == "personalizado"%>
 			         $j("#basico").fadeIn(1);
-			          $j("#personalizado").fadeIn(1);
-			      <% end -%>
+			         $j("#personalizado").fadeIn(1);
+			        <% if request.request_uri == "/laptops"%>
+			          $j("#laptop_total").attr("value","<%= number_to_currency(200)%>");
+			        <%end%>
+			    <% end -%>
 			       });
-			  <%end%>
+			  
 			    
 			      
 			  
@@ -81,25 +87,31 @@
 			                  $j(this).attr("checked", false);
 			                }
 			            
-			          });
+			           });
 			        } 
 			        
 			      });
 			     		  
 			</script>
                                           
-			  	<%= render :partial => 'programa', :locals => {:p => p}%>
+			  	<%= render :partial => 'programa', :locals => {:p => p, :disabled => disabled}%>
 			  	
     	<%= f.label :respaldo %><br />
-    	<%= f.label :respaldo_si, "Sí" %><%= f.radio_button("respaldo", true, :checked => "checked") %>&nbsp;&nbsp;&nbsp;
-		  <%= f.label :respaldo_no, "No" %><%= f.radio_button("respaldo", false) %> <br />
+    	<%= f.label :respaldo_si, "Sí" %><%= f.radio_button("respaldo", true, :checked => "checked", :disabled=>disabled) %>&nbsp;&nbsp;&nbsp;
+		  <%= f.label :respaldo_no, "No" %><%= f.radio_button("respaldo", false, :disabled=>disabled) %> <br />
+			<br />
+			<%= f.label :comentarios %><br />
+    	<%= f.text_area :comentarios, :rows=>5, :disabled=>disabled %><br />
 			<br />
 			<%unless @laptop.terms?%>
-		<div id="textarea">
+		    <div id="textarea">
 		 
 		  
-		</div>
-		<script type="text/javascript">
+		    </div>
+		    <script type="text/javascript">
+		      $j(document).ready(function(){
+		        $j("#laptop_submit").attr("disabled", true);
+		      });
 		      $j(function(){
 		            $j("#laptop_terms").change(function(){
 		               if($j("#laptop_terms").attr("checked")){
@@ -113,10 +125,12 @@
 		      });
 		       
 		
-		</script>
-		<%= f.check_box :terms %>
-			<%= f.label :terms, 'Acepto los términos y condiciones de uso'%>
-			<br />
+		    </script>
+		    <%= f.check_box :terms %>
+			  <%= f.label :terms, 'Acepto los términos y condiciones de uso'%>
+			  <br />
+			<%else%>
+			  <%= f.hidden_field :terms%>
 			<%end%>
 			<br />
     	<%= f.label :total %><br />

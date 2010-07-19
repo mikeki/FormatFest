@@ -10,9 +10,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :phone
       t.string :cel
       t.string :nextel
-      t.boolean :admin
-      t.boolean :colaborator
-      t.boolean :client
+      t.boolean :admin, :default => "0"
+      t.boolean :colaborator, :default => "0"
       t.string :password_salt
       t.string :persistence_token
 

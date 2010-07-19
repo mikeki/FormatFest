@@ -8,7 +8,7 @@ class CreateLaptops < ActiveRecord::Migration
       t.text :comentarios
       t.string :usuario
       t.string :contra
-      t.string :estado
+      t.string :estado, :default => "0"
       t.string :paquete
       t.boolean :respaldo
       t.integer :user_id

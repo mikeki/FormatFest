@@ -15,9 +15,9 @@
 	
 <div id="maincol">
 	<div id="top_section">
-		<%if current_user.admin?%>	
+		<%if @user.admin?%>	
 			<span>Administrador</span>
-		<%elsif current_user.colaborator?%>
+		<%elsif @user.colaborator?%>
 			<span>Colaborador</span>
 		<%else%>
 			<span>Cliente</span>
@@ -25,32 +25,142 @@
 	</div>
 	<div id="body_section">
   	<div id="contenido">
+  	  <div style="float:right">
+  		<%= button_to "Editar", edit_user_path(@user)%>
+  		</div>
+  	  <h3>Datos Personales</h3>
   		<strong>Nombre: </strong>
-  		<%= "#{current_user.fname} #{current_user.lname}"%>
+  		<%= "#{@user.fname} #{@user.lname}"%>
   		<br />
   		<strong>Carrera: </strong>
-  		<%= current_user.career%>
+  		<%= @user.career%>
   		<br />
   		<strong>Matricula: </strong>
-  		<%= current_user.schoolid%>
+  		<%= @user.schoolid%>
   		<br />
   		<strong>E-Mail: </strong>
-  		<%= current_user.email%>
-  		<br />
+  		<%= @user.email%>
+  		
+  		<h3>Datos de Contacto</h3>
   		<strong>Teléfono: </strong>
-  		<%= current_user.phone%>
+  		<%= @user.phone%>
   		<br />
   		<strong>Celular: </strong>
-  		<%= current_user.cel%>
+  		<%= @user.cel%>
   		<br />
   		<strong>Nextel: </strong>
-  		<%= current_user.nextel%>
+  		<%= @user.nextel%>
+
+  		<%unless @user.laptops.empty?%>
+  		  <br />
+  		  <br />
+  		  <table class="laptops" cellspacing="0">
+  		    <tr>
+  		      <th class="titulos" colspan="8"><h3>Laptops del Cliente</h3></th>
+  		    </tr>
+  		    <tr>
+  		      <th class="titulos">Folio de la laptop</th>
+  		      <th class="titulos">Marca</th>
+  		      <th class="titulos">Modelo</th>
+  		      <th class="titulos">Color</th>
+  		      <th class="titulos">Estado</th>
+  		      <th class="titulos" width=32>Ver</th>
+		        <th class="titulos" width=32>Editar</th>
+		        <th class="titulos" width=32>Eliminar</th>
+  		    </tr>
+  		    <% @user.laptops.each do |laptop|%>
+  		      <tr>
+  		        <td class="lista"><%= link_to "Laptop #{laptop.id}", laptop  -%></td>
+  		        <td class="lista"><%=laptop.marca%></td>
+  		        <td class="lista"><%=laptop.modelo%></td>
+  		        <td class="lista"><%=laptop.color%></td>
+  		        <td class="lista">
+  		        <%if laptop.estado < 3%>
+								<span id="nofin">No finalizada.</span>
+							<%elsif laptop.estado == 3%>
+								<span id="fin">Finalizada.</span>
+							<%else%>
+								<span id="fin">Entregada.</span>
+							<%end%>
+							</td>
+  		        <td class="lista"><%= link_to image_tag ("lshow.png", :border=>"0", :width=>32, :height=>32), laptop %></td>
+              <%if current_user.admin? or laptop.estado==0%>
+                <td class="lista"><%= link_to image_tag ("ledit.png", :border=>"0", :width=>32, :height=>32), edit_laptop_path(laptop) %></td>
+                <td class="lista"><%= link_to image_tag ("ldel.png", :border=>"0", :width=>32, :height=>32), laptop, :confirm => 'Are you sure?', :method => :delete %></td>
+              <%else%>
+                <td class="lista"></td>
+                <td class="lista"></td>
+              <%end%>
+  		      </tr>
+  		    <%end%>
+  		  </table>
+  		<%end%>
+  		<%if current_user.admin? or current_user.colaborator?%>
+  		  <%if @colaborators%>
+  		    <br />
+  		    <table class="laptops" cellspacing="0">
+  		      <tr>
+  		        <th class="titulos" colspan="5"><h3>Laptops trabajadas por el colaborador</h3></th>
+  		      </tr>
+  		      <tr>
+            	<th class="titulos">Folio de Laptop</th>
+              <th class="titulos">Recibida</th>
+              <th class="titulos">Empezada</th>
+              <th class="titulos">Terminada</th>
+              <th class="titulos">Entregada</th>
+  		    <%lid="-1"%>
+  		    <%estado=0%>
+  		    <% @colaborators.each do |c|%>
+  		      <%if lid.to_i != c.laptop_id%>
+  		        <%if estado != 0%>
+  		          <%(4-estado).times do%>
+  		            <td class="lista"></td>
+  		          <%end%>
+  		        <%end%>
+  		        </tr>
+  		        <tr>
+  		        <%lid=c.laptop_id%>
+  		          <td class="lista"><%= link_to "Laptop #{c.laptop_id}", :controller => "laptops", :action => "show", :id => c.laptop_id%></td>
+  		      <%end%>
+  		      <%if c.status=="Recibir"%>
+  		          <td class="lista"><%= image_tag 'true.png' %></td>
+  		          <%estado=1%>
+  		      <%elsif c.status=="Empezar"%>
+  		        <%if estado == 0%>
+  		          <td class="lista"></td>
+  		        <%end%>
+  		          <td class="lista"><%= image_tag 'true.png' %></td>
+  		          <%estado=2%>
+  		      <%elsif c.status == "Terminar"%>
+  		        <%if estado != 2%>
+  		          <%(2-estado).times do%>
+  		          <td class="lista"></td>
+  		          <%end%>
+  		        <%end%>
+  		          <td class="lista"><%= image_tag 'true.png' %></td>
+  		          <%estado=3%>
+  		      <%elsif c.status == "Entregar"%>
+  		        <%if estado != 3%>
+  		          <%(3-estado).times do%>
+  		          <td class="lista"></td>
+  		          <%end%>
+  		        <%end%>  
+  		          <td class="lista"><%= image_tag 'true.png' %></td>
+  		          <%estado=4%>
+  		      <%end%>
+	        <%end%>
+	        <%if estado != 0%>
+  		      <%(4-estado).times do%>
+  		        <td class="lista"></td>
+  		      <%end%>
+  		      </tr>
+  		    <%end%>
+	        </table>
+	      <%end%>
+  		<%end%>
   		<br />
-  		<%= button_to "Editar", edit_user_path(current_user)%>
   	</div>
   </div>
 	<div id ="bottom_section"></div>
-	<% @user.colaborators.each do |c|%>
-		<%= link_to "Laptop #{c.status}", :controller => "laptops", :action => "show", :id => c.laptop_id%>
-	<%end%>
+	
 </div>

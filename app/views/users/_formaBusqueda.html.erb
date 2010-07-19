@@ -2,7 +2,7 @@
 <div id="subsection">
 <% form_tag users_path, :method => "GET" do%>
 
-<%= text_field_with_auto_complete :search, {}, {:url => formatted_users_path(:js), :method => :get}%>
+<%= text_field_with_auto_complete :search, {}, {:url => formatted_users_path(:js), :method => :get, :size=>"27"}%>
 
 <%= submit_tag "Buscar", :name => nil%>
 </div>

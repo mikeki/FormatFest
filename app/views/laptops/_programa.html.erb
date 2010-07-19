@@ -2,42 +2,42 @@
         <div id="basico" style="display:none">
           <ul>
               <li><span><%= image_tag 'programs/Avast2.png', :width => '22px', :height => '22px' %></span><%= p.label :avast, 'Avast Antivirus'%>
-              <%= p.check_box :avast%></li>
+              <%= p.check_box :avast, :disabled => disabled%></li>
 
              <li><span><%= image_tag 'programs/Flash.png', :width => '22px', :height => '22px' %></span><%= p.label :flash, 'Flash Player'%>
-              <%= p.check_box :flash%></li><br /><br />
+              <%= p.check_box :flash, :disabled => disabled%></li><br /><br />
 
               <li><span><%= image_tag 'programs/Java.png', :width => '22px', :height => '22px' %></span><%= p.label :java%>
-              <%= p.check_box :java%></li>
+              <%= p.check_box :java, :disabled => disabled%></li>
 
               <li><span><%= image_tag 'programs/Office.png', :width => '22px', :height => '22px' %></span><%= p.label :office, 'Office 2007'%>
-              <%= p.check_box :office%></li>
+              <%= p.check_box :office, :disabled => disabled%></li>
            </ul>
         </div>
 <br />
           <div id="personalizado" style="display:none">
                     <ul>
                         <li><span><%= image_tag 'programs/Chrome.png', :width => '22px', :height => '22px' %></span><%= p.label :chrome, 'Google Chrome'%>
-                        <%= p.check_box :chrome%></li>
+                        <%= p.check_box :chrome, :disabled => disabled%></li>
 
                         <li><span><%= image_tag 'programs/Firefox.png', :width => '22px', :height => '22px' %></span><%= p.label :firefox, 'Mozilla Firefox'%>
-                        <%= p.check_box :firefox%></li>
+                        <%= p.check_box :firefox, :disabled => disabled%></li>
 
                         <li><span><%= image_tag 'programs/Messenger.png', :width => '22px', :height => '22px' %></span><%= p.label :messenger, 'Messenger'%>
-                        <%= p.check_box :messenger%></li>
+                        <%= p.check_box :messenger, :disabled => disabled%></li>
                         <br />
 <br />
                         <li><span><%= image_tag 'programs/Skype.png', :width => '22px', :height => '22px' %></span><%= p.label :skype%>
-                        <%= p.check_box :skype%></li>
+                        <%= p.check_box :skype, :disabled => disabled%></li>
 
                         <li><span><%= image_tag 'programs/iTunes2.png', :width => '22px', :height => '22px' %></span><%= p.label :itunes%>
-                        <%= p.check_box :itunes%></li>
+                        <%= p.check_box :itunes, :disabled => disabled%></li>
 
                         <li><span><%= image_tag 'programs/Reader.png', :width => '22px', :height => '22px' %></span><%= p.label :reader, 'Adobe Reader'%>
-                        <%= p.check_box :reader%></li>
+                        <%= p.check_box :reader, :disabled => disabled%></li>
 
                         <li><span><%= image_tag 'programs/WinRAR.png', :width => '22px', :height => '22px' %></span><%= p.label :winrar%>
-                        <%= p.check_box :winrar%></li>
+                        <%= p.check_box :winrar, :disabled => disabled%></li>
                     </ul>
           </div>
           

@@ -1,16 +1,17 @@
 <div id="maincol">
 	<% form_for(@laptop) do |f| %>
 		<% fields_for(@colaborator) do |c|%>
-	  <%= f.error_messages %>
 		<%disabled = false%>
-		<% if @laptop.estado > 1 and !current_user.admin?%>
-			<%disabled = true%>
+		<% if @laptop.estado > 0%>
+		  <% unless current_user.admin?%>
+		    <%disabled = true%>
+		  <%end%>
 		<%end%>
 		
 	  <%= render :partial => 'form', :locals => {:f => f, :disabled=>disabled}%>
 	  
+	  <% estado = "Actualizar"%>
 	  <% if current_user.colaborator? or current_user.admin?%>
-	  	<% estado = "Actualizar"%>
 	  	<% if @laptop.estado == 0 %>
 	  		<%estado = "Recibir"%>
 	  	<% elsif @laptop.estado == 1 %>
@@ -37,7 +38,7 @@
 
 
 	<%= link_to 'Show', @laptop %> |
-	<%= link_to 'Back', laptops_path %>
+	<%= link_to 'Back', :back %>
 	</div>
 	<!-- Este div cierra al div que abre el partial -->
 	</div>

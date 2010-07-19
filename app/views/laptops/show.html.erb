@@ -3,6 +3,19 @@
 <div id="top_section"><%=@title%></div>
 <div id="body_section">
 <div id="contenido">
+  <b>Cliente:</b>
+  <%=h "#{@laptop.user.fname} #{@laptop.user.lname}" %>
+<br />
+  <b>Estado:</b>
+  <%if @laptop.estado < 3%>
+	  <span id="nofin">No finalizada.</span>
+  <%elsif @laptop.estado == 3%>
+	  <span id="fin">Finalizada.</span>
+  <%else%>
+	  <span id="fin">Entregada.</span>
+  <%end%>
+<br />
+  <h3>Datos de la Laptop</h3>
   <b>Marca:</b>
   <%=h @laptop.marca %>
 <br />
@@ -12,90 +25,98 @@
   <b>Color:</b>
   <%=h @laptop.color %>
 <br />
-  <b>Defecto:</b>
-  <%=h @laptop.defecto %>
-<br />
-  <b>Comentarios:</b>
-  <%=h @laptop.comentarios %>
-<br />
-  <b>Usuario:</b>
+  <b>Nombre de Usuario:</b>
   <%=h @laptop.usuario %>
 <br />
-  <b>Contra:</b>
+  <b>Contraseña:</b>
   <%=h @laptop.contra %>
 <br />
-<% if current_user.admin? or current_user.colaborator? -%>
-  <b>Estado:</b>
-  <%=h @laptop.estado %>
+  <b>Defecto(s):</b>
+  <br />
+  <%=h sanitize(@laptop.defecto.gsub("\n", "<br />")) %>
 <br />
-<% end -%>
-  
+
+<h3>Datos del Servicio</h3>
   <b>Paquete:</b>
   <%=h @laptop.paquete.capitalize %>
 <br />
 <% if @laptop.program -%>
-  <div>
+  <b>Programas:</b>
+  <ul style="margin: 3px 0px 8px 0px;">
     <% if @laptop.program.avast? -%>
-      <p>Avast</p>
+      <li><span><%= image_tag 'programs/Avast2.png', :width => '22px', :height => '22px' %></span>Avast Antivirus</li>
     <% end -%>
     <% if @laptop.program.flash? -%>
-      <p>Flash</p>
+      <li><span><%= image_tag 'programs/Flash.png', :width => '22px', :height => '22px' %></span>Flash Player</li>
     <% end -%>
     <% if @laptop.program.java? -%>
-      <p>Java</p>
+      <li><span><%= image_tag 'programs/Java.png', :width => '22px', :height => '22px' %></span>Java</li>
     <% end -%>
     <% if @laptop.program.office? -%>
-      <p>Office</p>
+      <li><span><%= image_tag 'programs/Office.png', :width => '22px', :height => '22px' %></span>Office 2007</li>
     <% end -%>
     <% if @laptop.program.chrome? -%>
-      <p>Google Chrome</p>
+    <li><span><%= image_tag 'programs/Chrome.png', :width => '22px', :height => '22px' %></span>Google Chrome</li>
     <% end -%>
     <% if @laptop.program.firefox? -%>
-      <p>Firefox</p>
+      <li><span><%= image_tag 'programs/Firefox.png', :width => '22px', :height => '22px' %></span>Mozilla Firefox</li>
     <% end -%>
     <% if @laptop.program.messenger? -%>
-      <p>Messenger</p>
+      <li><span><%= image_tag 'programs/Messenger.png', :width => '22px', :height => '22px' %></span>Messenger</li>
     <% end -%>
     <% if @laptop.program.skype? -%>
-      <p>Skype</p>
+      <li><span><%= image_tag 'programs/Skype.png', :width => '22px', :height => '22px' %></span>Skype</li>
     <% end -%>
     <% if @laptop.program.itunes? -%>
-      <p>iTunes</p>
+      <li><span><%= image_tag 'programs/iTunes2.png', :width => '22px', :height => '22px' %></span>iTunes</li>
     <% end -%>
     <% if @laptop.program.reader? -%>
-      <p>Adobe Reader</p>
+      <li><span><%= image_tag 'programs/Reader.png', :width => '22px', :height => '22px' %></span>Adobe Reader</li>
     <% end -%>
     <% if @laptop.program.winrar? -%>
-      <p>WinRAR</p>
+      <li><span><%= image_tag 'programs/WinRAR.png', :width => '22px', :height => '22px' %></span>WinRAR</li>
     <% end -%>
     
-  </div>
+  </ul>
 <% end -%>
   <b>Respaldo:</b>
-  <%= image_tag "#{@laptop.respaldo}.png" %>
+  <%= image_tag "#{@laptop.respaldo}.png", :width=>25, :height=>25 %>
 <br />
-  <b>Cliente:</b>
-  <%=h "#{@laptop.user.fname} #{@laptop.user.lname}" %>
+  <b>Comentarios:</b>
+  <br />
+  <%=h @laptop.comentarios %>
 <br />
   <b>Total:</b>
   <%=h number_to_currency(@laptop.total) %>
 <br />
 
-
-
-<% @laptop.colaborators.each do |c|%>
-  <b>Colaborador:</b>
-  <%=h "#{c.user.fname} #{c.user.lname}" %>
-<br />
-
-  <b>Estado:</b>
-  <%=h c.status %>
-<br />
+<%if current_user.admin? or current_user.colaborator?%>
+  <br />
+  <table class="laptops" cellspacing="0">
+    <tr>
+      <th class="titulos" colspan="4"><h3>Colaboradores que trabajaron la laptop</h3></th>
+    </tr>
+    <tr>
+      <th class="titulos" width="25%">Recibida</th>
+      <th class="titulos" width="25%">Empezada</th>
+      <th class="titulos" width="25%">Terminada</th>
+      <th class="titulos" width="25%">Entregada</th>
+    </tr>
+    <tr>
+    <% @laptop.colaborators.each do |c|%>
+      <td class="lista"><%=h "#{c.user.fname} #{c.user.lname}" %></td>
+    <%end%>
+    <% (4-@laptop.estado).times do%>
+      <td class="lista"></td>
+    <%end%>
+    </tr>
+   </table>
 <%end%>
-
+<% if current_user.admin? or @laptop.estado == 0%>
 <%= link_to 'Edit', edit_laptop_path(@laptop) %> |
-<%= link_to 'Back', laptops_path %> |
-<%= link_to 'Delete', @laptop, :confirm => 'Are you sure?', :method => :delete %>
+<%= link_to 'Atras', :back%> |
+<%= link_to 'Delete', @laptop, :confirm => '¿Estás Seguro?', :method => :delete %>
+<%end%>
 
 </div>
 </div>

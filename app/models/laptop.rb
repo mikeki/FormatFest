@@ -1,7 +1,8 @@
 class Laptop < ActiveRecord::Base
+validates_presence_of :marca, :modelo, :color, :paquete, :respaldo
 belongs_to :user
-has_many :colaborators
-has_one :program
+has_many :colaborators, :dependent => :destroy
+has_one :program, :dependent => :destroy
 
 MARCA = [
 ["HP - Hewlett-Packard", "HP"],

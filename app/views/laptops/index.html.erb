@@ -1,1 +1,74 @@
-<%= render :partial => 'lista'%>
+<div id="maincol">
+
+<div id="top_section">Listado de Laptops</div>
+<div id="body_section">
+
+<div id="contenido">
+<div style="float:right">
+
+<script type="text/javascript">
+$j(function(){
+  <%if params[:estado] == "0"%>
+    $j("#cero").attr("selected", "selected");
+  <%elsif params[:estado] == "1"%>
+    $j("#uno").attr("selected", "selected");
+  <%elsif params[:estado] == "2"%>
+    $j("#dos").attr("selected", "selected");
+  <%elsif params[:estado] == "3"%>
+    $j("#tres").attr("selected", "selected");
+  <%elsif params[:estado] == "4"%>
+    $j("#cuatro").attr("selected", "selected");
+  <%end%>
+});
+
+</script>
+
+ <% form_tag  laptops_path, :method => "GET" do -%>
+  <%= select_tag "estado", "<option value=\"-1\">Todas</option>
+        <option value=\"0\" id=\"cero\">Registradas</option>
+        <option value=\"1\" id=\"uno\">Recibidas</option>
+        <option value=\"2\" id=\"dos\">Empezadas</option>
+        <option value=\"3\" id=\"tres\">Terminadas</option>
+        <option value=\"4\" id=\"cuatro\">Entregadas</option>"%>
+     <%= submit_tag 'Filtrar', :name => ""%>
+ <% end -%>
+ </div>
+<%= will_paginate :previous_label => "<<", :next_label => ">>"%>
+<table class="laptops" cellspacing="0">
+  <tr>
+  	<th class="titulos">#</th>
+    <th class="titulos">Marca</th>
+    <th class="titulos">Modelo</th>
+    <th class="titulos">Color</th>
+    <th class="titulos">Respaldo</th>
+    <th class="titulos">Cliente</th>
+    <th class="titulos">Ver</th>
+    <th class="titulos">Editar</th>
+    <%if current_user.admin?%>
+    <th class="titulos">Borrar</th>
+    <%end%>
+  </tr>
+
+<% @laptops.each do |laptop| %>
+  <tr>
+  	<td class="lista"><%=h laptop.id %></td>
+    <td class="lista"><%=h laptop.marca %></td>
+    <td class="lista"><%=h laptop.modelo %></td>
+    <td class="lista"><%=h laptop.color %></td>
+    <td class="lista"><%=h image_tag ("#{laptop.respaldo}.png") %></td>
+    <td class="lista"><%=h "#{laptop.user.fname} #{laptop.user.lname}" %></td>
+    <td class="lista"><%= link_to image_tag ("lshow.png", :border=>"0"), laptop %></td>
+    <td class="lista"><%= link_to image_tag ("ledit.png", :border=>"0"), edit_laptop_path(laptop) %></td>
+    <% if current_user.admin?%>
+    <td class="lista"><%= link_to image_tag ("ldel.png", :border=>"0"), laptop, :confirm => 'Are you sure?', :method => :delete %></td>
+    <%end %>
+  </tr>
+<% end %>
+</table>
+
+</div>
+
+</div>
+
+<div id="bottom_section"></div>
+</div>

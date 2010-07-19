@@ -20,6 +20,7 @@ class PostsController < ApplicationController
       flash[:notice] = "Noticia Publicada Satisfactoriamente."
       redirect_to root_path
     else
+      flash[:error] = "Ocurrio un error al publicar la noticia."
       render :action => 'new'
     end
   end
@@ -35,6 +36,7 @@ class PostsController < ApplicationController
       flash[:notice] = "Noticia Editada Satisfactoriamente."
       redirect_to root_path
     else
+      flash[:error] = "Ocurrio un error al editar la noticia."
       render :action => 'edit'
     end
   end
@@ -42,7 +44,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    flash[:notice] = "Successfully destroyed post."
+    flash[:notice] = "Noticia eliminada satisfactoriamente."
     redirect_to posts_url
   end
 end

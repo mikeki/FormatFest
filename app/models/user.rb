@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
-acts_as_authentic
+acts_as_authentic do |c|
+  c.merge_validates_format_of_email_field_options :message => 'debe de parecer una dirección de email'
+end
 
 has_many :laptops
 has_many :colaborators
 
-attr_accessible :fname, :lname, :password, :password_confirmation, :career, :email, :schoolid, :phone, :cel, :nextel, :admin, :colaborator, :client
+attr_accessible :fname, :lname, :password, :password_confirmation, :career, :email, :schoolid, :phone, :cel, :nextel, :admin, :colaborator
 
 validates_presence_of :fname, :lname, :email, :schoolid
 validates_uniqueness_of :schoolid, :email
@@ -91,7 +93,10 @@ end
 protected
   def there_must_be_a_phone
     if (phone.blank? & cel.blank? & nextel.blank?)
-      errors.add_to_base("Debe de haber almenos 1 numero de contacto")
+      errors.add_to_base("Debe de haber almenos 1 número de contacto, ya sea:")
+      errors.add(:phone, "")
+      errors.add(:cel, "")
+      errors.add(:nextel, "")
     end
   end
   

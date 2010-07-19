@@ -6,8 +6,22 @@ class UsersController < ApplicationController
   before_filter :not_privileges, :only => [:index, :show_admin, :busqueda]
   
   def index
-  @title = "Listado de usuarios"
-  @users = User.find(:all, :conditions => ['email LIKE ?', "%#{params[:search]}%"])
+    if params[:usuario] == "3"
+      @title = "Listado de Administradores y Colaboradores"
+      @users = User.paginate(:page => params[:page],:per_page=>10, :conditions => ['email LIKE ? AND admin = 1 or colaborator = 1', "%#{params[:search]}%"])
+    elsif params[:usuario] == "2"
+      @title = "Listado de Administradores"
+      @users = User.paginate(:page => params[:page],:per_page=>10, :conditions => ['email LIKE ? AND admin = 1', "%#{params[:search]}%"])
+    elsif params[:usuario] == "1"
+      @title = "Listado de Colaboradores"
+      @users = User.paginate(:page => params[:page],:per_page=>10, :conditions => ['email LIKE ? AND colaborator = 1', "%#{params[:search]}%"])
+    elsif params[:usuario] == "0"
+      @title = "Listado de Clientes"
+      @users = User.paginate(:page => params[:page],:per_page=>10, :conditions => ['email LIKE ? AND admin = 0 AND colaborator = 0', "%#{params[:search]}%"])
+    else 
+      @title = "Listado de todos los Usuarios"
+      @users = User.paginate(:page => params[:page],:per_page=>10, :conditions => ['email LIKE ?', "%#{params[:search]}%"])
+    end
   end
   
   def new
@@ -41,36 +55,32 @@ class UsersController < ApplicationController
   @user = User.find(params[:id])
   
   	if @user.update_attributes(params[:user])
-  		flash[:notice] = "El usuario se actualizo chido"
+  		flash[:notice] = "El usuario se actualizo satisfactoriamente."
   		redirect_to @user
   		else
-  		flash[:error] = "Algo salio mal :S"
+  		flash[:error] = "El usuario no pudo actualizarse."
   		render 'edit'
   	end
   
   end
 
   def show
-      @laptop = Laptop.new
   	if current_user.admin? or current_user.colaborator?
   		@user = User.find(params[:id])
   	else
-  	
   		@user = current_user
   	end
-  	if @user.fname
-  		@title = "#{@user.fname.capitalize}"
-  	else
-  		@title = ""
-  	end
-  	if @user.lname
-  		@title = "#{@title} #{@user.lname.capitalize}"
-  	end
+  	
+    @title = "#{@user.fname.capitalize} #{@user.lname.capitalize}"
+    unless @user.colaborators.empty?
+      @colaborators = @user.colaborators.find(:all, :order=>"laptop_id, created_at")
+    end
   end
   
   def destroy
   @user = User.find(params[:id])
   @user.destroy
+  flash[:notice] = "Usuario eliminado satisfactoriamente."
   redirect_to (users_url)
   end
   

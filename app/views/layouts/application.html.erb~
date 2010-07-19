@@ -3,11 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title><%= titulo %></title>
+    <% if request.request_uri == '/admin/estadisticas'%>
+       <meta content="900" http-equiv="REFRESH"> </meta>
+    <% end -%>
     <%= stylesheet_link_tag 'saitc' %>
     
     <%= javascript_include_tag :defaults %>
     <%= javascript_include_tag 'jquery-1.4.2' %>
-
+   
   </head>
   <body>
   
@@ -21,7 +24,16 @@
                     $j('#flash_notice, #flash_error').fadeOut(2000);
                   }
    </script>
-  
+    <script>
+   var $j = jQuery.noConflict();
+                  $j(document).ready(function() {
+                    setTimeout(hideErrorMessages, 12000);
+                  });
+
+                  function hideErrorMessages() {
+                    $j('#errorExplanation').fadeOut(2000);
+                  }
+   </script>
     <div id="majorContent">
     	<div id="header">
         	<%= link_to image_tag ("logo_FF.png" , :id=>"logo"), root_path %>
@@ -68,28 +80,18 @@
             <div id="subsection">
             	<%= link_to "Nueva Noticia", new_post_path%><br/>
             	<%= link_to "Estadísticas", estadisticas_path%><br />
-            	<%= link_to "Recepción", listaRegistradas_path%><br />
+            	<%= link_to "Recepción", '/laptops?estado=0' %><br />
             	<br />
-            	<span>Listas Usuarios</span>
+            	<%= link_to "Lista de Usuarios", users_path%><br />
             	<br />
-            	<%= link_to "Lista Clientes", users_path%><br />
-            	<%= link_to "Lista Administradores", "#"%><br />
-            	<%= link_to "Lista Colaboradores", "#"%><br />
-            	<br />
-            	<span>Listas Laptops</span>
-            	<br />
-            	<%= link_to "Lista Todas", laptops_path%><br />
-            	<%= link_to 'Lista Registradas', listaRegistradas_path%><br />
-							<%= link_to 'Lista Recibidas', listaRecibidas_path%><br />
-							<%= link_to 'Lista Empezadas', listaEmpezadas_path%><br />
-							<%= link_to 'Lista Terminadas', listaTerminadas_path%><br />
-							<%= link_to 'Lista Entregadas', listaEntregadas_path%><br />
+            	<%= link_to "Lista de Laptops", laptops_path%><br />
             </div>
             <div id="bottom_subsection"></div>
 						<%= render :partial => 'users/formaBusqueda'%>
+						<%= render :partial => 'laptops/formaBusqueda'%>
 					<%end%>
     	  	<div id="top_subsection">
-						<span>Tiene <%= pluralize(current_user.laptops.count, "laptop") %> en reparación:</span>
+						<span id="laptops">Tiene <%= pluralize(current_user.laptops.count, "laptop") %> en reparación:</span>
 					</div>
 					<div id="subsection">
 						<% current_user.laptops.each do |l|%>

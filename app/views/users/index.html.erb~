@@ -1,32 +1,63 @@
-<%= render :partial => 'formaBusqueda'%>
+<div id="maincol">
+  <div id="top_section"><%= @title%></div>
+  <div id="body_section">
+    <div id="contenido">
+      <div id="busqueda">
+      <script type="text/javascript">
+        $j(function(){
+          <%if params[:usuario] == "0"%>
+            $j("#cero").attr("selected", "selected");
+          <%elsif params[:usuario] == "1"%>
+            $j("#uno").attr("selected", "selected");
+          <%elsif params[:usuario] == "2"%>
+            $j("#dos").attr("selected", "selected");
+          <%elsif params[:usuario] == "3"%>
+            $j("#tres").attr("selected", "selected");
+          <%end%>
+        });
 
-<div id="listadoUsuarios">
-        Total de usuarios: <%= @users.count%><br />
-        <table>
-            <tr>
-                <th>Nombre</th>
-                <th>Carrera</th>
-                <th>Correo electronico</th>
-                <th>Matricula</th>
-                <th>Telefono</th>
-                <th>Celular</th>
-                <th>Nextel</th>
-                <th>Actualizado</th>
-            </tr>
+      </script> 
+      <% form_tag  users_path, :method => "GET" do -%>
+        <%= text_field_tag :search, params[:search]%>
+        <%= select_tag "usuario", "<option value=\"-1\">Todos</option>
+        <option value=\"0\" id=\"cero\">Clientes</option>
+        <option value=\"1\" id=\"uno\">Colaboradores</option>
+        <option value=\"2\" id=\"dos\">Administradores</option>
+        <option value=\"3\" id=\"tres\">Staff</option>"%>
+        <%= submit_tag 'Filtrar', :name => ""%>
+      <% end -%>
+      </div>
+      <%= will_paginate :previous_label => "<<", :next_label => ">>"%>
+      <table class="laptops" cellspacing="0">
+        <tr>
+          <th class="titulos">Nombre</th>
+          <th class="titulos">Carrera</th>
+          <th class="titulos">Email</th>
+          <th class="titulos">Matricula</th>
+          <th class="titulos">Laptops</th>
+          <th class="titulos">Ver Perfil</th>
+          <%if current_user.admin?%>
+          <th class="titulos">Editar</th>
+          <th class="titulos">Eliminar</th>
+          <%end%>
+        </tr>
 
         <% @users.each do |u| %>
-              <tr>
-                    <td><%= link_to "#{u.fname} #{u.lname}", :action => "show", :id => u.id%></td>
-                    <td><%=h u.career%></td>
-                    <td><%=h u.email%></td>
-                    <td><%=h u.schoolid%></td>
-                    <td><%=h u.phone%></td>
-                    <td><%=h u.cel%></td>
-                    <td><%=h u.nextel%></td>
-                    <td>Hace <%=h distance_of_time_in_words_to_now(u.updated_at)%></td>
-                    <td><%= link_to "Editar", :action => "edit", :id => u.id%></td>
-                    <td><%= link_to "Eliminar",u, :confirm => 'Seguro wey?', :method => :delete%></td>
-              </tr>
+          <tr>
+                <td class="lista"><%= link_to "#{u.fname} #{u.lname}", :action => "show", :id => u.id%></td>
+                <td class="lista"><%=h u.career%></td>
+                <td class="lista"><%=h u.email%></td>
+                <td class="lista"><%=h u.schoolid%></td>
+                <td class="lista"><%=h u.laptops.count%></td>
+                <td class="lista"><%= link_to "Ver", :action => "show", :id => u.id%></td>
+                <td class="lista"><%= link_to "Editar", :action => "edit", :id => u.id%></td>
+                <td class="lista"><%= link_to "Eliminar",u, :confirm => '¿Seguro que desea Eliminar al usuario?', :method => :delete%></td>
+          </tr>
         <%end%>
-        </table>
+      </table>
+      <br />
+    </div>
+  </div>
+
+  <div id="bottom_section"></div>
 </div>

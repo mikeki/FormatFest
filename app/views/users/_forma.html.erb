@@ -1,41 +1,43 @@
+
 <div id="top_section"><span><%= @title %></span></div>
 	<div id="body_section">
   	<div id="contenido">
 			<%= f.error_messages %>
-
-			<%= f.label :fname, "Nombre (s)"%><br/>
+			
+			<h3>Datos Personales</h3>
+	
+			<%= f.label :fname%><br/>
 			<%= f.text_field :fname%><br/>
 
-			<%= f.label :lname, "Apellidos"%><br/>
+			<%= f.label :lname%><br/>
 			<%= f.text_field :lname%><br/>
+			
+			<%= f.label :career%><br />
+			<%= f.select :career,
+		             User::CARRERA,
+		            :prompt => "Selecciona una carrera"%><br />
+
+			<%= f.label :schoolid%><br/>
+			<%= f.text_field :schoolid %><br/>
+			
+			<%= f.label :email%><br/>
+			<%= f.text_field :email%><br/>
 
 			<%= f.label :password %><br/>
 			<%= f.password_field :password %><br/>
 	
 			<%= f.label :password_confirmation %><br/>
 			<%= f.password_field :password_confirmation %><br/>
-		
-			<%= f.label :career, "Carrera"%><br />
-			<%= f.select :career,
-		             User::CARRERA,
-		            :prompt => "Selecciona una carrera"%><br />
 
-			<!--<%= f.label :career, "Carrera"%><br/>
-			<%= f.text_field :career%><br/>-->
-		
-			<%= f.label :email, "Correo Electronico"%><br/>
-			<%= f.text_field :email%><br/>
-		
-			<%= f.label :schoolid, "Matricula"%><br/>
-			<%= f.text_field :schoolid %><br/>
+			<h3>Datos de Contacto</h3>
 			
-			<%= f.label :phone, "Telefono"%><br/>
+			<%= f.label :phone%><br/>
 			<%= f.text_field :phone %><br/>
 	
-			<%= f.label :cel, "Celular"%><br/>
+			<%= f.label :cel%><br/>
 			<%= f.text_field :cel %><br/>
 	
-			<%= f.label :nextel, "Nextel"%><br/>
+			<%= f.label :nextel%><br/>
 			<%= f.text_field :nextel %><br/>
 			
 			<%if current_user%>
@@ -47,5 +49,4 @@
 					<%= f.check_box :colaborator %><br/>
 				<%end%>
 			<%end%>
-			<%= f.hidden_field :client, :value => true %>
 					

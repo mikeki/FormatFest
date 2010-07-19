@@ -60,8 +60,7 @@ class LaptopsController < ApplicationController
   	:conditions => {:status => "Entregar"},
   	:limit => 5
   	)
-  	@title = "Estadísticas"
-  	
+  	@title = "Estadísticas a las #{Time.now.to_formatted_s(:time)} horas"
   end
 
   # GET /laptops/1
@@ -78,7 +77,7 @@ class LaptopsController < ApplicationController
   def new
   	@title = "Registrar una Nueva Laptop"
   	@laptop = Laptop.new
-  	@programas =Program.new
+  	@programas=Program.new
   end
 
 
@@ -86,7 +85,7 @@ class LaptopsController < ApplicationController
   def edit
     @laptop = Laptop.find(params[:id])
     @programas = @laptop.program
-    @title = "Editando Laptop: #{@laptop.marca} #{@laptop.color}, Folio: #{@laptop.id}"
+    @title = "Editando Laptop: #{@laptop.marca} #{@laptop.modelo} con folio: #{@laptop.id}"
     @colaborator = Colaborator.new
   end
 
@@ -94,19 +93,22 @@ class LaptopsController < ApplicationController
   # POST /laptops.xml
   def create
     @laptop = current_user.laptops.build(params[:laptop])
-    @laptop.update_attribute(:estado, 0)
-    if @laptop.paquete == "basico"
-      @laptop.update_attribute(:total,180)
-    else
-      @laptop.update_attribute(:total,200)
-    end
-   @programas = @laptop.build_program(params[:program])
-      if @laptop.save and @programas.save
-        redirect_to @laptop
+    @programas = @laptop.build_program(params[:program])
+    if @laptop.save
+      if @laptop.paquete == "basico"
+        @laptop.update_attribute(:total,180)
       else
-        flash[:error] ="Hubo un problema"
-        redirect_to :back
+        @laptop.update_attribute(:total,200)
       end
+      if @programas.save
+        flash[:notice] = "Se registró una laptop satisfactoriamente."
+        redirect_to @laptop
+      end
+    else
+      flash[:error] ="Ocurrio un problema al registrar la laptop."
+      @title = "Registrar una Nueva Laptop"
+      render 'new'
+    end
   end
 
   # PUT /laptops/1
@@ -121,10 +123,11 @@ class LaptopsController < ApplicationController
     respond_to do |format|
       if @laptop.update_attributes(params[:laptop]) and @laptop.program.update_attributes(params[:program])
       	@laptop.update_attribute(:estado, "#{@laptop.colaborators.count}")
-        format.html { redirect_to(@laptop, :notice => 'Laptop was successfully updated.') }
+        format.html { redirect_to(@laptop, :notice => 'La laptop se actualizo satisfactoriamente.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        @title = "Editando Laptop: #{@laptop.marca} #{@laptop.color} con folio: #{@laptop.id}"
+        format.html { render :action => "edit", :error => 'Ocurrio un error al actualizar la laptop.' }
         format.xml  { render :xml => @laptop.errors, :status => :unprocessable_entity }
       end
     end
@@ -136,12 +139,16 @@ class LaptopsController < ApplicationController
     @laptop = Laptop.find(params[:id])
     if (@laptop.user == current_user and @laptop.estado==0) or current_user.admin? 
     	@laptop.destroy
+      respond_to do |format|
+        format.html { redirect_to(laptops_url, :notice => 'Se elimino la laptop satisfactoriamente.') }
+        format.xml  { head :ok }
+      end
+    else
+      flash[:error] = 'Imposible eliminar la laptop.'
+      redirect_to :back
     end
+    
 
-    respond_to do |format|
-      format.html { redirect_to(laptops_url) }
-      format.xml  { head :ok }
-    end
   end
 
 end
