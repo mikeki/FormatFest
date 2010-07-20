@@ -133,7 +133,6 @@
     	    <span id="tema">Nuestros Patrocinadores:</span>
     	  </div>
     	  <div id="links">
-    	    <%= link_to image_tag ("bface.png" , :id=>"facebook"), "http://www.facebook.com" %>
     	    <div id="texto">
         	  <%= link_to "Home", root_path %> | 
         	  <%if current_user%>
@@ -144,6 +143,7 @@
         	  <%else%>
         	    <%= link_to "Registrarse", registro_path  %>
         	  <%end%>
+        	  <%= link_to image_tag ("bface.png" , :id=>"facebook"), "http://www.facebook.com" %>
       	  </div>
     	  </div>
     	</div>
