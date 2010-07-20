@@ -22,7 +22,7 @@
 	  		<%estado = "Entregar"%> 
 	  	<%end%>
 	  	<% if @laptop.estado < 4 %>
-	  		<% disabled = false%>
+	  		<% boton = false%>
 	  		<%= c.hidden_field :status, :value=>estado%>
 	    	<%= c.hidden_field :laptop_id, :value => @laptop.id%>
 	    	<%= c.hidden_field :user_id, :value => current_user.id%>
@@ -30,15 +30,13 @@
 	    	<%boton = true%>
 	    <%end%>
 	  <%end%>
-	  <p>
+	    <div style="float:left">
 	    <%= f.submit "#{estado}", :disabled=>boton%>
-	  </p>
+	    </div>
 	  <%end%>
-	<%end %>
-
-
-	<%= link_to 'Show', @laptop %> |
-	<%= link_to 'Back', :back %>
+	<%end %> 
+	<br />
+	<br />
 	</div>
 	<!-- Este div cierra al div que abre el partial -->
 	</div>

@@ -57,14 +57,14 @@
             			<%= link_to image_tag ("bhome.png", :border=>"0"), root_path%>
             			<%= link_to image_tag ("bnew_laptop.png", :border=>"0"), new_laptop_path%>
             			<%= link_to image_tag ("bcontact.png", :border=>"0"), "#"%>
-            			<%= link_to image_tag ("bedit_profile.png", :border=>"0"), edit_user_path(current_user)%>
+            			<%= link_to image_tag ("bperfil.png", :border=>"0"), current_user%>
             			<%= link_to image_tag ("blogout.png", :border=>"0"), logout_path%>
           	<%else%>
           		<div id="top_subsection"><span>Iniciar sesión</span></div>
           		<div id="subsection">
           		<%= render :partial=>'user_sessions/new'-%>
           		<div id="maincolsub"> 
-          		<%= button_to "Registro", new_user_path%>
+          		<%= button_to "Registro", registro_path%>
           		</div>
           		</div>
           	<%end%>
@@ -78,12 +78,12 @@
             	</span>
             </div>
             <div id="subsection">
-            	<%= link_to "Nueva Noticia", new_post_path%><br/>
+              <%if current_user.admin?%>
+            	  <%= link_to "Nueva Noticia", new_post_path%><br/>
+            	<%end%>
             	<%= link_to "Estadísticas", estadisticas_path%><br />
             	<%= link_to "Recepción", '/laptops?estado=0' %><br />
-            	<br />
             	<%= link_to "Lista de Usuarios", users_path%><br />
-            	<br />
             	<%= link_to "Lista de Laptops", laptops_path%><br />
             </div>
             <div id="bottom_subsection"></div>
@@ -128,7 +128,25 @@
     			
     			<br />
     	</div>				
-    	
+    	<div id="footer">
+    	  <div id="patrocinadores">
+    	    <span id="tema">Nuestros Patrocinadores:</span>
+    	  </div>
+    	  <div id="links">
+    	    <div id="texto">
+        	  <%= link_to "Home", root_path %> | 
+        	  <%if current_user%>
+        	    <%= link_to "Registrar Laptop", new_laptop_path %> | 
+        	    <%= link_to "Ver Perfil", current_user%> | 
+        	    <%= link_to "Editar Perfil", edit_user_path(current_user)%> |
+        	    <%= link_to "Cerrar Sesión", logout_path %>
+        	  <%else%>
+        	    <%= link_to "Registrarse", registro_path  %>
+        	  <%end%>
+        	  <%= link_to image_tag ("bface.png" , :id=>"facebook"), "http://www.facebook.com" %>
+      	  </div>
+    	  </div>
+    	</div>
     </div>
   </body>
 </html>

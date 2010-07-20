@@ -35,6 +35,27 @@ div#header #botonHeader{
 	border: none;
 }
 
+div#footer{
+	background: url(../images/footer.png) no-repeat;
+	position: relative;
+	width: 859px;
+	height: 144px;
+	margin: 20px auto 0px auto;
+	
+}
+
+
+div#footer #patrocinadores{
+    float:left;
+	padding: 10px 0px 0px 10px;
+	border: none;
+}
+
+div#footer #patrocinadores #titulos{
+	padding: 0px 5px 10px 0px;
+	border: none;
+}
+
 div#majorContent div#top_subsection{
 	background: url(../images/top_subsection.png) no-repeat;
 	width: 261px;

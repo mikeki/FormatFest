@@ -36,8 +36,8 @@
           <th class="titulos">Matricula</th>
           <th class="titulos">Laptops</th>
           <th class="titulos">Ver Perfil</th>
-          <%if current_user.admin?%>
           <th class="titulos">Editar</th>
+          <%if current_user.admin?%>
           <th class="titulos">Eliminar</th>
           <%end%>
         </tr>
@@ -49,9 +49,11 @@
                 <td class="lista"><%=h u.email%></td>
                 <td class="lista"><%=h u.schoolid%></td>
                 <td class="lista"><%=h u.laptops.count%></td>
-                <td class="lista"><%= link_to "Ver", :action => "show", :id => u.id%></td>
-                <td class="lista"><%= link_to "Editar", :action => "edit", :id => u.id%></td>
-                <td class="lista"><%= link_to "Eliminar",u, :confirm => '¿Seguro que desea Eliminar al usuario?', :method => :delete%></td>
+                <td class="lista"><%= link_to image_tag('pshow.png', :border=>0), :action => "show", :id => u.id%></td>
+                <td class="lista"><%= link_to image_tag('pedit.png', :border=>0), :action => "edit", :id => u.id%></td>
+                <%if current_user.admin?%>
+                <td class="lista"><%= link_to image_tag('pdel.png', :border=>0),u, :confirm => '¿Seguro que desea Eliminar al usuario?', :method => :delete%></td>
+                <%end%>
           </tr>
         <%end%>
       </table>

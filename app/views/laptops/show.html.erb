@@ -3,6 +3,20 @@
 <div id="top_section"><%=@title%></div>
 <div id="body_section">
 <div id="contenido">
+  <div style="float:right">
+    <% if current_user.admin? or current_user.colaborator? or @laptop.estado == 0%>
+      <%= link_to image_tag ("ledit.png", :border=>"0"), edit_laptop_path(@laptop) %>
+      <br />
+    <%else%>
+      <%= image_tag ("lediti.png", :border=>"0") %>
+      <br />
+    <%end%>
+    <%if current_user.admin? or @laptop.estado==0%>
+      <%= link_to image_tag ("ldel.png", :border=>"0"), @laptop, :confirm => '¿Estás Seguro?', :method => :delete %>
+    <%else%>
+      <%= image_tag ("ldeli.png", :border=>"0") %>
+    <%end%>
+  </div>
   <b>Cliente:</b>
   <%=h "#{@laptop.user.fname} #{@laptop.user.lname}" %>
 <br />
@@ -111,11 +125,7 @@
     <%end%>
     </tr>
    </table>
-<%end%>
-<% if current_user.admin? or @laptop.estado == 0%>
-<%= link_to 'Edit', edit_laptop_path(@laptop) %> |
-<%= link_to 'Atras', :back%> |
-<%= link_to 'Delete', @laptop, :confirm => '¿Estás Seguro?', :method => :delete %>
+   <br />
 <%end%>
 
 </div>

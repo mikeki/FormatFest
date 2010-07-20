@@ -25,6 +25,9 @@
 	</div>
 	<div id="body_section">
   	<div id="contenido">
+  	  <div style="float:right">
+  		<%= link_to image_tag ("bedit_profile.png", :width=>"172.5px", :height=>"45px", :border=>"0"), edit_user_path(@user)%>
+  		</div>
   	  <h3>Datos Personales</h3>
   		<strong>Nombre: </strong>
   		<%= "#{@user.fname} #{@user.lname}"%>
@@ -80,13 +83,13 @@
 								<span id="fin">Entregada.</span>
 							<%end%>
 							</td>
-  		        <td class="lista"><%= link_to image_tag ("lshow.png", :border=>"0", :width=>32, :height=>32), laptop %></td>
-              <%if current_user.admin? or laptop.estado==0%>
-                <td class="lista"><%= link_to image_tag ("ledit.png", :border=>"0", :width=>32, :height=>32), edit_laptop_path(laptop) %></td>
-                <td class="lista"><%= link_to image_tag ("ldel.png", :border=>"0", :width=>32, :height=>32), laptop, :confirm => 'Are you sure?', :method => :delete %></td>
+  		        <td class="lista"><%= link_to image_tag ("lshow.png", :border=>"0", :alt=>"Ver información de la laptop"), laptop %></td>
+              <%if current_user.admin? or current_user.colaborator? or laptop.estado==0%>
+                <td class="lista"><%= link_to image_tag ("ledit.png", :border=>"0", :alt=>"Editar información de la laptop"), edit_laptop_path(laptop) %></td>
+                <td class="lista"><%= link_to image_tag ("ldel.png", :border=>"0", :alt=>"Eliminar laptop"), laptop, :confirm => '¿Estás seguro?', :method => :delete %></td>
               <%else%>
-                <td class="lista"></td>
-                <td class="lista"></td>
+                <td class="lista"><%= image_tag 'lediti.png' %></td>
+                <td class="lista"><%= image_tag 'ldeli.png' %></td>
               <%end%>
   		      </tr>
   		    <%end%>

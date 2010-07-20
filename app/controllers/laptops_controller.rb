@@ -32,7 +32,7 @@ class LaptopsController < ApplicationController
   	:all,
   	:select => "count(*) count, user_id",
   	:group => "user_id",
-  	:order => "user_id desc",
+  	:order => "count desc",
   	:conditions => {:status => "Recibir"},
   	:limit => 5
   	)
@@ -40,7 +40,7 @@ class LaptopsController < ApplicationController
   	:all,
   	:select => "count(*) count, user_id",
   	:group => "user_id",
-  	:order => "user_id desc",
+  	:order => "count desc",
   	:conditions => {:status => "Empezar"},
   	:limit => 5
   	)
@@ -48,7 +48,7 @@ class LaptopsController < ApplicationController
   	:all,
   	:select => "count(*) count, user_id",
   	:group => "user_id",
-  	:order => "user_id desc",
+  	:order => "count desc",
   	:conditions => {:status => "Terminar"},
   	:limit => 5
   	)
@@ -56,7 +56,7 @@ class LaptopsController < ApplicationController
   	:all,
   	:select => "count(*) count, user_id",
   	:group => "user_id",
-  	:order => "user_id desc",
+  	:order => "count desc",
   	:conditions => {:status => "Entregar"},
   	:limit => 5
   	)
