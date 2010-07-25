@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100717205128) do
+ActiveRecord::Schema.define(:version => 20100725184930) do
 
   create_table "colaborators", :force => true do |t|
     t.integer  "user_id"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20100717205128) do
     t.text     "comentarios"
     t.string   "usuario"
     t.string   "contra"
-    t.integer  "estado",      :default => 0
+    t.integer  "estado",      :limit => 255, :default => 0
     t.string   "paquete"
     t.boolean  "respaldo"
     t.integer  "user_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20100717205128) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "terms"
+    t.string   "so"
   end
 
   create_table "posts", :force => true do |t|
