@@ -1,2 +1,19 @@
-<h1>Pages#contact</h1>
-<p>Find me in app/views/pages/contact.html.erb</p>
+ <%# ...\views\home\contact.rhtml-%>
+<div id="maincol">    
+  <div id="top_section"><%=@title%></div>
+  <div id="body_section">
+    <div id="contenido">
+      <% form_tag :controller => "pages", :action => "send" do -%>
+        <%=error_messages_for "contact" -%>
+        <p>Nombre<br /><%= text_field("contact", "name") -%></p>
+        <p>Email<br /><%= text_field("contact", "email_address") -%></p>
+        <p>Asunto<br /><%= text_field("contact", "subject") -%></p>
+        <p>Mensaje<br />
+           <%= text_area("contact", "message", {"cols"=>"40", "rows"=>"5"}) -%>
+        </p>
+        <%= submit_tag "Enviar" -%>
+      <% end -%>
+    </div>
+  </div>
+  <div id="bottom_section"></div>
+</div>
