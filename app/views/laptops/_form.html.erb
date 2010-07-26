@@ -4,11 +4,9 @@
   	<%= f.error_messages %>
   	<%fields_for(@programas) do |p|%>
     
-      <h3>Datos de la Laptop</h3>
+      <h3>Datos de la Laptop</h3><br />
     	<%= f.label :marca %><br />
     	<%= f.select :marca, Laptop::MARCA, :prompt => "Selecciona la marca"%><br />
-    	
-
     	<br />
     	<%= f.label :modelo %><br />
     	<%= f.text_field :modelo, :disabled=>disabled %><br />
@@ -24,7 +22,7 @@
     	<br />
     	<%= f.label :defecto, "Defectos de la laptop" %><br />
     	<%= f.text_area :defecto, :rows=>5, :disabled=>disabled %><br />
-    	
+ 
 
 			
 			<h3>Datos del Servicio</h3><br />
@@ -137,3 +135,4 @@
     	<%= f.text_field :total, :disabled=>true, :value =>  number_to_currency(@laptop.total) %><br />
     	<br />
     	<%end%>
+</div>
