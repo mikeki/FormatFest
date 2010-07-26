@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(:version => 20100725222424) do
 
   create_table "users", :force => true do |t|
     t.string   "fname"
-    t.string   "lname"
     t.string   "crypted_password"
     t.string   "career"
     t.string   "email"
@@ -74,12 +73,14 @@ ActiveRecord::Schema.define(:version => 20100725222424) do
     t.string   "phone"
     t.string   "cel"
     t.string   "nextel"
-    t.boolean  "admin",             :default => false
-    t.boolean  "colaborator",       :default => false
-    t.string   "password_salt"
-    t.string   "persistence_token"
+    t.boolean  "admin"
+    t.boolean  "colaborator"
+    t.boolean  "client"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_salt"
+    t.string   "persistence_token"
+    t.string   "lname"
   end
 
 end

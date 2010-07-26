@@ -10,13 +10,10 @@ ActionController::Routing::Routes.draw do |map|
 	map.login "login", :controller => "posts", :action => "index"
 	map.logout "logout", :controller => "user_sessions", :action => "destroy"
 	map.registro 'registro', :controller => 'users', :action => 'new'
-	map.about '/about', :controller => 'pages', :action => 'about'
-	map.contact '/contact', :controller => 'pages', :action => 'contact'
-	map.developers '/saitc', :controller => 'pages', :action => 'developers'
 	map.edit_user '/user/edit/:id', :controller => 'users', :action => 'edit'
 	map.root :controller => 'posts', :action => 'index'
-	map.contact "contact", :controller=>"pages", :action=>"contact"
-	map.sent "contacto/enviado", :controller=>"pages", :action=>"send"
+	map.contact "contacto", :controller=>"application", :action=>"contact"
+	map.sent "contacto/enviado", :controller=>"application", :action=>"enviar_mensaje"
 
   # The priority is based upon order of creation: first created -> highest priority.
 

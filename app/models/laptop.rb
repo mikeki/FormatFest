@@ -1,4 +1,5 @@
 class Laptop < ActiveRecord::Base
+attr_accessible :so, :promo
 validates_presence_of :marca, :modelo, :color, :paquete
 belongs_to :user
 has_many :colaborators, :dependent => :destroy

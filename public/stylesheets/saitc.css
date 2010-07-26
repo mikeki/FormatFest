@@ -1,6 +1,7 @@
 body, html {
 	background: url(../images/background.jpg) fixed;
 	font-family: "Verdana";
+	margin: -10px 0px;
 }
 
 div#majorContent {
@@ -8,8 +9,8 @@ div#majorContent {
 	border:2px solid white;*/
 	background: url(../images/content.png) repeat-y;
 	width: 1095px;
-	margin: -10px auto -10px auto;
-	padding: 20px 0px;
+	margin: -10px auto -20px auto;
+	padding: 40px 0px 20px 0px;
 	border: none;
 	/*-webkit-box-shadow: 7px 5px 10px #333;
 	-moz-box-shadow: 5px 5px 5px #333;
@@ -31,8 +32,14 @@ div#header #logo{
 }
 
 div#header #botonHeader{
-	padding: 27px 0px 20px 0px;
+	padding: 27px 0px 20px 1px;
 	border: none;
+}
+
+div#header #botonHeaderFuera{
+	margin: 27px 0px 20px 1px;
+	border: none;
+	opacity:0.5;
 }
 
 div#footer{
@@ -421,8 +428,9 @@ padding-left: 2px;
 padding-right: 2px; }
 
 #textarea{
- width:100%;
+ width:99.3%;
  height:120px;
+ margin-left:1px;
  border: 1px solid black;   
  overflow:auto;
  background:white;
@@ -441,7 +449,7 @@ padding-right: 2px; }
 }
 
 
-#light_contact input[type=text], input[type=password]{
+#light_contact input[type=text],#light_contact input[type=password]{
  -moz-border-radius:6px;
  -webkit-border-radius:6px;   
  border:1px solid #ccc;
@@ -460,7 +468,6 @@ font-size:13px;
 }
 
 #descripcion_paquetes{
-float:right;
 font-size:10px;
 text-decoration:none;
 }
@@ -475,4 +482,8 @@ text-decoration:none;
 
 #descripcion_paquetes:visited{
     color:black;
+}
+
+#cuadro{
+    border: 2px #6699cc dashed;
 }
