@@ -1,0 +1,16 @@
+ <%# ...\''views\home\contact.rhtml-%>
+<div id="light_contact">
+<% form_tag :controller => "pages", :action => "send" do -%>
+        <%=error_messages_for "contact" -%>
+        <p>Nombre:<br /><%= text_field("contact", "name") -%></p>
+        <p>Email:<br /><%= text_field("contact", "email_address") -%></p>
+        <p>Asunto:<br /><%= text_field("contact", "subject") -%></p>
+        <p>Mensaje:<br />
+           <%= text_area("contact", "message", {"cols"=>"40", "rows"=>"5"}) -%>
+        </p>
+        <%= submit_tag "Enviar" -%>
+      <% end -%>
+
+</div>
+      
+   

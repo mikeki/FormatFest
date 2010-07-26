@@ -3,14 +3,12 @@
   	<div id="contenido">
   	<%= f.error_messages %>
   	<%fields_for(@programas) do |p|%>
-      
+    
       <h3>Datos de la Laptop</h3>
     	<%= f.label :marca %><br />
-    	<%if disabled%>
-    	<%= f.text_field :marca, :disabled=>disabled%><br />
-    	<%else%>
     	<%= f.select :marca, Laptop::MARCA, :prompt => "Selecciona la marca"%><br />
-    	<%end%>
+    	
+
     	<br />
     	<%= f.label :modelo %><br />
     	<%= f.text_field :modelo, :disabled=>disabled %><br />
@@ -27,21 +25,19 @@
     	<%= f.label :defecto, "Defectos de la laptop" %><br />
     	<%= f.text_area :defecto, :rows=>5, :disabled=>disabled %><br />
     	
+
 			
-			<h3>Datos del Servicio</h3>
-	   	<%= f.label :paquete  %><br />
-    	<%if disabled%>
-    		<%= f.text_field :paquete, :disabled=>disabled%><br />
-    	<%else%>
-    		<%= f.select :paquete, Laptop::PAQUETE, :prompt => "Selecciona el paquete"%><br />
-    	<%end%>
+			<h3>Datos del Servicio</h3><br />
+	   	<%= f.label :paquete  %> 
+	   	<%= render :partial => 'descripcion_paquetes' %>
+	   	
+	   	<br />
+    	<%= f.select :paquete, Laptop::PAQUETE, :prompt => "Selecciona el paquete"%><br />
 			<br />
+			
 			<script type="text/javascript">
 			  var $j = jQuery.noConflict();
 			  var checkboxes = $j("input[type=checkbox]");       
-			 
-			  
-			  
 			  $j(document).ready(function(){
 			    <% if @laptop.paquete == "basico" -%>
 			        $j("#basico").fadeIn(1);
@@ -56,10 +52,8 @@
 			        <%end%>
 			    <% end -%>
 			       });
-			  
-			    
-			      
-			  
+			  			  
+			  					  			  
 			      $j("#laptop_paquete").change(function(){
 			        if(this.value == "basico"){
 			          $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");
@@ -93,7 +87,7 @@
 			      });
 			     		  
 			</script>
-                                          
+		
 			  	<%= render :partial => 'programa', :locals => {:p => p, :disabled => disabled}%>
 			  	
     	<%= f.label :respaldo %><br />
@@ -112,8 +106,7 @@
 			<br />
 			<%unless @laptop.terms?%>
 		    <div id="textarea">
-		 
-		  
+		    <%= render :partial => 'general/clausulas' %>
 		    </div>
 		    <script type="text/javascript">
 		      $j(document).ready(function(){
