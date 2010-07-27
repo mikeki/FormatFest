@@ -339,6 +339,26 @@ border:1px solid #ccc;
  	margin: 0px 0px 0px 8px;
  }
  
+ #patrocinadores{
+ border: 0px;
+ width:89%; 
+ float:left; 
+ position:relative; 
+ }
+ 
+ #patrocinadores img{
+ margin-left:10px; 
+ }
+ 
+ #facebookBajo{ 
+ border: none; 
+ float: right; 
+ padding-top:42px;
+ display:inline; 
+ position: relative; 
+ width:8%;
+ }
+ 
  #nofin{
  	font-weight: bold;
  	color: #FF0000;

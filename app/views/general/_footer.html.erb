@@ -1,19 +1,11 @@
 <div id="footer">
-    	  <div id="patrocinadores">
-    	    <span id="tema">Nuestros Patrocinadores:</span>
-    	  </div>
-    	  <div id="links">
-    	    <div id="texto">
-        	  <%= link_to "Home", root_path %> | 
-        	  <%if current_user%>
-        	    <%= link_to "Registrar Laptop", new_laptop_path %> | 
-        	    <%= link_to "Ver Perfil", current_user%> | 
-        	    <%= link_to "Editar Perfil", edit_user_path(current_user)%> |
-        	    <%= link_to "Cerrar Sesión", logout_path %>
-        	  <%else%>
-        	    <%= link_to "Registrarse", registro_path  %>
-        	  <%end%>
-        	  <%= link_to image_tag ("bface.png" , :id=>"facebook"), "http://www.facebook.com" %>
-      	  </div>
-    	  </div>
-    	</div>
+  <div id="wrapper" class="clearfix">
+    <div id="patrocinadores">
+      <span>Nuestros Patrocinadores:</span>
+      <br />
+    </div>
+    <div id="facebookBajo">
+      <%= link_to image_tag ("bface.png" , :id=>"facebook"), "http://www.facebook.com" %>
+    </div>
+  </div>
+</div>
