@@ -5,7 +5,7 @@
   	<%fields_for(@programas) do |p|%>
     
       <h3>Datos de la Laptop</h3>
-      <div id="cuadro">
+      
       	<%= f.label :marca %><br />
       	<%= f.select :marca, Laptop::MARCA, :prompt => "Selecciona la marca"%><br />
       	<br />
@@ -23,12 +23,12 @@
       	<br />
       	<%= f.label :defecto, "Defectos de la laptop" %><br />
       	<%= f.text_area :defecto, :rows=>5, :disabled=>disabled %><br />
-    	</div>
+    	
  
 
 			<br />
 			<h3>Datos del Servicio</h3>
-			<div id="cuadro">
+
 	     	<%= f.label :paquete  %><br /> 
 	     	<br />
       	<%= f.select :paquete, Laptop::PAQUETE, :prompt => "Selecciona el paquete"%><span><a href="#paqueteBasico" rel="prettyPhoto[mixed]" id="descripcion_paquetes">No conozco los paquetes, ¿cuales son?</a></span><br />
@@ -135,7 +135,7 @@
 			  <br />
       	<%= f.label :total %><br />
       	<%= f.text_field :total, :disabled=>true, :value =>  number_to_currency(@laptop.total) %><br />
-    	</div>
+
     	<br />
     	<%end%>
 </div>

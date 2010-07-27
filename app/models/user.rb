@@ -49,7 +49,7 @@ CARRERA = [
     ["IQA - Ingeniero Quimico Administrador", "IQA"],
     ["IQS - Ingeniero Quimico y de Sistemas", "IQS"],
     ["ISD - Ingeniero en Sistemas Digitales y Robotica", "ISD"],
-    ["ITC - Ingeniero en Tecnologias Computacionales", "ITE"],
+    ["ITC - Ingeniero en Tecnologias Computacionales", "ITC"],
     ["ITE - Ingeniero en Tecnologias Electronicas", "ITE"],
     ["ITIC - Ingeniero en Tecnologias de Informacion y Comunicaciones", "ITIC"],
     ["ITM - Ingeniero en Telecomunicacion y Microelectronica", "ITM"],
