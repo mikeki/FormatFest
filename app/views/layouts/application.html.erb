@@ -70,7 +70,7 @@
 						<%= render :partial => 'laptops/formaBusqueda'%>
 					<%end%>
     	  	<div id="top_subsection">
-						<span id="laptops">Tiene <%= pluralize(current_user.laptops.count, "laptop") %> en reparación:</span>
+						<span id="laptops">Tienes <%= pluralize(current_user.laptops.count, "laptop") %> en reparación:</span>
 					</div>
 					<div id="subsection">
 						<% current_user.laptops.each do |l|%>
@@ -97,8 +97,8 @@
 								</div>
 							</div> 
 						<% end %>
-						<%= link_to image_tag ("bnew_laptop.png", :id=>"botonLap", :border=>"0"), new_laptop_path%>
-						<br />
+						
+						
 					</div>
 					<div id="bottom_subsection"></div>
 					<% end %>

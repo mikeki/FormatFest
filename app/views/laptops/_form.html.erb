@@ -30,10 +30,9 @@
 			<h3>Datos del Servicio</h3>
 			<div id="cuadro">
 	     	<%= f.label :paquete  %><br /> 
-	     	<%= render :partial => 'descripcion_paquetes' %>
-	     	
 	     	<br />
       	<%= f.select :paquete, Laptop::PAQUETE, :prompt => "Selecciona el paquete"%><span><a href="#paqueteBasico" rel="prettyPhoto[mixed]" id="descripcion_paquetes">No conozco los paquetes, ¿cuales son?</a></span><br />
+      	<%= render :partial => 'descripcion_paquetes' %>
 			  <br />
 			
 			  <script type="text/javascript">
