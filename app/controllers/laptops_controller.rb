@@ -96,9 +96,17 @@ class LaptopsController < ApplicationController
     @programas = @laptop.build_program(params[:program])
     if @laptop.save
       if @laptop.paquete == "basico"
-        @laptop.update_attribute(:total,180)
+        if @laptop.promo?
+          @laptop.update_attribute(:total,160)
+        else
+          @laptop.update_attribute(:total,180)
+        end
       else
-        @laptop.update_attribute(:total,200)
+        if @laptop.promo?
+          @laptop.update_attribute(:total,180)
+        else
+          @laptop.update_attribute(:total,200)
+        end
       end
       if @programas.save
         flash[:notice] = "Se registró una laptop satisfactoriamente."
@@ -123,6 +131,19 @@ class LaptopsController < ApplicationController
     respond_to do |format|
       if @laptop.update_attributes(params[:laptop]) and @laptop.program.update_attributes(params[:program])
       	@laptop.update_attribute(:estado, "#{@laptop.colaborators.count}")
+      	if @laptop.paquete == "basico"
+          if @laptop.promo?
+            @laptop.update_attribute(:total,160)
+          else
+            @laptop.update_attribute(:total,180)
+          end
+        else
+          if @laptop.promo?
+            @laptop.update_attribute(:total,180)
+          else
+            @laptop.update_attribute(:total,200)
+          end
+        end
         format.html { redirect_to(@laptop, :notice => 'La laptop se actualizo satisfactoriamente.') }
         format.xml  { head :ok }
       else

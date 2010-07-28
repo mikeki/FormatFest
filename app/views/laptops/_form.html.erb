@@ -1,141 +1,181 @@
-<div id="top_section"><span><%= @title %></span></div>
-  <div id="body_section">
-  	<div id="contenido">
-  	<%= f.error_messages %>
-  	<%fields_for(@programas) do |p|%>
+<div id="top_section"><span>Datos de la laptop</span></div>
+<div id="body_section">
+	<div id="contenido">
+	<%= f.error_messages %>
+	<%fields_for(@programas) do |p|%>
     
-      <h3>Datos de la Laptop</h3>
-      
-      	<%= f.label :marca %><br />
-      	<%= f.select :marca, Laptop::MARCA, :prompt => "Selecciona la marca"%><br />
-      	<br />
-      	<%= f.label :modelo %><br />
-      	<%= f.text_field :modelo, :disabled=>disabled %><br />
-			  <br />
-      	<%= f.label :color %><br />
-      	<%= f.text_field :color, :disabled=>disabled %><br />
-			  <br />
-			  <%= f.label :usuario, "Nombre de usuario de la laptop" %><br />
-      	<%= f.text_field :usuario, :disabled=>disabled %><br />
-			  <br />
-      	<%= f.label :contra, "Contraseña del usuario" %><br />
-      	<%= f.text_field :contra, :disabled=>disabled %><br />
-      	<br />
-      	<%= f.label :defecto, "Defectos de la laptop" %><br />
-      	<%= f.text_area :defecto, :rows=>5, :disabled=>disabled %><br />
-    	
- 
-
-			<br />
-			<h3>Datos del Servicio</h3>
-
-	     	<%= f.label :paquete  %><br /> 
-	     	<br />
-      	<%= f.select :paquete, Laptop::PAQUETE, :prompt => "Selecciona el paquete"%><span><a href="#paqueteBasico" rel="prettyPhoto[mixed]" id="descripcion_paquetes">No conozco los paquetes, ¿cuales son?</a></span><br />
-      	<%= render :partial => 'descripcion_paquetes' %>
-			  <br />
-			
-			  <script type="text/javascript">
-			    var $j = jQuery.noConflict();
-			    var checkboxes = $j("input[type=checkbox]");       
-			    $j(document).ready(function(){
-			      <% if @laptop.paquete == "basico" -%>
-			          $j("#basico").fadeIn(1);
-			          <% if request.request_uri == "/laptops"%>
-			            $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");
-			          <%end%>
-			      <%elsif @laptop.paquete == "personalizado"%>
-			           $j("#basico").fadeIn(1);
-			           $j("#personalizado").fadeIn(1);
-			          <% if request.request_uri == "/laptops"%>
-			            $j("#laptop_total").attr("value","<%= number_to_currency(200)%>");
-			          <%end%>
-			      <% end -%>
-			         });
-			    			  
-			    					  			  
-			        $j("#laptop_paquete").change(function(){
-			          if(this.value == "basico"){
-			            $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");
-			            $j("#basico").show("slow");
-			            $j("#personalizado").hide("slow");
-			            
-			            $j("div#personalizado input[type=checkbox]").each(function() {
-			                  if($j(this).attr("checked")){
-			                    $j(this).attr("checked", false);
-			                  }
-			              
-			            });
-			            
-			          }else if(this.value == "personalizado"){
-			            $j("#laptop_total").attr("value","<%= number_to_currency(200)%>");
-			            $j("#basico").show("slow");
-			            $j("#personalizado").show("slow");
-			          }else{
-			            $j("#laptop_total").attr("value","<%= number_to_currency(0)%>");
-			            $j("#basico").hide("slow");
-			            $j("#personalizado").hide("slow");
-			            
-			             $j("div#personalizado input[type=checkbox]").each(function() {
-			                  if($j(this).attr("checked")){
-			                    $j(this).attr("checked", false);
-			                  }
-			              
-			             });
-			          } 
-			          
-			        });
-			       		  
-			  </script>
-		
-			    	<%= render :partial => 'programa', :locals => {:p => p, :disabled => disabled}%>
-			    	
-      	<%= f.label :respaldo %><br />
-      	<%= f.label :respaldo_si, "Sí" %><%= f.radio_button("respaldo", true, :checked => "checked", :disabled=>disabled) %>&nbsp;&nbsp;&nbsp;
-		    <%= f.label :respaldo_no, "No" %><%= f.radio_button("respaldo", false, :disabled=>disabled) %> <br />
-			  <br />
-		     	<%= f.label :sistema_operativo  %><br />
-	      	<%if disabled%>
-	      		<%= f.text_field :so, :disabled=>disabled%><br />
-	      	<%else%>
-	      		<%= f.select :so, Laptop::SO, :prompt => "Selecciona el sistema operativo"%><br />
-	      	<%end%>
-			  <br />
-			  <%= f.label :comentarios %><br />
-      	<%= f.text_area :comentarios, :rows=>5, :disabled=>disabled %><br />
-			  <br />
-			  <%unless @laptop.terms?%>
-		      <div id="textarea">
-		      <%= render :partial => 'general/clausulas' %>
-		      </div>
-		      <script type="text/javascript">
-		        $j(document).ready(function(){
-		          $j("#laptop_submit").attr("disabled", true);
-		        });
-		        $j(function(){
-		              $j("#laptop_terms").change(function(){
-		                 if($j("#laptop_terms").attr("checked")){
-		                  $j("#laptop_submit").removeAttr("disabled");
-		                }else{
-		                   $j("#laptop_submit").attr("disabled", true);
-		                }
-		                
-		              });
-		              
-		        });
-		         
-		
-		      </script>
-		      <%= f.check_box :terms %>
-			    <%= f.label :terms, 'Acepto los términos y condiciones de uso'%>
-			    <br />
-			  <%else%>
-			    <%= f.hidden_field :terms%>
-			  <%end%>
-			  <br />
-      	<%= f.label :total %><br />
-      	<%= f.text_field :total, :disabled=>true, :value =>  number_to_currency(@laptop.total) %><br />
-
+    	<%= f.label :marca %><br />
+    	<%= f.select :marca, Laptop::MARCA, :prompt => "Selecciona la marca"%><br />
     	<br />
-    	<%end%>
+    	<%= f.label :modelo %><br />
+    	<%= f.text_field :modelo, :disabled=>disabled %><br />
+		  <br />
+    	<%= f.label :color %><br />
+    	<%= f.text_field :color, :disabled=>disabled %><br />
+		  <br />
+		  <%= f.label :usuario, "Nombre de usuario de la laptop" %><br />
+    	<%= f.text_field :usuario, :disabled=>disabled %><br />
+		  <br />
+    	<%= f.label :contra, "Contraseña del usuario" %><br />
+    	<%= f.text_field :contra, :disabled=>disabled %><br />
+    	<br />
+    	<%= f.label :defecto, "Defectos de la laptop" %><br />
+    	<%= f.text_area :defecto, :rows=>5, :disabled=>disabled %><br />
+	</div>
 </div>
+<div id="bottom_section"></div>
+ 
+<div id="top_section"><span>Datos del Servicio</span></div>
+<div id="body_section">
+  <div id="contenido">
+
+   	<%= f.label :paquete  %><br />
+  	<%= f.select :paquete, Laptop::PAQUETE, :prompt => "Selecciona el paquete"%><span><a href="#paqueteBasico" rel="prettyPhoto[mixed]" id="descripcion_paquetes">No conozco los paquetes, ¿cuales son?</a></span><br />
+  	<%= render :partial => 'descripcion_paquetes' %>
+	
+	  <script type="text/javascript">
+	    var $j = jQuery.noConflict();
+	    var checkboxes = $j("input[type=checkbox]");       
+	    $j(document).ready(function(){
+	      <% if @laptop.paquete == "basico" -%>
+	          $j("#basico").fadeIn(1);
+	          <% if request.request_uri == "/laptops"%>
+	            if ($j("#laptop_promo").attr("checked")){
+	              $j("#laptop_total").attr("value","<%= number_to_currency(160)%>");  
+	            }else{
+	              $j("#laptop_total").attr("value","<%= number_to_currency(180)%>"); 
+	            }
+	          <%end%>
+	      <%elsif @laptop.paquete == "personalizado"%>
+	           $j("#basico").fadeIn(1);
+	           $j("#personalizado").fadeIn(1);
+	          <% if request.request_uri == "/laptops"%>
+	             if ($j("#laptop_promo").attr("checked")){
+	              $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");  
+	            }else{
+	              $j("#laptop_total").attr("value","<%= number_to_currency(200)%>"); 
+	            }
+	          <%end%>
+	      <% end -%>
+	         });
+	    			  
+	    					  			  
+	        $j("#laptop_paquete").change(paquetesYPrecios);
+	        $j(function(){
+	          $j("#laptop_promo").change(function(){
+	            if($j("#laptop_promo").attr("checked")){
+	              if($j("#laptop_paquete").val() == "basico")
+	                $j("#laptop_total").attr("value","<%= number_to_currency(160)%>");
+	              else if($j("#laptop_paquete").val() == "personalizado")
+	                $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");
+	              else
+	                $j("#laptop_total").attr("value","<%= number_to_currency(0)%>");
+                
+              }else{
+                 if($j("#laptop_paquete").val() == "basico")
+	                $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");
+	              else if($j("#laptop_paquete").val() == "personalizado")
+	                $j("#laptop_total").attr("value","<%= number_to_currency(200)%>");
+	              else
+	                $j("#laptop_total").attr("value","<%= number_to_currency(0)%>");
+              }
+	          });
+	        });
+	        
+	        function paquetesYPrecios(){
+	          if(this.value == "basico"){
+	            if ($j("#laptop_promo").attr("checked")){
+	              $j("#laptop_total").attr("value","<%= number_to_currency(160)%>");  
+	            }else{
+	              $j("#laptop_total").attr("value","<%= number_to_currency(180)%>"); 
+	            }
+	            $j("#basico").show("slow");
+	            $j("#personalizado").hide("slow");
+	            
+	            $j("div#personalizado input[type=checkbox]").each(function() {
+	                  if($j(this).attr("checked")){
+	                    $j(this).attr("checked", false);
+	                  }
+	              
+	            });
+	            
+	          }else if(this.value == "personalizado"){
+	            if ($j("#laptop_promo").attr("checked")){
+	              $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");  
+	            }else{
+	              $j("#laptop_total").attr("value","<%= number_to_currency(200)%>"); 
+	            }
+	            $j("#basico").show("slow");
+	            $j("#personalizado").show("slow");
+	          }else{
+	            $j("#laptop_total").attr("value","<%= number_to_currency(0)%>");
+	            $j("#basico").hide("slow");
+	            $j("#personalizado").hide("slow");
+	            
+	             $j("div#personalizado input[type=checkbox]").each(function() {
+	                  if($j(this).attr("checked")){
+	                    $j(this).attr("checked", false);
+	                  }
+	              
+	             });
+	          } 
+	          
+	        }
+	       		  
+	  </script>
+
+	    	<%= render :partial => 'programa', :locals => {:p => p, :disabled => disabled}%>
+	    	
+  	<%= f.label :respaldo %><br />
+  	<%= f.label :respaldo_si, "Sí" %><%= f.radio_button("respaldo", true, :checked => "checked", :disabled=>disabled) %>&nbsp;&nbsp;&nbsp;
+    <%= f.label :respaldo_no, "No" %><%= f.radio_button("respaldo", false, :disabled=>disabled) %> <br />
+	  <br />
+     	<%= f.label :sistema_operativo  %><br />
+    	<%if disabled%>
+    		<%= f.text_field :so, :disabled=>disabled%><br />
+    	<%else%>
+    		<%= f.select :so, Laptop::SO, :prompt => "Selecciona el sistema operativo"%><br />
+    	<%end%>
+	  <br />
+	  <%= f.label :comentarios %><br />
+  	<%= f.text_area :comentarios, :rows=>5, :disabled=>disabled %><br />
+	  <br />
+	  <%unless @laptop.terms?%>
+      <div id="textarea">
+      <%= render :partial => 'general/clausulas' %>
+      </div>
+      <script type="text/javascript">
+        $j(document).ready(function(){
+          $j("#laptop_submit").attr("disabled", true);
+        });
+        $j(function(){
+              $j("#laptop_terms").change(function(){
+                 if($j("#laptop_terms").attr("checked")){
+                  $j("#laptop_submit").removeAttr("disabled");
+                }else{
+                   $j("#laptop_submit").attr("disabled", true);
+                }
+                
+              });
+              
+        });
+         
+
+      </script>
+      <%= f.check_box :terms %>
+	    <%= f.label :terms, 'Acepto los términos y condiciones de uso'%>
+	    <br />
+	  <%else%>
+	    <%= f.hidden_field :terms%>
+	  <%end%>
+	  <br />
+	  <%if current_user.admin? or (current_user.colaborator? and @laptop.estado==0)%>
+	    <%= f.check_box :promo%><%= f.label :promo, "Aplicar Promoción?"%><br />
+	    <br/>
+	  <%end%>
+  	<%= f.label :total %><br />
+  	<%= f.text_field :total, :disabled=>true, :value =>  number_to_currency(@laptop.total) %><br />
+
+	<br />
+	<%end%>
+
