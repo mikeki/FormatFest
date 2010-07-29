@@ -66,11 +66,15 @@ class LaptopsController < ApplicationController
   # GET /laptops/1
   # GET /laptops/1.xml
   def show
-    
-  @laptop = Laptop.find(params[:id])
-  @title = "Laptop de #{@laptop.user.fname.capitalize} #{@laptop.user.lname.capitalize}"
-  redirect_to current_user unless current_user?(@laptop.user) or current_user.admin? or current_user.colaborator?
+    begin
+      @laptop = Laptop.find(params[:id])
+    rescue
+      redirect_to laptops_path
+    else
+      @title = "Laptop de #{@laptop.user.fname.capitalize} #{@laptop.user.lname.capitalize}"
+      redirect_to current_user unless current_user?(@laptop.user) or current_user.admin? or current_user.colaborator?
 
+    end
   end
 
   # GET /laptops/new
@@ -131,6 +135,9 @@ class LaptopsController < ApplicationController
     respond_to do |format|
       if @laptop.update_attributes(params[:laptop]) and @laptop.program.update_attributes(params[:program])
       	@laptop.update_attribute(:estado, "#{@laptop.colaborators.count}")
+      	if @laptop.estado == 1
+      	  LaptopMailer::deliver_received_message(@laptop, @laptop.user.email)
+    	  end
       	if @laptop.paquete == "basico"
           if @laptop.promo?
             @laptop.update_attribute(:total,160)
