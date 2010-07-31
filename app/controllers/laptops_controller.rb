@@ -137,7 +137,9 @@ class LaptopsController < ApplicationController
       	@laptop.update_attribute(:estado, "#{@laptop.colaborators.count}")
       	if @laptop.estado == 1
       	  LaptopMailer::deliver_received_message(@laptop, @laptop.user.email)
-    	  end
+  	    elsif @laptop.estado == 3
+  	      LaptopMailer::deliver_end_message(@laptop, @laptop.user.email)
+	      end
       	if @laptop.paquete == "basico"
           if @laptop.promo?
             @laptop.update_attribute(:total,160)
