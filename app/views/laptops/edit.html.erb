@@ -46,7 +46,7 @@
 	  <%end%>
 	    <div style="float:left">
 	    <% if current_user.admin? or current_user.colaborator? -%>
-	     <%= f.submit "#{estado}", :confirm => "¿Seguro que desea #{estado} la laptop con folio #{@laptop.id}?", :disabled=>boton%> | <button id="actualizar_button" href="" style="width:150px; padding-top:1px;">Actualizar</button>
+	     <%= f.submit "#{estado}", :confirm => "¿Seguro que desea #{estado} la laptop con folio #{@laptop.id}?", :disabled=>boton%> | <button id="actualizar_button">Actualizar</button>
 	     <%else%>
 	     <%= f.submit "#{estado}", :disabled=>boton%> | <%= f.submit "Actualizar" %>
 	    <% end -%>
