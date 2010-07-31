@@ -6,14 +6,16 @@
     
     	<%= f.label :marca %><br />
     	<%= f.select :marca, Laptop::MARCA, :prompt => "Selecciona la marca"%><br /><br />
-    	<div id="laptop_marca_div" style="display:none"></div>
+    	<div id="laptop_marca_div" style="display:none">
+    	  <%= f.label :marca, "Otra Marca"%><br />
+    	</div>
     	<script type="text/javascript">
     	var $j = jQuery.noConflict();
     	var cambio = false;
     $j('#laptop_marca').change(function(){
     	  if($j('#laptop_marca').val() == 'Otra' && cambio == false){
     	  $j('#laptop_marca').attr("id", "laptop_select");
-    	  $j('#laptop_marca_div').append('<%= f.text_field :marca%>');
+    	  $j('#laptop_marca_div').append('<%= f.text_field :marca, :disabled=>disabled%><br /\><br /\>');
     	  $j('#laptop_marca_div').fadeIn("slow");
     	  cambio = true;
     	 }

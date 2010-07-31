@@ -127,21 +127,17 @@ class LaptopsController < ApplicationController
   # PUT /laptops/1.xml
   def update
     @laptop = Laptop.find(params[:id])
-    if @laptop.estado < 5 or params[:justUpdate] != '1'
+    if @laptop.estado < 5 and params[:justUpdate] != '1'
     	@colaborador = Colaborator.new(params[:colaborator])
     	@colaborador.save
     end 
 
     respond_to do |format|
-      if (params[:justUpdate] == '1')
-        @laptop.update_attributes(params[:laptop]) and @laptop.program.update_attributes(params[:program])
-        format.html { redirect_to(@laptop, :notice => 'La laptop se actualizo satisfactoriamente.') }
-      else
       if @laptop.update_attributes(params[:laptop]) and @laptop.program.update_attributes(params[:program])
       	@laptop.update_attribute(:estado, "#{@laptop.colaborators.count}")
-      	if @laptop.estado == 1
+      	if @laptop.estado == 1 and params[:justUpdate] != '1'
       	  LaptopMailer::deliver_received_message(@laptop, @laptop.user.email)
-  	    elsif @laptop.estado == 3
+  	    elsif @laptop.estado == 3 and params[:justUpdate] != '1'
   	      LaptopMailer::deliver_end_message(@laptop, @laptop.user.email)
 	      end
       	if @laptop.paquete == "basico"
@@ -166,7 +162,6 @@ class LaptopsController < ApplicationController
       end
     end
   end
-end
 
   # DELETE /laptops/1
   # DELETE /laptops/1.xml
