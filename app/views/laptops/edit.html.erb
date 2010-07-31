@@ -1,5 +1,19 @@
+<script type="text/javascript" language="javascript" charset="utf-8">
+// <![CDATA[
+	(function($){
+		$(function(){
+			$('#actualizar_button').bind('click', function(event){
+				$('#actualizar').attr('action', $('#actualizar').attr('action') + '?justUpdate=1').submit();
+				event.preventDefault();
+				return false;
+			});
+		});
+	})(jQuery);
+// ]]>
+</script>
+
 <div id="maincol">
-	<% form_for(@laptop) do |f| %>
+	<% form_for(@laptop, :html => {:multipart => :true, :id => 'actualizar'} )do |f| %>
 		<% fields_for(@colaborator) do |c|%>
 		<%disabled = false%>
 		<% if @laptop.estado > 0%>
@@ -31,7 +45,12 @@
 	    <%end%>
 	  <%end%>
 	    <div style="float:left">
-	    <%= f.submit "#{estado}", :disabled=>boton%>
+	    <% if current_user.admin? or current_user.colaborator? -%>
+	     <%= f.submit "#{estado}", :confirm => "¿Seguro que desea #{estado} la laptop con folio #{@laptop.id}?", :disabled=>boton%> | <button id="actualizar_button" href="" style="width:150px; padding-top:1px;">Actualizar</button>
+	     <%else%>
+	     <%= f.submit "#{estado}", :disabled=>boton%> | <%= f.submit "Actualizar" %>
+	    <% end -%>
+	    
 	    </div>
 	  <%end%>
 	<%end %> 

@@ -133,6 +133,10 @@ class LaptopsController < ApplicationController
     end 
 
     respond_to do |format|
+      if (params[:justUpdate] == '1')
+        @laptop.update_attributes(params[:laptop]) and @laptop.program.update_attributes(params[:program])
+        format.html { redirect_to(@laptop, :notice => 'La laptop se actualizo satisfactoriamente.') }
+      else
       if @laptop.update_attributes(params[:laptop]) and @laptop.program.update_attributes(params[:program])
       	@laptop.update_attribute(:estado, "#{@laptop.colaborators.count}")
       	if @laptop.estado == 1
@@ -162,6 +166,7 @@ class LaptopsController < ApplicationController
       end
     end
   end
+end
 
   # DELETE /laptops/1
   # DELETE /laptops/1.xml
