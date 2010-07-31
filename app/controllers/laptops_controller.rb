@@ -127,7 +127,7 @@ class LaptopsController < ApplicationController
   # PUT /laptops/1.xml
   def update
     @laptop = Laptop.find(params[:id])
-    if @laptop.estado < 5
+    if @laptop.estado < 5 or params[:justUpdate] != '1'
     	@colaborador = Colaborator.new(params[:colaborator])
     	@colaborador.save
     end 

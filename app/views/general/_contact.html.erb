@@ -1,7 +1,31 @@
  <%# ...\''views\home\contact.rhtml-%>
+ <script type="text/javascript">
+ $j(document).ready(function(){
+   
+   document.contacto.onsubmit = function() {return validaForma();}
+   alert("entro");
+ });
+  
+ 
+ function validaForma(){
+ var valido = true;
+   if(document.getElementById("contact_name").value == ""){
+      valido = false;
+      alert(valido);
+   }
+   
+  if(document.getElementById("contact_email_address").value == ""){
+      valido = false;
+      alert(valido);
+   }
+   return valido;
+ }
+ 
+ </script>
+ 
 <div id="inline_demo" style="display:none;">
   <div id="light_contact">
-  <% form_tag sent_path do -%>
+  <% form_tag sent_path, :id => "contact_form", :name => "contacto" do -%>
     <%=error_messages_for "contact" -%>
     <%= hidden_field("contact", "name", :value=>"#{current_user.fname} #{current_user.lname}") -%>
     <%= hidden_field("contact", "email_address", :value=>current_user.email) -%>
