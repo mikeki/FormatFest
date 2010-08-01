@@ -15,7 +15,7 @@ class CreateLaptops < ActiveRecord::Migration
       t.boolean :respaldo
       t.integer :user_id
       t.boolean :terms
-      t.boolean :promo, :default => 0
+      t.boolean :promo, :default => "0"
       t.integer :total
 
       t.timestamps
