@@ -12,7 +12,7 @@ class CreatePrograms < ActiveRecord::Migration
       t.boolean :avast, :default => "1"
       t.boolean :winrar
       t.boolean :java, :default => "1"
-
+      t.integer :laptop_id
       t.timestamps
     end
   end
