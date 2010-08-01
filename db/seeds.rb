@@ -5,3 +5,13 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
+
+User.create!(
+  :fname => "Format",
+  :lname => "Fest",
+  :password => "secret",
+  :password_confirmation => "secret",
+  :career => "ITC",
+  :email => "formatfest@saitc-mty.com",
+  :admin => "1"
+)
