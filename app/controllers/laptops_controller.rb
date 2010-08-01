@@ -80,7 +80,7 @@ class LaptopsController < ApplicationController
   # GET /laptops/new
   def new
   	@title = "Registrar una Nueva Laptop"
-  	@laptop = Laptop.new
+  	@laptop = Laptop.new 
   	@programas = @laptop.create_program
   end
 
