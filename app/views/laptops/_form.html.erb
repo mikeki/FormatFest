@@ -2,7 +2,7 @@
 <div id="body_section">
 	<div id="contenido">
 	<%= f.error_messages %>
-	<!--fields_for(@programas) do |p|%>-->
+	<%fields_for(@programas) do |p|%>
     
     	<%= f.label :marca %><br />
     	<%= f.select :marca, Laptop::MARCA, :prompt => "Selecciona la marca"%><br /><br />
@@ -167,7 +167,7 @@
 	       		  
 	  </script>
 
-	    	<!-- #render :partial => 'programa', :locals => {:p => p, :disabled => disabled}%>-->
+	    	<%= render :partial => 'programa', :locals => {:p => p, :disabled => disabled}%>
 	    	
   	<%= f.label :respaldo %><br />
   	<%= f.label :respaldo_si, "Sí" %><%= f.radio_button("respaldo", true, :checked => "checked", :disabled=>disabled) %>&nbsp;&nbsp;&nbsp;
@@ -220,5 +220,5 @@
   	<%= f.text_field :total, :disabled=>true, :value =>  number_to_currency(@laptop.total) %><br />
 
 	<br />
-	<!--end%>-->
+	<%end%>
 
