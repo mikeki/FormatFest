@@ -19,43 +19,43 @@ class LaptopsController < ApplicationController
   def estadisticas
   	@laptops = Laptop.find(
   		:all,
-  		:select => "count(estado), estado", 
+  		:select => "count(estado) AS count, estado", 
   		:group => "estado")
   	@marca = Laptop.find(
   	:all,
-  	:select => "count(marca), marca",
+  	:select => "count(marca) AS count, marca",
   	:group => "marca",
   	:conditions => ['estado > 0']
   	)
   	@top5Recibidas = Colaborator.find(
   	:all,
-  	:select => "count(user_id), user_id",
+  	:select => "count(user_id) AS count, user_id",
   	:group => "user_id",
-  	:order => "count(user_id) desc",
+  	:order => "count desc",
   	:conditions => {:status => "Recibir"},
   	:limit => 5
   	)
   	@top5Empezadas = Colaborator.find(
   	:all,
-  	:select => "count(user_id), user_id",
+  	:select => "count(user_id) AS count, user_id",
   	:group => "user_id",
-  	:order => "count(user_id) desc",
+  	:order => "count desc",
   	:conditions => {:status => "Empezar"},
   	:limit => 5
   	)
   	@top5Terminadas = Colaborator.find(
   	:all,
-  	:select => "count(user_id), user_id",
+  	:select => "count(user_id) AS count, user_id",
   	:group => "user_id",
-  	:order => "count(user_id) desc",
+  	:order => "count desc",
   	:conditions => {:status => "Terminar"},
   	:limit => 5
   	)
   	@top5Entregadas = Colaborator.find(
   	:all,
-  	:select => "count(user_id), user_id",
+  	:select => "count(user_id) AS count, user_id",
   	:group => "user_id",
-  	:order => "count(user_id) desc",
+  	:order => "count desc",
   	:conditions => {:status => "Entregar"},
   	:limit => 5
   	)
