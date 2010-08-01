@@ -58,6 +58,7 @@
 						<%= render :partial => 'users/formaBusqueda'%>
 						<%= render :partial => 'laptops/formaBusqueda'%>
 					<%end%>
+					<%if current_user.laptops.count > 0%>
     	  	<div id="top_subsection">
 						<span id="laptops">Tienes <%= pluralize(current_user.laptops.count, "laptop") %> en reparación:</span>
 					</div>
@@ -90,9 +91,10 @@
 						
 					</div>
 					<div id="bottom_subsection"></div>
-					<% end %>
+					<%end%>
+				<% end %>
     	  </div>
-    			<%= yield %>
+    		<%= yield %>
     			
     			<br />
     	</div>				
