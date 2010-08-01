@@ -1,5 +1,5 @@
 class Program < ActiveRecord::Base
   
-  belongs_to :laptop
+  #belongs_to :laptop
   
 end

@@ -2,7 +2,7 @@
 <div id="body_section">
 	<div id="contenido">
 	<%= f.error_messages %>
-	<%fields_for(@programas) do |p|%>
+	<%#fields_for(@programas) do |p|%>
     
     	<%= f.label :marca %><br />
     	<%= f.select :marca, Laptop::MARCA, :prompt => "Selecciona la marca"%><br /><br />
