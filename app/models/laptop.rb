@@ -3,7 +3,7 @@ attr_accessible :so, :promo, :marca, :modelo, :color, :paquete, :defecto, :comen
 validates_presence_of :marca, :modelo, :color, :paquete
 belongs_to :user
 has_many :colaborators, :dependent => :destroy
-#has_one :program, :dependent => :destroy
+has_one :program
 
 MARCA = [
 
