@@ -4,7 +4,7 @@
 	<%= f.error_messages %>
 	<%fields_for(@programas) do |p|%>
     
-    	<%= f.label :marca %><br />
+    	<%= f.label :marca %><span style="color:red;font-weight:bold;">*</span><br />
     	<%= f.select :marca, Laptop::MARCA, :prompt => "Selecciona la marca"%><br /><br />
     	<div id="laptop_marca_div" style="display:none;">
     	  <%= f.label :other, "Otra Marca"%><br />
@@ -50,10 +50,10 @@
     	});
     	</script>
   
-    	<%= f.label :modelo %><br />
+    	<%= f.label :modelo %><span style="color:red;font-weight:bold;">*</span><br />
     	<%= f.text_field :modelo, :disabled=>disabled %><br />
 		  <br />
-    	<%= f.label :color %><br />
+    	<%= f.label :color %><span style="color:red;font-weight:bold;">*</span><br />
     	<%= f.text_field :color, :disabled=>disabled %><br />
 		  <br />
 		  <%= f.label :usuario, "Nombre de usuario de la laptop" %><br />
@@ -72,7 +72,7 @@
 <div id="body_section">
   <div id="contenido">
 
-   	<%= f.label :paquete  %><br />
+   	<%= f.label :paquete  %><span style="color:red;font-weight:bold;">*</span><br />
   	<%= f.select :paquete, Laptop::PAQUETE, :prompt => "Selecciona el paquete"%><span><a href="#paqueteBasico" rel="prettyPhoto[mixed]" id="descripcion_paquetes">No conozco los paquetes, ¿cuales son?</a></span><br />
   	<%= render :partial => 'descripcion_paquetes' %>
 	
@@ -169,11 +169,11 @@
 
 	    	<%= render :partial => 'programa', :locals => {:p => p, :disabled => disabled}%>
 	    	
-  	<%= f.label :respaldo %><br />
+  	<%= f.label :respaldo %><span style="color:red;font-weight:bold;">*</span><br />
   	<%= f.label :respaldo_si, "Sí" %><%= f.radio_button("respaldo", true, :checked => "checked", :disabled=>disabled) %>&nbsp;&nbsp;&nbsp;
     <%= f.label :respaldo_no, "No" %><%= f.radio_button("respaldo", false, :disabled=>disabled) %> <br />
 	  <br />
-     	<%= f.label :sistema_operativo  %><br />
+     	<%= f.label :so  %><span style="color:red;font-weight:bold;">*</span><br />
     	<%if disabled%>
     		<%= f.text_field :so, :disabled=>disabled%><br />
     	<%else%>

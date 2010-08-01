@@ -13,5 +13,7 @@ User.create!(
   :password_confirmation => "secret",
   :career => "ITC",
   :email => "formatfest@saitc-mty.com",
-  :admin => "1"
+  :admin => "1",
+  :schoolid => "111111",
+  :cel => "1234567"
 )

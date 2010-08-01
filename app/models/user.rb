@@ -8,12 +8,13 @@ has_many :colaborators
 
 attr_accessible :fname, :lname, :password, :password_confirmation, :career, :email, :schoolid, :phone, :cel, :nextel, :admin, :colaborator
 
-validates_presence_of :fname, :lname, :email, :schoolid
+validates_presence_of :fname, :lname, :email, :schoolid, :career
 validates_uniqueness_of :schoolid, :email
+validates_format_of :schoolid, :with => /\A\d{6,7}\Z/, :message => "debe de ser solamente 6 o 7 dígitos"
+validates_format_of :cel, :with => /\A\d{10}\Z/, :allow_nil => true, :allow_blank => true, :message => "debe de ser solamente 10 dígitos"
+validates_format_of :phone, :with => /\A\d{8}\Z/, :allow_nil => true, :allow_blank => true, :message => "debe de ser solamente 8 dígitos"
+validates_format_of :nextel, :with => /\A\d+\*\d+\*\d+\Z/, :allow_nil => true, :allow_blank => true, :message => "debe de parecer un ID de nextel"
 validate :there_must_be_a_phone
-#validates_numericality_of :schoolid, :allow_nil => true
-#validates_numericality_of :cel, :allow_nil => true
-#validates_numericality_of :phone, :allow_nil => true
 
 HUMANIZED_COLUMNS = {
 	:fname => "Nombre(s)",
