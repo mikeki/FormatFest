@@ -17,6 +17,10 @@
       <%= image_tag ("ldeli.png", :border=>"0") %>
     <%end%>
   </div>
+  <%if current_user.admin? or current_user.colaborator?%>
+  <strong><b>Folio:</b><%=h @laptop.id%></strong>
+  <br />
+  <%end%>
   <b>Cliente:</b>
   <%=h "#{@laptop.user.fname} #{@laptop.user.lname}" %>
 <br />
@@ -31,7 +35,11 @@
 <br />
   <h3>Datos de la Laptop</h3>
   <b>Marca:</b>
-  <%=h @laptop.marca %>
+  <%if @laptop.marca != "Otra"%>
+    <%=h @laptop.marca %>
+  <%else%>
+    <%=h @laptop.other %>
+  <%end%>
 <br />
   <b>Modelo:</b>
   <%=h @laptop.modelo %>
@@ -106,13 +114,18 @@
   <b>Total:</b>
   <%=h number_to_currency(@laptop.total) %>
 <br />
+<br />
+</div>
+</div>
+<div id="bottom_section"></div>
+</div>
 
 <%if current_user.admin? or current_user.colaborator?%>
-  <br />
+  <div id="maincol">
+  <div id="top_section">Colaboradores que trabajaron la laptop</div>
+  <div id="body_section">
+  <div id="contenido">  
   <table class="laptops" cellspacing="0">
-    <tr>
-      <th class="titulos" colspan="4"><h3>Colaboradores que trabajaron la laptop</h3></th>
-    </tr>
     <tr>
       <th class="titulos" width="25%">Recibida</th>
       <th class="titulos" width="25%">Empezada</th>
@@ -120,18 +133,22 @@
       <th class="titulos" width="25%">Entregada</th>
     </tr>
     <tr>
+    <% cuenta = 1%>
     <% @laptop.colaborators.each do |c|%>
-      <td class="lista"><%=h "#{c.user.fname} #{c.user.lname}" %></td>
+      <%if cuenta == @laptop.estado%>
+        <td class="lista"><%=h link_to_if current_user.admin?, "#{c.user.fname} #{c.user.lname}", c, :confirm => '¿Estás Seguro que deseas eliminar el registro?', :controller=> :laptops, :method => :delete %></td>
+      <%else%>
+        <td class="lista"><%=h "#{c.user.fname} #{c.user.lname}" %></td>
+      <%end%>
+      <%cuenta = cuenta+1%>
     <%end%>
     <% (4-@laptop.estado).times do%>
       <td class="lista"></td>
     <%end%>
     </tr>
    </table>
-   <br />
+   </div>
+   </div>
+   <div id="bottom_section"></div>
+   </div>
 <%end%>
-
-</div>
-</div>
-<div id="bottom_section"></div>
-</div>

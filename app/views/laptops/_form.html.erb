@@ -6,16 +6,34 @@
     
     	<%= f.label :marca %><br />
     	<%= f.select :marca, Laptop::MARCA, :prompt => "Selecciona la marca"%><br /><br />
-    	<div id="laptop_marca_div" style="display:none">
-    	  <%= f.label :marca, "Otra Marca"%><br />
+    	<div id="laptop_marca_div" style="display:none;">
+    	  <%= f.label :other, "Otra Marca"%><br />
+    	  <%= f.text_field :other, :disabled=>disabled%><br />
+    	  <br />
     	</div>
     	<script type="text/javascript">
     	var $j = jQuery.noConflict();
     	var cambio = false;
-    $j('#laptop_marca').change(function(){
+      $j(document).ready(function(){
+        if($j('#laptop_marca').val() == 'Otra' && cambio == false){
+      	  $j('#laptop_marca').attr("id", "laptop_select");
+      	  $j('#laptop_marca_div').fadeIn("fast");
+      	  cambio = true;
+    	  }
+    	  
+    	  if(cambio){
+    	   $j('#laptop_select').change(function(){
+    	     if($j('#laptop_select').val() != 'Otra'){
+    	       $j('#laptop_marca_div').fadeOut("slow");
+    	       $j("#laptop_select").attr("id", "laptop_marca");
+    	       cambio =false;
+    	     }
+    	   });
+    	 }
+      });
+      $j('#laptop_marca').change(function(){
     	  if($j('#laptop_marca').val() == 'Otra' && cambio == false){
     	  $j('#laptop_marca').attr("id", "laptop_select");
-    	  $j('#laptop_marca_div').append('<%= f.text_field :marca, :disabled=>disabled%><br /\><br /\>');
     	  $j('#laptop_marca_div').fadeIn("slow");
     	  cambio = true;
     	 }
@@ -24,7 +42,6 @@
     	   $j('#laptop_select').change(function(){
     	     if($j('#laptop_select').val() != 'Otra'){
     	       $j('#laptop_marca_div').fadeOut("slow");
-    	       $j("input[type=text]#laptop_marca").remove();
     	       $j("#laptop_select").attr("id", "laptop_marca");
     	       cambio =false;
     	     }

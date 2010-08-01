@@ -177,8 +177,7 @@ class LaptopsController < ApplicationController
       flash[:error] = 'Imposible eliminar la laptop.'
       redirect_to :back
     end
-    
-
   end
+
 
 end

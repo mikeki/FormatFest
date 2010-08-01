@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100725222424) do
+ActiveRecord::Schema.define(:version => 20100801000420) do
 
   create_table "colaborators", :force => true do |t|
     t.integer  "user_id"
@@ -36,7 +36,8 @@ ActiveRecord::Schema.define(:version => 20100725222424) do
     t.datetime "updated_at"
     t.boolean  "terms"
     t.string   "so"
-    t.boolean  "promo"
+    t.boolean  "promo",       :default => false
+    t.string   "other"
   end
 
   create_table "posts", :force => true do |t|
