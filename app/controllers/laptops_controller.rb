@@ -19,7 +19,7 @@ class LaptopsController < ApplicationController
   def estadisticas
   	@laptops = Laptop.find(
   		:all,
-  		:select => "count(estado) count, estado", 
+  		:select => "count(estado), estado", 
   		:group => "estado")
   	@marca = Laptop.find(
   	:all,
@@ -31,7 +31,7 @@ class LaptopsController < ApplicationController
   	:all,
   	:select => "count(user_id), user_id",
   	:group => "user_id",
-  	:order => "count desc",
+  	:order => "count(user_id) desc",
   	:conditions => {:status => "Recibir"},
   	:limit => 5
   	)
@@ -39,7 +39,7 @@ class LaptopsController < ApplicationController
   	:all,
   	:select => "count(user_id), user_id",
   	:group => "user_id",
-  	:order => "count desc",
+  	:order => "count(user_id) desc",
   	:conditions => {:status => "Empezar"},
   	:limit => 5
   	)
@@ -47,7 +47,7 @@ class LaptopsController < ApplicationController
   	:all,
   	:select => "count(user_id), user_id",
   	:group => "user_id",
-  	:order => "count desc",
+  	:order => "count(user_id) desc",
   	:conditions => {:status => "Terminar"},
   	:limit => 5
   	)
@@ -55,7 +55,7 @@ class LaptopsController < ApplicationController
   	:all,
   	:select => "count(user_id), user_id",
   	:group => "user_id",
-  	:order => "count desc",
+  	:order => "count(user_id) desc",
   	:conditions => {:status => "Entregar"},
   	:limit => 5
   	)
