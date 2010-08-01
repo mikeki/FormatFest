@@ -15,5 +15,5 @@ User.create!(
   :email => "formatfest@saitc-mty.com",
   :admin => "1",
   :schoolid => "111111",
-  :cel => "1234567"
+  :phone => "12345678"
 )
