@@ -273,23 +273,32 @@ border:1px solid #ccc;
   border: solid 1px #C66;
 }
 
-#errorExplanation h2 {
+#errorExplanationPop {
+  width: 500px;
+  padding: 0px;
+  padding-bottom: 2px;
+  margin-bottom: 5px;
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+#errorExplanation h2, #errorExplanationPop h2 {
   margin: 0;
   padding: 5px 5px 5px 15px;
   display:none;
 }
 
-#errorExplanation p {
+#errorExplanation p, #errorExplanationPop p {
   margin-bottom: 0;
   padding-left: 8px;
   display:none;
 }
 
-#errorExplanation ul {
+#errorExplanation ul, #errorExplanationPop ul {
   margin: 2px 0px;
 }
 
-#errorExplanation ul li {
+#errorExplanation ul li, #errorExplanationPop ul li {
   padding-top: 4px;
   font-size: 13px;
   list-style: disc;

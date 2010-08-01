@@ -3,7 +3,7 @@
 <div id="inline_demo" style="display:none;">
   <div id="light_contact">
   <% form_tag sent_path, :id => "contact_form", :name => "contacto" do -%>
-    <%=error_messages_for "contact" -%>
+    <%=error_messages_for "contact",:id=>"errorExplanationPop" -%>
     <%= hidden_field("contact", "name", :value=>"#{current_user.fname} #{current_user.lname}") -%>
     <%= hidden_field("contact", "email_address", :value=>current_user.email) -%>
     <p>Asunto<br /><%= text_field("contact", "subject") -%></p>
