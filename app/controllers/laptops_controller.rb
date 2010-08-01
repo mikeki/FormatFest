@@ -81,7 +81,7 @@ class LaptopsController < ApplicationController
   def new
   	@title = "Registrar una Nueva Laptop"
   	@laptop = Laptop.new
-  	@programas = Program.new
+  	#@programas = Program.new
   end
 
 
