@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def index
   	@title = "Home"
-    @posts = Post.find(:all, :order => "publishedDate DESC")
+    @posts = Post.find(:all, :order => "created_at DESC")
   end
   
   def new
