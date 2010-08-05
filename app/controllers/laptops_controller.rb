@@ -8,6 +8,15 @@ class LaptopsController < ApplicationController
   # GET /laptops.xml
   def index
     @title= "Listado de laptops"
+    unless params[:id].nil?
+      begin
+        laptop=Laptop.find(params[:id])
+      rescue
+        redirect_to laptops_path
+      else
+        redirect_to laptop
+      end
+    end
     if params[:estado] == '-1' or params[:estado].nil?
         @laptops = Laptop.paginate(:page=>params[:page], :per_page => 5)
 
@@ -72,7 +81,6 @@ class LaptopsController < ApplicationController
     else
       @title = "Laptop de #{@laptop.user.fname.capitalize} #{@laptop.user.lname.capitalize}"
       redirect_to current_user unless current_user?(@laptop.user) or current_user.admin? or current_user.colaborator?
-
     end
   end
 

@@ -8,19 +8,19 @@
   <div id="subsection">
     <%= render :partial=>"general/contact", :controller=>"application", :action=>"contact" %>
 		              
-	  <%= link_to image_tag ("bhome.png", :border=>"0",:onmouseover=>"this.style.opacity=.7;", :onmouseout=>"this.style.opacity=1;"), root_path%>
-		<%= link_to image_tag ("bnew_laptop.png", :border=>"0",:onmouseover=>"this.style.opacity=.7;", :onmouseout=>"this.style.opacity=1;"), new_laptop_path%>
-		<%= link_to image_tag ('bcontact.png', :border => "0", :alt => "Contacto",:onmouseover=>"this.style.opacity=.7;", :onmouseout=>"this.style.opacity=1;"), "#inline_demo", :rel=>"prettyPhoto[inline]" %>
-		<%= link_to image_tag ("bperfil.png", :border=>"0",:onmouseover=>"this.style.opacity=.7;", :onmouseout=>"this.style.opacity=1;"), current_user%>
-		<%= link_to image_tag ("blogout.png", :border=>"0",:onmouseover=>"this.style.opacity=.7;", :onmouseout=>"this.style.opacity=1;"), logout_path%>
+	  <%= link_to image_tag("bhome.png", :border=>"0",:onmouseover=>"this.style.opacity=.7;", :onmouseout=>"this.style.opacity=1;"), root_path%>
+		<%= link_to image_tag("bnew_laptop.png", :border=>"0",:onmouseover=>"this.style.opacity=.7;", :onmouseout=>"this.style.opacity=1;"), new_laptop_path%>
+		<%= link_to image_tag('bcontact.png', :border => "0", :alt => "Contacto",:onmouseover=>"this.style.opacity=.7;", :onmouseout=>"this.style.opacity=1;"), "#inline_demo", :rel=>"prettyPhoto[inline]" %>
+		<%= link_to image_tag("bperfil.png", :border=>"0",:onmouseover=>"this.style.opacity=.7;", :onmouseout=>"this.style.opacity=1;"), current_user%>
+		<%= link_to image_tag("blogout.png", :border=>"0",:onmouseover=>"this.style.opacity=.7;", :onmouseout=>"this.style.opacity=1;"), logout_path%>
 <%else%>
 	<div id="top_subsection"><span>Iniciar sesión</span></div>
-	<div id="subsection">
-	  <%= render :partial=>'user_sessions/new'-%>
-	  <div id="maincolsub"> 
-	    <%= button_to "Registro", registro_path%>
-	  </div>
-	</div>
+  <div id="subsection">
+    <%= render :partial=>'user_sessions/new'-%>
+    <div id="maincolsub"> 
+      <%= button_to "Registro", registro_path%>
+    </div>
+  </div>
 <%end%>
 </div>
 <div id="bottom_subsection"></div>

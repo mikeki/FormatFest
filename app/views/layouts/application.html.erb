@@ -67,9 +67,9 @@
 							<div id="wrapper" class="clearfix" >
 								<div id="leftcolLap">
 									<%if l.estado > 2%>
-										<%= link_to image_tag ("boton_lap_fin.png", :border=>"0"), :controller => "laptops", :action => "show", :id => l.id -%>
+										<%= link_to image_tag("boton_lap_fin.png", :border=>"0", :onmouseover=>"this.style.opacity=.7;", :onmouseout=>"this.style.opacity=1;"), :controller => "laptops", :action => "show", :id => l.id -%>
 									<%else%>
-										<%= link_to image_tag ("boton_lap_reg.png", :border=>"0"), :controller => "laptops", :action => "show", :id => l.id -%>
+										<%= link_to image_tag("boton_lap_reg.png", :border=>"0", :onmouseover=>"this.style.opacity=.7;", :onmouseout=>"this.style.opacity=1;"), :controller => "laptops", :action => "show", :id => l.id -%>
 									<%end%>
 								</div>
 								<div id="maincolLap">
