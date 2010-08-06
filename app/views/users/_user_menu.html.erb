@@ -14,13 +14,18 @@
 		<%= link_to image_tag("bperfil.png", :border=>"0",:onmouseover=>"this.style.opacity=.7;", :onmouseout=>"this.style.opacity=1;"), current_user%>
 		<%= link_to image_tag("blogout.png", :border=>"0",:onmouseover=>"this.style.opacity=.7;", :onmouseout=>"this.style.opacity=1;"), logout_path%>
 <%else%>
+  <div id="top_subsection"><span>¿Nuevo Usuario?</span></div>
+  <div id="subsection">
+    <%= link_to image_tag("bnew_user.png", :border=>"0",:onmouseover=>"this.style.opacity=.7;", :onmouseout=>"this.style.opacity=1;"), registro_path%>
+  </div>
+  <div id="bottom_subsection"></div>
 	<div id="top_subsection"><span>Iniciar sesión</span></div>
   <div id="subsection">
     <%= render :partial=>'user_sessions/new'-%>
-    <div id="maincolsub"> 
-      <%= button_to "Registro", registro_path%>
+      <div id="maincolsub"> 
+        <%= button_to "Registro", registro_path%>
+      </div>
     </div>
-  </div>
 <%end%>
 </div>
 <div id="bottom_subsection"></div>
