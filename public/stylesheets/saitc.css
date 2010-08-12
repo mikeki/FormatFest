@@ -135,8 +135,9 @@ div#majorContent div#top_section #fechaNoticia{
  
 div#majorContent div#body_section #contenido{
 	text-align: justify;
-	margin: -4px 0px 0px 0px;
-	padding: 5px 10px 0px 10px;
+	font-size: 12px;
+	margin: 0px 0px 0px 0px;
+	padding: 10px;
 	border: none;
 
 }
@@ -246,6 +247,13 @@ border:1px solid #ccc;
 -webkit-border-radius:6px;
 }
 
+#notExplorer{
+  padding: 5px 8px;
+  margin: 10px 0px 0px 117px;
+  width:841px;
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
 
 #flash_notice, #flash_error {
   padding: 5px 8px;

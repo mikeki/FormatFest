@@ -42,6 +42,11 @@
    
     <div id="majorContent">
     <%= render :partial => 'general/header' %>
+    <!--[if lt IE 8]>
+      <div id="notExplorer">
+        Esta página se visualiza mejor en <%= link_to 'Google Chrome', 'http://www.google.com/chrome' %>, <%= link_to 'Mozilla Firefox', 'http://www.getfirefox.com' %> o <%= link_to 'IE8', 'http://www.microsoft.com/spain/windows/internet-explorer/' %>
+      </div>
+    <![endif]-->
     
       <div id="wrapper" class="clearfix" >
       	<div id="leftcol">
