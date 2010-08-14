@@ -27,8 +27,10 @@ PAQUETE = [
 ]
 
 SO = [
-["Windows 7", "Windows 7"],
-["Windows XP", "Windows xp"]
+["Windows 7, 32bits", "Windows 7, 32bits"],
+["Windows 7, 64bits", "Windows 7, 64bits"],
+["Windows XP, 32bits", "Windows XP, 32bits"],
+["Windows XP, 64bits", "Windows XP, 64bits"]
 ]
 
 HUMANIZED_COLUMNS = {
