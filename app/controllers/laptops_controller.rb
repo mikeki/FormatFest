@@ -30,7 +30,8 @@ class LaptopsController < ApplicationController
   	@laptops = Laptop.find(
   		:all,
   		:select => "count(estado) AS count, estado", 
-  		:group => "estado")
+  		:group => "estado",
+  		:order => "estado asc")
   	@marca = Laptop.find(
   	:all,
   	:select => "count(marca) AS count, marca",
@@ -142,7 +143,9 @@ class LaptopsController < ApplicationController
 
     respond_to do |format|
       if @laptop.update_attributes(params[:laptop]) and @laptop.program.update_attributes(params[:program])
-      	@laptop.update_attribute(:estado, "#{@laptop.colaborators.count}")
+        if params[:justUpdate] != '1'
+      	  @laptop.update_attribute(:estado, "#{@laptop.colaborators.count}")
+        end
       	if @laptop.estado == 1 and params[:justUpdate] != '1'
       	  LaptopMailer::deliver_received_message(@laptop, @laptop.user.email)
   	    elsif @laptop.estado == 3 and params[:justUpdate] != '1'
