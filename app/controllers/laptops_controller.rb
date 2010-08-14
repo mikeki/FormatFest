@@ -26,6 +26,7 @@ class LaptopsController < ApplicationController
   end
   
   def estadisticas
+    @lap = Laptop.find(:all)
   	@laptops = Laptop.find(
   		:all,
   		:select => "count(estado) AS count, estado", 
