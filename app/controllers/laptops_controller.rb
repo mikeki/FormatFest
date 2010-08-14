@@ -123,7 +123,7 @@ class LaptopsController < ApplicationController
       end
       if @programas.save
         LaptopMailer::deliver_registered_message(@laptop, @laptop.user.email)
-        flash[:notice] = "Se registró una laptop satisfactoriamente."
+        flash[:notice] = "Se registró una laptop satisfactoriamente. Revisa tu correo para instrucciones"
         redirect_to @laptop
       end
     else
