@@ -21,7 +21,7 @@ class LaptopsController < ApplicationController
         @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :order => "id asc")
 
     else
-      @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :conditions=> {:estado => params[:estado]}, :order => "id asc")
+      @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :order => "id asc", :conditions=> {:estado => params[:estado]})
     end
   end
   
