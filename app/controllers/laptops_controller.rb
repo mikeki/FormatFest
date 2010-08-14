@@ -18,10 +18,10 @@ class LaptopsController < ApplicationController
       end
     end
     if params[:estado] == '-1' or params[:estado].nil?
-        @laptops = Laptop.paginate(:page=>params[:page], :per_page => 5)
+        @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :order => "id asc")
 
     else
-      @laptops = Laptop.paginate(:page=>params[:page], :per_page => 5, :conditions=> {:estado => params[:estado]})
+      @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :conditions=> {:estado => params[:estado]}, :order => "id asc")
     end
   end
   
