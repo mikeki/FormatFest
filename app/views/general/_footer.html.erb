@@ -4,12 +4,15 @@
       <span>Nuestros Patrocinadores:</span>
       <br />
       <br />
-      <%= image_tag 'patrocinadores/Subway2.png' %>
-      <%= image_tag 'patrocinadores/gibas.png' %>
-      <%= image_tag 'patrocinadores/mv.png' %>
+      <%= link_to image_tag('patrocinadores/Subway2.png'), "http://mex.subway.com", :class => 'ajax', :target => 'content' %>
+      <%= link_to image_tag('patrocinadores/gibas.png'), "http://www.atumesa.com/resta_index.asp?id_r=19", :class => 'ajax', :target => 'content' %>
+      <%= link_to image_tag('patrocinadores/mv.png'), "http://mvtecnologias.com/", :class => 'ajax', :target => 'content' %>
     </div>
     <div id="facebookBajo">
       <%= link_to image_tag("bface.png" , :id=>"facebook", :border=>0, :onmouseover=>"this.style.opacity=.7;", :onmouseout=>"this.style.opacity=1;"), "http://www.facebook.com", :class => 'ajax', :target => 'content' %>
+    </div>
+    <div id="saticBajo">
+      <%= link_to image_tag("saitcsmall.png" , :id=>"saitcsmall", :border=>0, :onmouseover=>"this.style.opacity=.7;", :onmouseout=>"this.style.opacity=1;"), "http://www.saitc-mty.com", :class => 'ajax', :target => 'content' %>
     </div>
   </div>
 </div>

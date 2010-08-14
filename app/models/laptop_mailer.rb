@@ -1,11 +1,11 @@
 class LaptopMailer < ActionMailer::Base
   
-  def received_message(laptop, email)
+  def registered_message(laptop, email)
     recipients email
     from "FormatFest 17 <contacto@formatfest.com>"
-    subject "Confirmacion de recepcion de laptop #{laptop.marca}"
+    subject "Confirmacion de registro de laptop #{laptop.marca}"
     body :laptop => laptop
-  end  
+  end
   
   def end_message(laptop, email)
     recipients email

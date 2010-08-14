@@ -375,10 +375,19 @@ border:1px solid #ccc;
  #facebookBajo{ 
  border: none; 
  float: right; 
- padding-top:42px;
+ padding-top:10px;
  display:inline; 
  position: relative; 
  width:8%;
+ }
+
+ #saitcBajo{ 
+ border: none; 
+ float: right; 
+ padding-top:20px;
+ display:inline; 
+ position: relative; 
+ width:10%;
  }
  
  #nofin{

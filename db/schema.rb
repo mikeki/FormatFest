@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100801000420) do
+ActiveRecord::Schema.define(:version => 20100717172040) do
 
   create_table "colaborators", :force => true do |t|
     t.integer  "user_id"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20100801000420) do
 
   create_table "laptops", :force => true do |t|
     t.string   "marca"
+    t.string   "other"
     t.string   "modelo"
     t.string   "color"
     t.text     "defecto"
@@ -29,15 +30,14 @@ ActiveRecord::Schema.define(:version => 20100801000420) do
     t.string   "contra"
     t.integer  "estado",      :default => 0
     t.string   "paquete"
+    t.string   "so"
     t.boolean  "respaldo"
     t.integer  "user_id"
+    t.boolean  "terms"
+    t.boolean  "promo",       :default => false
     t.integer  "total"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "terms"
-    t.string   "so"
-    t.boolean  "promo",       :default => false
-    t.string   "other"
   end
 
   create_table "posts", :force => true do |t|
@@ -60,13 +60,14 @@ ActiveRecord::Schema.define(:version => 20100801000420) do
     t.boolean  "avast",      :default => true
     t.boolean  "winrar"
     t.boolean  "java",       :default => true
+    t.integer  "laptop_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "laptop_id"
   end
 
   create_table "users", :force => true do |t|
     t.string   "fname"
+    t.string   "lname"
     t.string   "crypted_password"
     t.string   "career"
     t.string   "email"
@@ -74,14 +75,12 @@ ActiveRecord::Schema.define(:version => 20100801000420) do
     t.string   "phone"
     t.string   "cel"
     t.string   "nextel"
-    t.boolean  "admin"
-    t.boolean  "colaborator"
-    t.boolean  "client"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean  "admin",             :default => false
+    t.boolean  "colaborator",       :default => false
     t.string   "password_salt"
     t.string   "persistence_token"
-    t.string   "lname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
