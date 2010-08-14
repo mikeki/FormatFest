@@ -19,17 +19,19 @@
     <th class="titulos">Total</th>
   </tr>
 	<tr>
+	<% lap = 0%>
 	<% @laptops.each do |laptop| %>
 		<% (laptop.estado-cuenta).times do%>
 			<td class="lista">0</td>
 		<%end%>
   	<td class="lista"><%=h laptop.count %></td>
+  	<% lap = lap+laptop.count%>
   	<% cuenta = laptop.estado+1%>
 	<% end %>
 	  <%(5-cuenta).times do%>
 	    <td class="lista">0</td>
 		<%end%>
-		<td class="lista"><%=h @laptops.count%></td>
+		<td class="lista"><%=h lap%></td>
 	</tr>
 </table>
 <br />
