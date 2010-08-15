@@ -105,32 +105,47 @@
 	    					  			  
 	        $j("#laptop_paquete").change(paquetesYPrecios);
 	        $j(function(){
+	          $j("#laptop_director").change(function(){
+	            if($j("#laptop_director").attr("checked")){
+	              $j("#laptop_total").attr("value","<%= number_to_currency(120)%>");
+	            }else{
+	              paquetesYPrecios();
+	            }
+	          });
+	        });
+	        $j(function(){
 	          $j("#laptop_promo").change(function(){
-	            if($j("#laptop_promo").attr("checked")){
-	              if($j("#laptop_paquete").val() == "basico")
-	                $j("#laptop_total").attr("value","<%= number_to_currency(160)%>");
-	              else if($j("#laptop_paquete").val() == "personalizado")
-	                $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");
-	              else
-	                $j("#laptop_total").attr("value","<%= number_to_currency(0)%>");
-                
-              }else{
-                 if($j("#laptop_paquete").val() == "basico")
-	                $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");
-	              else if($j("#laptop_paquete").val() == "personalizado")
-	                $j("#laptop_total").attr("value","<%= number_to_currency(200)%>");
-	              else
-	                $j("#laptop_total").attr("value","<%= number_to_currency(0)%>");
+	            if(!($j("#laptop_director").attr("checked"))){
+	              if($j("#laptop_promo").attr("checked")){
+	                if($j("#laptop_paquete").val() == "basico")
+	                  $j("#laptop_total").attr("value","<%= number_to_currency(160)%>");
+	                else if($j("#laptop_paquete").val() == "personalizado")
+	                  $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");
+	                else
+	                  $j("#laptop_total").attr("value","<%= number_to_currency(0)%>");
+                  
+                }else{
+                   if($j("#laptop_paquete").val() == "basico")
+	                  $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");
+	                else if($j("#laptop_paquete").val() == "personalizado")
+	                  $j("#laptop_total").attr("value","<%= number_to_currency(200)%>");
+	                else
+	                  $j("#laptop_total").attr("value","<%= number_to_currency(0)%>");
+                }
               }
 	          });
 	        });
 	        
 	        function paquetesYPrecios(){
-	          if(this.value == "basico"){
-	            if ($j("#laptop_promo").attr("checked")){
-	              $j("#laptop_total").attr("value","<%= number_to_currency(160)%>");  
+	          if($j("#laptop_paquete").val() == "basico"){
+	            if(!($j("#laptop_director").attr("checked"))){
+	              if ($j("#laptop_promo").attr("checked")){
+	                $j("#laptop_total").attr("value","<%= number_to_currency(160)%>");  
+	              }else{
+	                $j("#laptop_total").attr("value","<%= number_to_currency(180)%>"); 
+	              }
 	            }else{
-	              $j("#laptop_total").attr("value","<%= number_to_currency(180)%>"); 
+	              $j("#laptop_total").attr("value","<%= number_to_currency(120)%>");
 	            }
 	            $j("#basico").show("slow");
 	            $j("#personalizado").hide("slow");
@@ -142,11 +157,15 @@
 	              
 	            });
 	            
-	          }else if(this.value == "personalizado"){
-	            if ($j("#laptop_promo").attr("checked")){
-	              $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");  
+	          }else if($j("#laptop_paquete").val() == "personalizado"){
+	            if(!($j("#laptop_director").attr("checked"))){
+	              if ($j("#laptop_promo").attr("checked")){
+	                $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");  
+	              }else{
+	                $j("#laptop_total").attr("value","<%= number_to_currency(200)%>"); 
+	              }
 	            }else{
-	              $j("#laptop_total").attr("value","<%= number_to_currency(200)%>"); 
+	              $j("#laptop_total").attr("value","<%= number_to_currency(120)%>");
 	            }
 	            $j("#basico").show("slow");
 	            $j("#personalizado").show("slow");
@@ -212,12 +231,18 @@
 	    <%= f.hidden_field :terms%>
 	  <%end%>
 	  <br />
+	  <div style="border:1px dashed #CCC;">
 	  <%if current_user.admin? or (current_user.colaborator? and @laptop.estado==0)%>
-	    <%= f.check_box :promo%><%= f.label :promo, "Aplicar Promoción?"%><br />
+	    <%= f.check_box :promo%><%= f.label :promo, "¿Aplicar promoción de cupon?"%><br />
 	    <br/>
 	  <%end%>
+	  <%if current_user.admin?%>
+	    <%= f.check_box :director%><%= f.label :director, "¿Aplicar promoción de directivo?"%><br />
+	    <br/>
+	  <%end%>
+	  </div>
   	<%= f.label :total %><br />
-  	<%= f.text_field :total, :disabled=>true, :value =>  number_to_currency(@laptop.total) %><br />
+  	<%= f.text_field :total, :disabled=>true, :style=>"font-weight:bold;", :value =>  number_to_currency(@laptop.total) %><br />
 
 	<br />
 	<%end%>

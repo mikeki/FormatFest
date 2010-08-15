@@ -109,18 +109,22 @@ class LaptopsController < ApplicationController
     @programas = @laptop.build_program(params[:program])
     if @laptop.save
       if @laptop.paquete == "basico"
-        if @laptop.promo?
-          @laptop.update_attribute(:total,160)
+      	  if @laptop.director?
+            @laptop.update_attribute(:total,120)
+          elsif @laptop.promo?
+            @laptop.update_attribute(:total,160)
+          else
+            @laptop.update_attribute(:total,180)
+          end
         else
-          @laptop.update_attribute(:total,180)
+          if @laptop.director?
+            @laptop.update_attribute(:total,120)
+          elsif @laptop.promo?
+            @laptop.update_attribute(:total,180)
+          else
+            @laptop.update_attribute(:total,200)
+          end
         end
-      else
-        if @laptop.promo?
-          @laptop.update_attribute(:total,180)
-        else
-          @laptop.update_attribute(:total,200)
-        end
-      end
       if @programas.save
         LaptopMailer::deliver_registered_message(@laptop, @laptop.user.email)
         flash[:notice] = "Se registró una laptop satisfactoriamente. Revisa tu correo para instrucciones"
@@ -151,13 +155,17 @@ class LaptopsController < ApplicationController
   	      LaptopMailer::deliver_end_message(@laptop, @laptop.user.email)
 	      end
       	if @laptop.paquete == "basico"
-          if @laptop.promo?
+      	  if @laptop.director?
+            @laptop.update_attribute(:total,120)
+          elsif @laptop.promo?
             @laptop.update_attribute(:total,160)
           else
             @laptop.update_attribute(:total,180)
           end
         else
-          if @laptop.promo?
+          if @laptop.director?
+            @laptop.update_attribute(:total,120)
+          elsif @laptop.promo?
             @laptop.update_attribute(:total,180)
           else
             @laptop.update_attribute(:total,200)
