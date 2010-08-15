@@ -231,16 +231,17 @@
 	    <%= f.hidden_field :terms%>
 	  <%end%>
 	  <br />
-	  <div style="border:1px dashed #CCC;">
 	  <%if current_user.admin? or (current_user.colaborator? and @laptop.estado==0)%>
+	    <div style="border:1px dashed #CCC;">
 	    <%= f.check_box :promo%><%= f.label :promo, "¿Aplicar promoción de cupon?"%><br />
+	    <%unless current_user.admin?%></div><%end%>
 	    <br/>
 	  <%end%>
 	  <%if current_user.admin?%>
 	    <%= f.check_box :director%><%= f.label :director, "¿Aplicar promoción de directivo?"%><br />
+	    </div>
 	    <br/>
 	  <%end%>
-	  </div>
   	<%= f.label :total %><br />
   	<%= f.text_field :total, :disabled=>true, :style=>"font-weight:bold;", :value =>  number_to_currency(@laptop.total) %><br />
 
