@@ -17,7 +17,7 @@
         });
 
       </script> 
-      <% form_tag  users_path, :method => "GET" do -%>
+      <% form_tag  users_path, :method => "GET" do %>
         <%= select_tag "usuario", "<option value=\"-1\">Todos</option>
         <option value=\"0\" id=\"cero\">Clientes</option>
         <option value=\"1\" id=\"uno\">Colaboradores</option>
@@ -25,9 +25,10 @@
         <option value=\"3\" id=\"tres\">Staff</option>"%>
         <%= text_field_tag :search, params[:search]%>
         <%= submit_tag 'Filtrar', :name => ""%>
-      <% end -%>
+      <% end %>
       </div>
       <%= will_paginate :previous_label => "<<", :next_label => ">>"%>
+      <br />
       <table class="laptops" cellspacing="0">
         <tr>
           <th class="titulos">Nombre</th>
