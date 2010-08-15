@@ -363,13 +363,13 @@ border:1px solid #ccc;
  
  #patrocinadores{
  border: 0px;
- width:89%; 
+ width:84%; 
  float:left; 
  position:relative; 
  }
  
  #patrocinadores img{
- margin-left:10px; 
+ margin-left:40px; 
  }
  
  #facebookBajo{ 
@@ -378,16 +378,16 @@ border:1px solid #ccc;
  padding-top:10px;
  display:inline; 
  position: relative; 
- width:8%;
+ width:11.5%;
  }
 
  #saitcBajo{ 
  border: none; 
  float: right; 
- padding-top:20px;
+ padding-top:8px;
  display:inline; 
  position: relative; 
- width:10%;
+ width:15%;
  }
  
  #nofin{
