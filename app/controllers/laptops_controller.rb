@@ -122,7 +122,8 @@ class LaptopsController < ApplicationController
         end
       end
       if @programas.save
-        flash[:notice] = "Se registró una laptop satisfactoriamente."
+        LaptopMailer::deliver_registered_message(@laptop, @laptop.user.email)
+        flash[:notice] = "Se registró una laptop satisfactoriamente. Revisa tu correo para instrucciones"
         redirect_to @laptop
       end
     else
@@ -146,9 +147,7 @@ class LaptopsController < ApplicationController
         if params[:justUpdate] != '1'
       	  @laptop.update_attribute(:estado, "#{@laptop.colaborators.count}")
         end
-      	if @laptop.estado == 1 and params[:justUpdate] != '1'
-      	  LaptopMailer::deliver_received_message(@laptop, @laptop.user.email)
-  	    elsif @laptop.estado == 3 and params[:justUpdate] != '1'
+      	if @laptop.estado == 3 and params[:justUpdate] != '1'
   	      LaptopMailer::deliver_end_message(@laptop, @laptop.user.email)
 	      end
       	if @laptop.paquete == "basico"
