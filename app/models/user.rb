@@ -33,7 +33,7 @@ end
 CARRERA = [
     # Displayed         stored in db
     ["ARQ - Arquitecto", "ARQ"],
-    ["CPF - Licenciado en COntaduría Pública y Finanzas", "CPF"],
+    ["CPF - Licenciado en Contaduría Pública y Finanzas", "CPF"],
     ["IA - Ingeniero Agronomo" , "IA" ],
     ["IAB - Ingeniero en Agrobiotecnologia" , "IAB" ],
     ["IBT - Ingeniero en Biotecnologia", "IBT"],
