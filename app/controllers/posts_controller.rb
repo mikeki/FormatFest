@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(params[:post])
-    @post.update_attribute(:publishedDate, Time.now)
+    @post.update_attribute(:publishedDate, Time.zone.now)
     if @post.save
       flash[:notice] = "Noticia Publicada Satisfactoriamente."
       redirect_to root_path
