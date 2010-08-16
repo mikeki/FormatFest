@@ -28,6 +28,7 @@
       <% end %>
       </div>
       <%= will_paginate :previous_label => "<<", :next_label => ">>"%>
+      <br />
       <table class="laptops" cellspacing="0">
         <tr>
           <th class="titulos">Nombre</th>
