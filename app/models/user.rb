@@ -33,7 +33,7 @@ end
 CARRERA = [
     # Displayed         stored in db
     ["ARQ - Arquitecto", "ARQ"],
-    ["CPF - Licenciado en COntaduría Pública y Finanzas", "CPF"]
+    ["CPF - Licenciado en COntaduría Pública y Finanzas", "CPF"],
     ["IA - Ingeniero Agronomo" , "IA" ],
     ["IAB - Ingeniero en Agrobiotecnologia" , "IAB" ],
     ["IBT - Ingeniero en Biotecnologia", "IBT"],
@@ -86,8 +86,6 @@ CARRERA = [
     ["LATI - Licenciado en Administración de Tecnologías de Información", "LATI"],
     ["MC - Médico Cirujano", "MC"],
     ["MO - Médico Cirujano Odontólogo", "MO"]
-    
-    
   ]
 
 def self.search(search)
