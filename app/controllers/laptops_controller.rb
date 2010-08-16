@@ -70,7 +70,7 @@ class LaptopsController < ApplicationController
   	:conditions => {:status => "Entregar"},
   	:limit => 5
   	)
-  	@title = "Estadísticas a las #{Time.now.to_formatted_s(:time)} horas"
+  	@title = "Estadísticas a las #{Time.zone.now.to_formatted_s(:time)} horas"
   end
 
   # GET /laptops/1
