@@ -22,7 +22,7 @@
   <br />
   <%end%>
   <b>Cliente:</b>
-  <%=h "#{@laptop.user.fname} #{@laptop.user.lname}" %>
+  <%=h link_to "#{@laptop.user.fname} #{@laptop.user.lname}", @laptop.user %>
 <br />
   <b>Estado:</b>
   <%if @laptop.estado < 3%>
