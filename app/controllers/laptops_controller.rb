@@ -109,7 +109,9 @@ class LaptopsController < ApplicationController
     @programas = @laptop.build_program(params[:program])
     if @laptop.save
       if @laptop.paquete == "basico"
-      	  if @laptop.director?
+          if @laptop.president?
+            @laptop.update_attribute(:total,0)
+      	  elsif @laptop.director?
             @laptop.update_attribute(:total,120)
           elsif @laptop.promo?
             @laptop.update_attribute(:total,160)
@@ -117,7 +119,9 @@ class LaptopsController < ApplicationController
             @laptop.update_attribute(:total,180)
           end
         else
-          if @laptop.director?
+          if @laptop.president?
+            @laptop.update_attribute(:total,0)
+      	  elsif @laptop.director?
             @laptop.update_attribute(:total,120)
           elsif @laptop.promo?
             @laptop.update_attribute(:total,180)
@@ -155,7 +159,9 @@ class LaptopsController < ApplicationController
   	      LaptopMailer::deliver_end_message(@laptop, @laptop.user.email)
 	      end
       	if @laptop.paquete == "basico"
-      	  if @laptop.director?
+      	  if @laptop.president?
+            @laptop.update_attribute(:total,0)
+      	  elsif @laptop.director?
             @laptop.update_attribute(:total,120)
           elsif @laptop.promo?
             @laptop.update_attribute(:total,160)
@@ -163,7 +169,9 @@ class LaptopsController < ApplicationController
             @laptop.update_attribute(:total,180)
           end
         else
-          if @laptop.director?
+          if @laptop.president?
+            @laptop.update_attribute(:total,0)
+      	  elsif @laptop.director?
             @laptop.update_attribute(:total,120)
           elsif @laptop.promo?
             @laptop.update_attribute(:total,180)

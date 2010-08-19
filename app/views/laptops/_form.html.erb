@@ -83,21 +83,33 @@
 	      <% if @laptop.paquete == "basico" -%>
 	          $j("#basico").fadeIn(1);
 	          <% if request.request_uri == "/laptops"%>
-	            if ($j("#laptop_promo").attr("checked")){
-	              $j("#laptop_total").attr("value","<%= number_to_currency(160)%>");  
-	            }else{
-	              $j("#laptop_total").attr("value","<%= number_to_currency(180)%>"); 
-	            }
+	            <%if @laptop.president?%>
+	              $j("#laptop_total").attr("value","<%= number_to_currency(0)%>");
+	            <%elsif @laptop.director?%>
+	              $j("#laptop_total").attr("value","<%= number_to_currency(120)%>");
+	            <%else%>
+	              if ($j("#laptop_promo").attr("checked")){
+	                $j("#laptop_total").attr("value","<%= number_to_currency(160)%>");  
+	              }else{
+	                $j("#laptop_total").attr("value","<%= number_to_currency(180)%>"); 
+	              }
+	            <%end%>
 	          <%end%>
 	      <%elsif @laptop.paquete == "personalizado"%>
 	           $j("#basico").fadeIn(1);
 	           $j("#personalizado").fadeIn(1);
 	          <% if request.request_uri == "/laptops"%>
-	             if ($j("#laptop_promo").attr("checked")){
-	              $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");  
-	            }else{
-	              $j("#laptop_total").attr("value","<%= number_to_currency(200)%>"); 
-	            }
+	             <%if @laptop.president?%>
+	              $j("#laptop_total").attr("value","<%= number_to_currency(0)%>");
+	            <%elsif @laptop.director?%>
+	              $j("#laptop_total").attr("value","<%= number_to_currency(120)%>");
+	            <%else%>
+	              if ($j("#laptop_promo").attr("checked")){
+	                $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");  
+	              }else{
+	                $j("#laptop_total").attr("value","<%= number_to_currency(200)%>"); 
+	              }
+	            <%end%>
 	          <%end%>
 	      <% end -%>
 	         });
@@ -106,8 +118,19 @@
 	        $j("#laptop_paquete").change(paquetesYPrecios);
 	        $j(function(){
 	          $j("#laptop_director").change(function(){
-	            if($j("#laptop_director").attr("checked")){
-	              $j("#laptop_total").attr("value","<%= number_to_currency(120)%>");
+	            if(!($j("#laptop_president	").attr("checked"))){
+	              if($j("#laptop_director").attr("checked")){
+	                $j("#laptop_total").attr("value","<%= number_to_currency(120)%>");
+	              }else{
+	                paquetesYPrecios();
+	              }
+	            }
+	          });
+	        });
+	        $j(function(){
+	          $j("#laptop_president").change(function(){
+	            if($j("#laptop_president").attr("checked")){
+	              $j("#laptop_total").attr("value","<%= number_to_currency(0)%>");
 	            }else{
 	              paquetesYPrecios();
 	            }
@@ -115,7 +138,7 @@
 	        });
 	        $j(function(){
 	          $j("#laptop_promo").change(function(){
-	            if(!($j("#laptop_director").attr("checked"))){
+	            if(!($j("#laptop_director").attr("checked")) && !($j("#laptop_president").attr("checked"))){
 	              if($j("#laptop_promo").attr("checked")){
 	                if($j("#laptop_paquete").val() == "basico")
 	                  $j("#laptop_total").attr("value","<%= number_to_currency(160)%>");
@@ -138,12 +161,14 @@
 	        
 	        function paquetesYPrecios(){
 	          if($j("#laptop_paquete").val() == "basico"){
-	            if(!($j("#laptop_director").attr("checked"))){
+	            if(!($j("#laptop_director").attr("checked")) && !($j("#laptop_president").attr("checked"))){
 	              if ($j("#laptop_promo").attr("checked")){
 	                $j("#laptop_total").attr("value","<%= number_to_currency(160)%>");  
 	              }else{
 	                $j("#laptop_total").attr("value","<%= number_to_currency(180)%>"); 
 	              }
+	            }else if($j("#laptop_president").attr("checked")){
+	              $j("#laptop_total").attr("value","<%= number_to_currency(0)%>");
 	            }else{
 	              $j("#laptop_total").attr("value","<%= number_to_currency(120)%>");
 	            }
@@ -158,12 +183,14 @@
 	            });
 	            
 	          }else if($j("#laptop_paquete").val() == "personalizado"){
-	            if(!($j("#laptop_director").attr("checked"))){
+	            if(!($j("#laptop_director").attr("checked"))  && !($j("#laptop_president").attr("checked"))){
 	              if ($j("#laptop_promo").attr("checked")){
 	                $j("#laptop_total").attr("value","<%= number_to_currency(180)%>");  
 	              }else{
 	                $j("#laptop_total").attr("value","<%= number_to_currency(200)%>"); 
 	              }
+	            }else if($j("#laptop_president").attr("checked")){
+	              $j("#laptop_total").attr("value","<%= number_to_currency(0)%>");
 	            }else{
 	              $j("#laptop_total").attr("value","<%= number_to_currency(120)%>");
 	            }
@@ -239,6 +266,8 @@
 	  <%end%>
 	  <%if current_user.admin?%>
 	    <%= f.check_box :director%><%= f.label :director, "¿Aplicar promoción de directivo?"%><br />
+	    <br />
+	    <%= f.check_box :president%><%= f.label :president  , "¿Aplicar promoción de presidente de Sociedad de Alumnos?"%><br />
 	    </div>
 	    <br/>
 	  <%end%>

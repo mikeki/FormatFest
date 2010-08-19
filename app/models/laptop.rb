@@ -1,5 +1,5 @@
 class Laptop < ActiveRecord::Base
-attr_accessible :so, :promo, :marca, :modelo, :color, :paquete, :defecto, :director, :comentarios, :usuario, :contra, :estado, :paquete, :respaldo, :total, :user_id, :terms, :other
+attr_accessible :so, :promo, :marca, :modelo, :color, :paquete, :president, :defecto, :director, :comentarios, :usuario, :contra, :estado, :paquete, :respaldo, :total, :user_id, :terms, :other
 validates_presence_of :marca, :modelo, :color, :paquete, :so
 belongs_to :user
 has_many :colaborators, :dependent => :destroy
@@ -29,8 +29,7 @@ PAQUETE = [
 SO = [
 ["Windows 7, 32bits", "Windows 7, 32bits"],
 ["Windows 7, 64bits", "Windows 7, 64bits"],
-["Windows XP, 32bits", "Windows XP, 32bits"],
-["Windows XP, 64bits", "Windows XP, 64bits"]
+["Windows XP, 32bits", "Windows XP, 32bits"]
 ]
 
 HUMANIZED_COLUMNS = {
