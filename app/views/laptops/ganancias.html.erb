@@ -8,6 +8,7 @@
 <table class="laptops" cellspacing="0">
 	<tr>
 		<% cuenta = 0 %>
+		<% total = 0 %>
 		<th class="titulos" colspan="6">Ganancias</th>
 	</tr>
   <tr>
@@ -18,11 +19,16 @@
   <tr>
   	<td class="lista"><%=h laptop.count %></td>
   	<% cuenta = cuenta.to_i+(laptop.count.to_i * laptop.total.to_i)%>
+		<% total = total.to_i + laptop.count.to_i %>
 		<td class="lista"><%= number_to_currency(laptop.total)%></td>
 	</tr>
 	<%end%>
 	<tr>
-	  <td class="lista"><b>Total</b></td>
+	  <th class="titulos">Total</th>
+	  <th class="titulos">Ganancia Total</th>
+	</tr>
+	<tr>
+	  <td class="lista"><%= total %></td>
 	  <td class="lista"><%= number_to_currency(cuenta)%></td>
 	</tr>
 </table>
