@@ -17,7 +17,7 @@
 	<% @laptops.each do |laptop| %>
   <tr>
   	<td class="lista"><%=h laptop.count %></td>
-  	<% cuenta = cuenta+(laptop.count * laptop.total)%>
+  	<% cuenta = cuenta.to_i+(laptop.count.to_i * laptop.total.to_i)%>
 		<td class="lista"><%= number_to_currency(laptop.total)%></td>
 	</tr>
 	<%end%>
