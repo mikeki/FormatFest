@@ -25,6 +25,16 @@ class LaptopsController < ApplicationController
     end
   end
   
+  def ganancias
+    @laptops = Laptop.find(
+      :all,
+      :select => "count(total) as count, total",
+      :group => "total",
+      :conditions => ['estado > 0']
+    )
+    @title = "Ganancias" 
+  end
+  
   def estadisticas
     @lap = Laptop.find(:all)
   	@laptops = Laptop.find(

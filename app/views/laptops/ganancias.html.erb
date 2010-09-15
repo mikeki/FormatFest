@@ -1,0 +1,32 @@
+
+<div id="maincol">
+
+<div id="top_section"><%=@title%></div>
+<div id="body_section">
+<div id="contenido">
+
+<table class="laptops" cellspacing="0">
+	<tr>
+		<% cuenta = 0 %>
+		<th class="titulos" colspan="6">Ganancias</th>
+	</tr>
+  <tr>
+  	<th class="titulos"># Laptops</th>
+    <th class="titulos">Ganancia</th>
+  </tr>
+	<% @laptops.each do |laptop| %>
+  <tr>
+  	<td class="lista"><%=h laptop.count %></td>
+  	<% cuenta = cuenta+(laptop.count * laptop.total)%>
+		<td class="lista"><%= number_to_currency(laptop.total)%></td>
+	</tr>
+	<%end%>
+	<tr>
+	  <td class="lista"><b>Total</b></td>
+	  <td class="lista"><%= number_to_currency(cuenta)%></td>
+	</tr>
+</table>
+</div>
+</div>
+<div id="bottom_section"></div>
+</div>
