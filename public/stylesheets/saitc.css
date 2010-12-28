@@ -8,6 +8,10 @@ body a{
     outline:none;
 }
 
+a:link{color:#0163c8;}
+a:visited{color:#0163c8;}
+a:hover{color:#50bef5;}
+
 div#majorContent {
 	/*background: #63adf8;
 	border:2px solid white;*/
@@ -132,6 +136,12 @@ div#majorContent div#top_section #fechaNoticia{
 	text-decoration: none;
 	font-size: 9px;
 }
+ 
+div#majorContent div#body_section #fechaMensaje{
+	text-decoration: none;
+	text-color: "grey";
+	font-size: 9px;
+} 
  
 div#majorContent div#body_section #contenido{
 	text-align: justify;
@@ -439,6 +449,13 @@ border: 1px #000000 solid;
 border-collapse: collapse;
 border-spacing: 0px; }
 
+tr.semaforo1{
+background-color:#FF5757;
+}
+
+tr.semaforo2{
+background-color:#FFB057;    
+}
 
 th.titulos
 { background-color: #63adf8;

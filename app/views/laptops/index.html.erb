@@ -50,7 +50,18 @@ $j(function(){
   </tr>
 
 <% @laptops.each do |laptop| %>
+<% unless laptop.receivedTime.nil?%>
+  <% tiempo = Time.now - laptop.receivedTime%>
+  <% if tiempo > (24*60*60) and (laptop.estado==1 or laptop.estado==2)%>
+  <tr class="semaforo1">
+  <%elsif tiempo > (24*60*60) and (laptop.estado==1 or laptop.estado==2)%>
+  <tr class="semaforo2">
+  <%else%>
   <tr>
+  <%end%>
+<%else%>
+  <tr>
+<%end%>
   	<td class="lista"><%=h laptop.id %></td>
     <td class="lista"><%=h laptop.marca %></td>
     <td class="lista"><%=h laptop.modelo %></td>

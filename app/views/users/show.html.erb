@@ -30,6 +30,9 @@
   		<strong>Teléfono: </strong>
   		<%= @user.phone%>
   		<br />
+  		<strong>Ext.: </strong>
+  		<%= @user.ext%>
+  		<br />
   		<strong>Celular: </strong>
   		<%= @user.cel%>
   		<br />
@@ -68,14 +71,14 @@
 								<span id="fin">Entregada.</span>
 							<%end%>
 							</td>
-  		        <td class="lista"><%= link_to image_tag ("lshow.png", :border=>"0", :alt=>"Ver información de la laptop"), laptop %></td>
+  		        <td class="lista"><%= link_to image_tag("lshow.png", :border=>"0", :alt=>"Ver información de la laptop"), laptop %></td>
               <%if current_user.admin? or current_user.colaborator? or laptop.estado==0%>
-                <td class="lista"><%= link_to image_tag ("ledit.png", :border=>"0", :alt=>"Editar información de la laptop"), edit_laptop_path(laptop) %></td>
+                <td class="lista"><%= link_to image_tag("ledit.png", :border=>"0", :alt=>"Editar información de la laptop"), edit_laptop_path(laptop) %></td>
               <%else%>
                 <td class="lista"><%= image_tag 'lediti.png' %></td>
               <%end%>
               <%if current_user.admin? or laptop.estado==0%>
-                <td class="lista"><%= link_to image_tag ("ldel.png", :border=>"0", :alt=>"Eliminar laptop"), laptop, :confirm => '¿Estás seguro?', :method => :delete %></td>
+                <td class="lista"><%= link_to image_tag("ldel.png", :border=>"0", :alt=>"Eliminar laptop"), laptop, :confirm => '¿Estás seguro?', :method => :delete %></td>
               <%else%>
                 <td class="lista"><%= image_tag 'ldeli.png' %></td>
               <%end%>

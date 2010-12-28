@@ -18,8 +18,9 @@ class LaptopsController < ApplicationController
       end
     end
     if params[:estado] == '-1' or params[:estado].nil?
-        @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :order => "id asc")
-
+      @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :order => "id asc")
+    elsif params[:estado] == '1' or params[:estado] == '2'
+      @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :order => "receivedTime asc", :conditions=> {:estado => params[:estado]})
     else
       @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :order => "id asc", :conditions=> {:estado => params[:estado]})
     end
@@ -36,6 +37,7 @@ class LaptopsController < ApplicationController
   end
   
   def estadisticas
+    @refresh = true
     @lap = Laptop.find(:all)
   	@laptops = Laptop.find(
   		:all,
@@ -88,9 +90,16 @@ class LaptopsController < ApplicationController
   def show
     begin
       @laptop = Laptop.find(params[:id])
+      @message = Message.new
+      @refresh = true
     rescue
       redirect_to laptops_path
     else
+      if current_user.admin? or current_user.colaborator?
+        @messages = @laptop.messages.find(:all, :order => "created_at desc")
+      else
+        @messages = @laptop.messages.find(:all, :conditions=>{:userContact=>true}, :order => "created_at asc")
+      end
       @title = "Laptop de #{@laptop.user.fname.capitalize} #{@laptop.user.lname.capitalize}"
       redirect_to current_user unless current_user?(@laptop.user) or current_user.admin? or current_user.colaborator?
     end
@@ -164,6 +173,9 @@ class LaptopsController < ApplicationController
       if @laptop.update_attributes(params[:laptop]) and @laptop.program.update_attributes(params[:program])
         if params[:justUpdate] != '1'
       	  @laptop.update_attribute(:estado, "#{@laptop.colaborators.count}")
+      	  if @laptop.estado == 1 and @laptop.receivedTime.nil?
+      	    @laptop.update_attribute(:receivedTime, Time.now)
+    	    end
         end
       	if @laptop.estado == 3 and params[:justUpdate] != '1'
   	      LaptopMailer::deliver_end_message(@laptop, @laptop.user.email)
@@ -215,5 +227,21 @@ class LaptopsController < ApplicationController
     end
   end
 
+  def create_message
+    @laptop = Laptop.find(params[:id])
+    if params[:message][:post] != ''
+      @message = @laptop.messages.build(params[:message])
+      if current_user?(@laptop.user)
+        @message.update_attribute(:userContact, true)
+      end
+      @message.update_attribute(:user_id,current_user.id)
+      if @message.save
+        flash[:notice]="Comentario Enviado."
+      else
+        flash[:error]="Comentario NO Enviado."
+      end
+    end
+    redirect_to :back
+  end
 
 end

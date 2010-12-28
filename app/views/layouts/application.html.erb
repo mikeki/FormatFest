@@ -4,7 +4,7 @@
   <head>
    <link rel="shortcut icon" href="/favicon.ico">
     <title><%= titulo %></title>
-    <% if request.request_uri == '/admin/estadisticas'%>
+    <% if @refresh%>
        <meta content="900" http-equiv="REFRESH"> </meta>
     <% end -%>
     <%= stylesheet_link_tag 'saitc' %>

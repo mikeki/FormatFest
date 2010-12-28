@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100819051154) do
+ActiveRecord::Schema.define(:version => 20101226071700) do
 
   create_table "colaborators", :force => true do |t|
     t.integer  "user_id"
@@ -28,18 +28,28 @@ ActiveRecord::Schema.define(:version => 20100819051154) do
     t.text     "comentarios"
     t.string   "usuario"
     t.string   "contra"
-    t.integer  "estado",      :default => 0
+    t.integer  "estado",       :default => 0
     t.string   "paquete"
     t.string   "so"
     t.boolean  "respaldo"
     t.integer  "user_id"
     t.boolean  "terms"
-    t.boolean  "promo",       :default => false
+    t.boolean  "promo",        :default => false
     t.integer  "total"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "director"
-    t.boolean  "president",   :default => false
+    t.boolean  "president",    :default => false
+    t.datetime "receivedTime"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.text     "post"
+    t.integer  "laptop_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "userContact"
   end
 
   create_table "posts", :force => true do |t|
@@ -83,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20100819051154) do
     t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "ext"
   end
 
 end

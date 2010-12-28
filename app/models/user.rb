@@ -5,14 +5,15 @@ end
 
 has_many :laptops
 has_many :colaborators
+has_many :messages
 
-attr_accessible :fname, :lname, :password, :password_confirmation, :career, :email, :schoolid, :phone, :cel, :nextel, :admin, :colaborator
+attr_accessible :fname, :lname, :password, :password_confirmation, :career, :email, :schoolid, :phone, :ext, :cel, :nextel, :admin, :colaborator
 
 validates_presence_of :fname, :lname, :email, :schoolid, :career
 validates_uniqueness_of :schoolid, :email
 validates_format_of :schoolid, :with => /\A\d{6,7}\Z/, :message => "debe de ser de 6 o 7 dígitos"
 validates_format_of :cel, :with => /\A\d{10}\Z/, :allow_nil => true, :allow_blank => true, :message => "debe de ser de 10 dígitos"
-validates_format_of :phone, :with => /\A\d{8}\Z/, :allow_nil => true, :allow_blank => true, :message => "debe de ser de 8 dígitos"
+validates_format_of :phone, :with => /\A\d{8,10}\Z/, :allow_nil => true, :allow_blank => true, :message => "debe de ser de 8 dígitos"
 validates_format_of :nextel, :with => /\A\d+\*\d+\*\d+\Z/, :allow_nil => true, :allow_blank => true, :message => "debe de parecer un ID de nextel"
 validate :there_must_be_a_phone
 
@@ -23,6 +24,7 @@ HUMANIZED_COLUMNS = {
 	:email => "Email",
 	:schoolid => "Matrícula",
 	:phone => "Teléfono",
+	:ext => "Ext.",
 	:cel => "Celular"
 	}
 
