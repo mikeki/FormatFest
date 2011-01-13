@@ -10,6 +10,7 @@ class UserSessionsController < ApplicationController
     if @user_session.save
       flash[:notice] = "Bienvenido #{current_user.fname.capitalize}"
       redirect_to new_laptop_path unless current_user.admin? or current_user.colaborator? or curent_user.laptop.count > 0
+      redirect_to root_path
     else
       flash[:error] = "Usuario y/o password incorrectos."
       redirect_to root_path
