@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Bienvenido #{current_user.fname.capitalize}"
-      if !current_user.admin? and !current_user.colaborator? and current_user.laptop.count == 0
+      if !current_user.admin? and !current_user.colaborator? and current_user.laptops.count == 0
         redirect_to new_laptop_path 
       else
         redirect_to root_path
