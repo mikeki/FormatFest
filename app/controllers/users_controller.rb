@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   @user = User.new(params[:user])
 	  if @user.save
 		flash[:notice] = "El usuario fue creado satisfactoriamente."	  
-		redirect_to root_path
+		redirect_to new_laptop_path
 		else
 		flash[:error] = "El usuario no pudo crearse."
 		@title = "Registro"
