@@ -24,7 +24,7 @@ class LaptopMailer < ActionMailer::Base
   def answerToClient_message(laptop, email)
     recipients email
     from "FormatFest 18 <contacto@formatfest.com>"
-    subject "Respuesta a la preunta de tu laptop #{laptop.marca}"
+    subject "Respuesta a la pregunta de tu laptop #{laptop.marca}"
     body :laptop => laptop
   end
 
