@@ -13,5 +13,19 @@ class LaptopMailer < ActionMailer::Base
     subject "Reparacion de laptop #{laptop.marca} finalizada"
     body :laptop => laptop
   end
+  
+  def clientPost_message(laptop, email)
+    recipients email
+    from CONTACT_RECIPIENT
+    subject "Un cliente del Format Fest ha hecho una pregunta"
+    body :laptop => laptop
+  end
+  
+  def answerToClient_message(laptop, email)
+    recipients email
+    from "FormatFest 18 <contacto@formatfest.com>"
+    subject "Respuesta a la preunta de tu laptop #{laptop.marca}"
+    body :laptop => laptop
+  end
 
 end

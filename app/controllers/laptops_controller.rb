@@ -231,7 +231,15 @@ class LaptopsController < ApplicationController
     @laptop = Laptop.find(params[:id])
     if params[:message][:post] != ''
       @message = @laptop.messages.build(params[:message])
+      if @message.userContact?
+        LaptopMailer::deliver_answerToClient_message(@laptop, @laptop.user.email)
+      end
       if current_user?(@laptop.user)
+        if @laptop.estado>0
+          LaptopMailer::deliver_clientPost_message(@laptop, CONTACT_RECIPIENT)
+        else
+          LaptopMailer::deliver_clientPost_message(@laptop, @laptop.colaborators.find(:last).user.email)
+        end
         @message.update_attribute(:userContact, true)
       end
       @message.update_attribute(:user_id,current_user.id)
