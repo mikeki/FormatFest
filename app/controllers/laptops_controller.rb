@@ -235,7 +235,7 @@ class LaptopsController < ApplicationController
         LaptopMailer::deliver_answerToClient_message(@laptop, @laptop.user.email)
       end
       if current_user?(@laptop.user)
-        if @laptop.estado>0
+        if @laptop.estado==0
           LaptopMailer::deliver_clientPost_message(@laptop, CONTACT_RECIPIENT)
         else
           LaptopMailer::deliver_clientPost_message(@laptop, @laptop.colaborators.find(:last).user.email)
