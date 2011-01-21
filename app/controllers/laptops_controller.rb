@@ -20,7 +20,7 @@ class LaptopsController < ApplicationController
     if params[:estado] == '-1' or params[:estado].nil?
       @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :order => "id asc")
     elsif params[:estado] == '1' or params[:estado] == '2'
-      @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :order => "receivedTime asc", :conditions=> {:estado => params[:estado]})
+      @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :order => "id asc", :conditions=> {:estado => params[:estado]})
     else
       @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :order => "id asc", :conditions=> {:estado => params[:estado]})
     end
