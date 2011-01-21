@@ -233,7 +233,7 @@ class LaptopsController < ApplicationController
     if params[:message][:post] != ''
       @message = @laptop.messages.build(params[:message])
       if @message.userContact?
-        LaptopMailer::deliver_answerToClient_message(@laptop, @laptop.user.email)
+        LaptopMailer::deliver_answerToClient_message(@laptop, @laptop.user.email, @message.post)
       end
       if current_user?(@laptop.user)
         if @laptop.estado <= 1

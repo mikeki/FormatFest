@@ -181,7 +181,7 @@
     <% end%>
       <div id="post_message">
       <% form_for [@laptop, @message] do |m|%>
-      <%= m.text_area :post, :cols=>70, :rows=>2%>
+      <%= m.text_area :post, :cols=>70, :rows=>3%>
       <br />
       <%= m.submit 'Comentar'%>
       <%if current_user.admin? or current_user.colaborator?%>
