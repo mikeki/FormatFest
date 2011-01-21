@@ -62,7 +62,9 @@
             	</span>
             </div>
             <div id="subsection">
-            	<%= link_to_if current_user.admin?, "Nueva Noticia", new_post_path%><br/>
+              <%if current_user.admin?%>
+            	  <%= link_to_if current_user.admin?, "Nueva Noticia", new_post_path%><br/>
+            	<%end%>
             	<%= link_to_if current_user.admin?, "Estadísticas", estadisticas_path%><br />
             	<%= link_to "Recepción", '/laptops?estado=0' %><br />
             	<%= link_to "Lista de Usuarios", users_path%><br />
