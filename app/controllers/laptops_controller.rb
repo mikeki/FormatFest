@@ -21,7 +21,7 @@ class LaptopsController < ApplicationController
       @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :order => "id asc")
     elsif params[:estado] == '1' or params[:estado] == '2'
       @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :conditions=> {:estado => params[:estado]})
-      @laptops.sort! { |a,b| a.receivedTime <=> b.received.time }
+      @laptops.sort! { |a,b| a.receivedTime <=> b.receivedTime }
     else
       @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :order => "id asc", :conditions=> {:estado => params[:estado]})
     end
