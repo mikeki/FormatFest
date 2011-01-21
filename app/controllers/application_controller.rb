@@ -72,7 +72,7 @@ class ApplicationController < ActionController::Base
   end
   
   def not_admins
-  	if !current_user.admin?
+  	unless current_user.admin?
   		redirect_to root_path
   	end
   end
