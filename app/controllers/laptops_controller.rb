@@ -20,7 +20,8 @@ class LaptopsController < ApplicationController
     if params[:estado] == '-1' or params[:estado].nil?
       @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :order => "id asc")
     elsif params[:estado] == '1' or params[:estado] == '2'
-      @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :order => "receivedTime asc", :conditions=> {:estado => params[:estado]})
+      @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :conditions=> {:estado => params[:estado]})
+      @laptops.sort! { |a,b| a.receivedTime <=> b.received.time }
     else
       @laptops = Laptop.paginate(:page=>params[:page], :per_page => 10, :order => "id asc", :conditions=> {:estado => params[:estado]})
     end
@@ -235,7 +236,7 @@ class LaptopsController < ApplicationController
         LaptopMailer::deliver_answerToClient_message(@laptop, @laptop.user.email)
       end
       if current_user?(@laptop.user)
-        if @laptop.estado==0
+        if @laptop.estado <= 1
           LaptopMailer::deliver_clientPost_message(@laptop, CONTACT_RECIPIENT)
         else
           LaptopMailer::deliver_clientPost_message(@laptop, @laptop.colaborators.find(:last).user.email)
