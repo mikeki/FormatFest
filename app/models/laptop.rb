@@ -1,7 +1,7 @@
 class Laptop < ActiveRecord::Base
-attr_accessible :so, :promo, :marca, :modelo, :color, :paquete, :president, :defecto, :director
+attr_accessible :receivedTime, :so, :promo, :marca, :modelo, :color, :paquete, :president, :defecto, :director
 attr_accessible :comentarios, :usuario, :contra, :estado, :paquete, :respaldo, :total, :user_id
-attr_accessible :terms, :other, :receivedTime
+attr_accessible :terms, :other
 validates_presence_of :marca, :modelo, :color, :paquete, :so
 belongs_to :user
 has_many :colaborators, :dependent => :destroy
