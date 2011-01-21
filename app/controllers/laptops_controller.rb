@@ -1,7 +1,7 @@
 class LaptopsController < ApplicationController
 
 	before_filter :require_user
-	before_filter :not_admins , :only => :estadisticas
+	before_filter :not_admins, :only => :estadisticas
 	before_filter :not_privileges, :only => [:index, :listaRegistradas, :listaRecibidas, :listaEmpezadas, :listaTerminadas, :listaEntregadas]
 
   # GET /laptops
