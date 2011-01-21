@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
 	map.resources :users
 	map.laptop_messages "/laptops/:id/create_message", :controller => "laptops", :action => "create_message"
 	map.estadisticas "/admin/estadisticas", :controller => "laptops", :action=>"estadisticas"
-	map.estadisticas "/admin/ganancias", :controller => "laptops", :action=>"ganancias"
+	map.ganancias "/admin/ganancias", :controller => "laptops", :action=>"ganancias"
 	map.login "login", :controller => "posts", :action => "index"
 	map.logout "logout", :controller => "user_sessions", :action => "destroy"
 	map.registro 'registro', :controller => 'users', :action => 'new'
