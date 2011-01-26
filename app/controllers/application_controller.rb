@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base
     @contact = Contact.new
   end
   
+  def mailUsers
+    @title = "Mail a Clientes"
+  end
+  
 #----------------------------------------------------
 # procesa el email
 #----------------------------------------------------
@@ -40,6 +44,24 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def enviar_mail_clientes
+    if params['estado']=="-1"
+      laptops=Laptop.find(:all)
+    else
+      laptops=Laptop.find(:all, :conditions => {:estado => params['estado']})
+    end
+    @users = laptops.collect {|l| l.user.email}.join ', '
+    begin
+        ContactMailer::deliver_client_message(@users, params['subject'], params['message'])
+        flash[:notice] = 'El mensaje fue enviado satisfactoriamente.'
+        redirect_to root_path
+      rescue
+        @title="Mail a Clientes"
+        flash[:error] = 'Ocurrió un problema al enviar el mensaje, posiblemente no haya clientes en ese estado.'
+        render :action=>"mailUsers"
+      end
+  end
+    
   private
   
   def create_session

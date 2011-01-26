@@ -1,0 +1,17 @@
+ <%# ...\views\home\contact.rhtml-%>
+<div id="maincol">    
+  <div id="top_section"><%=@title%></div>
+  <div id="body_section">
+    <div id="contenido">
+      <% form_tag userSent_path do -%>
+        <p>Destinatarios con laptop en estado: <br /><%= select_tag("estado", options_for_select(Laptop::ESTADO))%></p>
+        <p>Asunto<br /><%= text_field_tag("subject") -%></p>
+        <p>Mensaje<br />
+           <%= text_area_tag("message", nil, :size=>"40x5") -%>
+        </p>
+        <%= submit_tag "Enviar" -%>
+      <% end -%>
+    </div>
+  </div>
+  <div id="bottom_section"></div>
+</div>

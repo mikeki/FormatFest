@@ -16,6 +16,8 @@ ActionController::Routing::Routes.draw do |map|
 	map.root :controller => 'posts', :action => 'index'
 	map.contact "contacto", :controller=>"application", :action=>"contact"
 	map.sent "contacto/enviado", :controller=>"application", :action=>"enviar_mensaje"
+	map.clientMessage "admin/enviarMail", :controller=>"application", :action=>"mailUsers"
+	map.userSent "admin/enviado", :controller=>"application", :action=>"enviar_mail_clientes"
 
   # The priority is based upon order of creation: first created -> highest priority.
 

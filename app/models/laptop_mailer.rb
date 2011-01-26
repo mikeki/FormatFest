@@ -16,7 +16,7 @@ class LaptopMailer < ActionMailer::Base
   
   def clientPost_message(laptop, email)
     recipients email
-    from CONTACT_RECIPIENT
+    from "FormatFest 18 <contacto@formatfest.com>"
     subject "Un cliente del Format Fest ha hecho una pregunta"
     body :laptop => laptop
   end

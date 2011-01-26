@@ -35,6 +35,15 @@ SO = [
 ["Windows XP, 32bits", "Windows XP, 32bits"]
 ]
 
+ESTADO = [
+["Todas", "-1"],
+["Registradas", "0"],
+["Recibidas", "1"],
+["Empezadas", "2"],
+["Terminadas", "3"],
+["Entregadas", "4"]
+]
+
 HUMANIZED_COLUMNS = {
 	:so => "Sistema Operativo"
 	}
